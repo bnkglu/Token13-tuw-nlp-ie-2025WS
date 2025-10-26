@@ -18,8 +18,6 @@ Final solution Your final solution is due by the end of January 25. Final presen
 
 ## Instructions
 
-## Instructions
-
 **Evaluation**  
 Proper evaluation of methods, including your own, both quantitative (e.g. precision and recall) and qualitative (e.g. looking at the data), is essential. For some tasks and some datasets you cannot assume that higher figures mean better solutions. Some manual analysis of a system’s output is usually necessary to understand its strengths and limitations. Topic descriptions may indicate task-specific challenges of evaluation.
 
