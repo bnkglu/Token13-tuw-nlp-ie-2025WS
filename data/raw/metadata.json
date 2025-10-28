@@ -1,0 +1,30 @@
+{
+  "dataset": "SemEval 2010 Task 8",
+  "task": "Multi-Way Classification of Semantic Relations Between Pairs of Nominals",
+  "train_size": 8000,
+  "test_size": 2717,
+  "num_relations": 10,
+  "relations": [
+    "Cause-Effect",
+    "Instrument-Agency",
+    "Product-Producer",
+    "Content-Container",
+    "Entity-Origin",
+    "Entity-Destination",
+    "Component-Whole",
+    "Member-Collection",
+    "Message-Topic",
+    "Other"
+  ],
+  "columns": [
+    "id",
+    "sentence_raw",
+    "sentence_clean",
+    "e1",
+    "e2",
+    "relation_full",
+    "relation_type",
+    "relation_direction",
+    "comment"
+  ]
+}

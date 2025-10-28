@@ -1,0 +1,25 @@
+{
+  "spacy_model": "en_core_web_sm",
+  "pipeline_components": [
+    "tok2vec",
+    "tagger",
+    "parser",
+    "attribute_ruler",
+    "lemmatizer",
+    "ner"
+  ],
+  "linguistic_features": [
+    "tokens",
+    "lemmas",
+    "pos_tags",
+    "dep_tags",
+    "between_tokens",
+    "between_lemmas",
+    "between_pos_tags",
+    "dependency_path",
+    "e1_head_pos",
+    "e2_head_pos"
+  ],
+  "train_size": 8000,
+  "test_size": 2717
+}
