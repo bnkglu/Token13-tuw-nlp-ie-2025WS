@@ -2,6 +2,12 @@
 
 This repository belongs to the Token13 group, created for tuw-nlp-ie-2025WS's project.
 
+## Team Members
+- Ege Aydin
+- Ege Özbaran
+- Hasan Berke Bankoglu
+- Muhammad Bilal Hussain
+
 # Topic 8 - Explainable Relation Extraction
 **Instructors** Gábor Recski
 
