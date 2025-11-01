@@ -16,9 +16,19 @@
 
 ## 01.11.2025 - Final Meeting before Milestone 1
 - Decided on which implementation to use for Milestone 1.
+
 - Discussed plans for Milestone 2:
     1. Everyone will research baseline models can be implemented for relation extraction. After that, we will divide the models to implement.
-    2. Milestone 2: meeting is on 10.11.2025 14:00-15:30.
+        - What Relation Extraction does?
+        - How can be these models implemented?
+            - What are the key steps?
+                - What are the inputs of these models?
+            - Can we use conll-u format for these models directly or do we need to add more features?
+        - Can they be improved?
+        - Are there some examples of these models being used for relation extraction?
+        - What are the pros and cons of these models?
+        - Are there any research papers about our topic and these models?
+- **Milestone 2: meeting is on 10.11.2025 14:00-15:30.**
 
 
 **Note from Lecture Text Classification:**
