@@ -1,5 +1,29 @@
 # Data Preprocessing Documentation
 
+1. [Overview](#overview)  
+2. [What Was Done](#what-was-done)  
+3. [1. Data Loading and Parsing](#1-data-loading-and-parsing)  
+4. [2. Text Processing with spaCy](#2-text-processing-with-spacy)  
+5. [3. Data Validation](#3-data-validation)  
+6. [4. Output Formats](#4-output-formats)  
+    6.1. [a. JSON Format](#a-json-format)  
+    6.2. [b. CoNLL-U Format (UD v2 Compliant)](#b-conll-u-format-ud-v2-compliant)  
+    6.3. [c. spaCy DocBin Format](#c-spacy-docbin-format)  
+7. [5. Statistics and Analysis](#5-statistics-and-analysis)  
+8. [Dataset Statistics](#dataset-statistics)  
+9. [Training Data](#training-data)  
+10. [Test Data](#test-data)  
+11. [How to Use](#how-to-use)  
+     11.1. [Prerequisites](#prerequisites)  
+     11.2. [Quick Setup](#quick-setup)  
+     11.3. [Manual Setup](#manual-setup)  
+12. [Running the Preprocessing Pipeline](#running-the-preprocessing-pipeline)  
+13. [Loading Preprocessed Data](#loading-preprocessed-data)  
+     13.1. [Load JSON Format](#load-json-format)  
+     13.2. [Load CoNLL-U Format](#load-conll-u-format)  
+     13.3. [Load spaCy DocBin Format](#load-spacy-docbin-format)  
+14. [Project Structure](#project-structure)
+
 ## Overview
 
 This document describes the preprocessing pipeline implemented for the SemEval-2010 Task 8 dataset (Multi-Way Classification of Semantic Relations Between Pairs of Nominals). The preprocessing pipeline transforms raw annotated text into multiple standard formats suitable for relation extraction tasks.
