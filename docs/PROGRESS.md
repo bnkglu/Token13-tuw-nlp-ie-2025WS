@@ -28,11 +28,24 @@
         - Are there some examples of these models being used for relation extraction?
         - What are the pros and cons of these models?
         - Are there any research papers about our topic and these models?
-- **Milestone 2: meeting is on 10.11.2025 14:00-15:30.**
+- **Milestone 2: meeting is on 14.11.2025 14:00-15:30.**
 
 
 **Note from Lecture Text Classification:**
 - For Milestone 2 of the Project exercise you should perform error analysis on your baseline models and discuss your findings, including implications for how your solution could be improved.
 
 
+## 14.11.2025 - Milestone 2 Meeting
+- Next meeting 24.11.2025
+- More in detail research about models to implement.
+- 2 Person(Bilal & EgeO) will implement ML models. (e.g. Logistic Regression, SVM, etc.)
+- 2 Person(Berke & EgeA) will implement Rule-Based models. (e.g. POTATO, Pattern Matching, Dependency Parsing, etc.)
+- Review literature for more models.
+- At the next meeting, we will check results, problems faced, and next steps.
 
+- Basic steps:
+    1- Research on literature for SemEval, models and different approaches.
+    2- Compare findings and choose a model to implement state the reason.
+    3- Implement the chosen model and evaluate its performance.
+    4- Analyze errors, challenges and discuss potential improvements.
+    5- Document the process and findings for Milestone 2 report.
