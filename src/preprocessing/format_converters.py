@@ -45,11 +45,24 @@ class FormatConverter:
             'tokens': [],
             'entities': features.get('entities', []),
             'relation': doc._.relation,
-            'dependency_path': None
+            'dependency_path': None,
+            'comment': doc._.comment if hasattr(doc._, 'comment') and doc._.comment else None
         }
 
-        # Add token information
+        # Build entity index for O(1) lookup during token processing
+        entity_index = self._build_entity_index(doc)
+
+        # Add token information with enhanced features
         for i, token in enumerate(doc):
+            # Serialize morphological features
+            feats = self._serialize_morphological_features(token)
+            
+            # Serialize enhanced dependencies
+            deps = self._serialize_enhanced_dependencies(token)
+            
+            # Get entity marker if this token is an entity head
+            misc = entity_index.get(token.i)
+            
             token_data = {
                 'id': i,
                 'text': token.text,
@@ -59,7 +72,10 @@ class FormatConverter:
                 'dep': token.dep_,
                 'head': token.head.i,
                 'is_stop': token.is_stop,
-                'is_punct': token.is_punct
+                'is_punct': token.is_punct,
+                'feats': feats,
+                'deps': deps,
+                'misc': misc
             }
             json_data['tokens'].append(token_data)
 
