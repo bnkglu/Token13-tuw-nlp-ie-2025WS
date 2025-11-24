@@ -1,0 +1,5275 @@
+version: '1.0'
+relations:
+  Cause-Effect:
+    patterns:
+    - id: CE_001
+      relation: Cause-Effect
+      signature: NOUN --(nsubj)--> come:VERB --(prep)--> from:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - &id001 !!python/object/apply:numpy.dtype
+        args:
+        - f8
+        - false
+        - true
+        state: !!python/tuple
+        - 3
+        - <
+        - null
+        - null
+        - null
+        - -1
+        - -1
+        - 0
+      - !!binary |
+        aJHtfD/1IkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: come
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_002
+      relation: Cause-Effect
+      signature: NOUN --(nsubj)--> give:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        vjCZKhgVH0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: give
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CE_003
+      relation: Cause-Effect
+      signature: NOUN --(nsubj)--> make:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        Rdjw9EoZHUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CE_004
+      relation: Cause-Effect
+      signature: NOUN --(nsubj)--> result:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        2T15WKh1HEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: result
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_005
+      relation: Cause-Effect
+      signature: NOUN --(prep)--> through:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        vJaQD3p2GUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: through
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_006
+      relation: Cause-Effect
+      signature: NOUN --(nsubj)--> turn:VERB --(prep)--> into:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        kKD4MeZuGEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: turn
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_007
+      relation: Cause-Effect
+      signature: NOUN --(nsubj)--> emit:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        S1mGONbFFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: emit
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CE_008
+      relation: Cause-Effect
+      signature: NOUN --(nsubj)--> produce:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        QKTfvg5cFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: produce
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CE_009
+      relation: Cause-Effect
+      signature: NOUN --(prep)--> after:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        B84ZUdrbFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: after
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_010
+      relation: Cause-Effect
+      signature: NOUN --(nsubjpass)--> produce:VERB --(agent)--> by:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        B1+YTBWMFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: produce
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: by
+          DEP: agent
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_011
+      relation: Cause-Effect
+      signature: NOUN --(nsubj)--> lead:VERB --(prep)--> to:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        Y3/ZPXkYFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: lead
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: to
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_012
+      relation: Cause-Effect
+      signature: NOUN --(dobj)--> get:VERB --(prep)--> from:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        7Q2+MJlqEkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: get
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_013
+      relation: Cause-Effect
+      signature: NOUN --(acl)--> develop:VERB --(prep)--> from:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        ZRniWBe3EUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: develop
+          DEP: acl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_014
+      relation: Cause-Effect
+      signature: NOUN --(nsubj)--> be:AUX --(attr)--> NOUN --(prep)--> of:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        5q4l5IMeDkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: AUX
+          LEMMA: be
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: attr
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_015
+      relation: Cause-Effect
+      signature: NOUN --(nsubj)--> be:AUX --(attr)--> NUM --(prep)--> of:ADP --(pobj)-->
+        NOUN --(prep)--> of:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        5WGh1jRvAUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: AUX
+          LEMMA: be
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NUM
+          DEP: attr
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      - LEFT_ID: token_4
+        REL_OP: '>'
+        RIGHT_ID: token_5
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_5
+        REL_OP: '>'
+        RIGHT_ID: token_6
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CE_016
+      relation: Cause-Effect
+      signature: NOUN --(prep)--> from:ADP --(pobj)--> NOUN --(conj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        lIeFWtO8/j8=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: conj
+      constraints: []
+    - id: CE_017
+      relation: Cause-Effect
+      signature: NOUN --(pobj)--> of:ADP --(prep)--> ADJ --(nsubj)--> come:VERB --(prep)-->
+        from:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        /yH99nXg9D8=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: pobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADJ
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: come
+          DEP: nsubj
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_4
+        REL_OP: '>'
+        RIGHT_ID: token_5
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+  Component-Whole:
+    patterns:
+    - id: CW_001
+      relation: Component-Whole
+      signature: NOUN --(prep)--> of:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        +Q/pt6+jJEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_002
+      relation: Component-Whole
+      signature: NOUN --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        wFsgQfGDI0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_003
+      relation: Component-Whole
+      signature: NOUN --(nsubjpass)--> construct:VERB --(prep)--> from:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        kst/SL/9IkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: construct
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_004
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> have:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        mggbnl6pIkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: have
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CW_005
+      relation: Component-Whole
+      signature: NOUN --(nsubjpass)--> divide:VERB --(prep)--> into:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        fGEyVTAKIUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: divide
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_006
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> move:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        mbuWkA96GUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: move
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CW_007
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> work:VERB --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        rBxaZDsfGUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: work
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_008
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> begin:VERB --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        0ZFc/kM6GEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: begin
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_009
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> summarise:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        5IOezaqPF0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: summarise
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CW_010
+      relation: Component-Whole
+      signature: NOUN --(prep)--> inside:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        XynLEMe6FkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: inside
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_011
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> comprise:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        Io51cRvNFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: comprise
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CW_012
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> combine:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        VTAqqROQFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: combine
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CW_013
+      relation: Component-Whole
+      signature: NOUN --(nsubjpass)--> fit:VERB --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        u7iNBvAWFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: fit
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_014
+      relation: Component-Whole
+      signature: NOUN --(dobj)--> clean:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        B/AWSFB8E0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: clean
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_015
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> include:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        qz5XW7H/EkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: include
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CW_016
+      relation: Component-Whole
+      signature: NOUN --(nsubjpass)--> make:VERB --(prep)--> with:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        XdxGA3iLEUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_017
+      relation: Component-Whole
+      signature: NOUN --(nsubjpass)--> publish:VERB --(prep)--> on:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        6Gor9pddEUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: publish
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: 'on'
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_018
+      relation: Component-Whole
+      signature: NOUN --(acl)--> compose:VERB --(prep)--> of:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        nKIjufyHDEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: compose
+          DEP: acl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_019
+      relation: Component-Whole
+      signature: NOUN --(prep)--> at:ADP --(pobj)--> NOUN --(prep)--> of:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        ukkMAisHDEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: at
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CW_020
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> work:VERB --(xcomp)--> use:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        yXa+nxqvA0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: work
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: use
+          DEP: xcomp
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CW_021
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> process:VERB --(advcl)--> use:VERB --(dobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        7Q2+MJkqAkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: process
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: use
+          DEP: advcl
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CW_022
+      relation: Component-Whole
+      signature: NOUN --(nsubj)--> regulate:VERB --(advcl)--> use:VERB --(dobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        gZVDi2znAEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: regulate
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: use
+          DEP: advcl
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CW_023
+      relation: Component-Whole
+      signature: NOUN --(poss)--> NOUN --(nmod)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        jNtoAG+B8T8=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: poss
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: nmod
+      constraints: []
+    - id: CW_024
+      relation: Component-Whole
+      signature: NOUN --(prep)--> of:ADP --(pobj)--> PROPN --(compound)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        UrgehetR8D8=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: PROPN
+          DEP: pobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: compound
+      constraints: []
+  Content-Container:
+    patterns:
+    - id: CC_001
+      relation: Content-Container
+      signature: NOUN --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        pSxDHOtiK0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_002
+      relation: Content-Container
+      signature: NOUN --(nsubj)--> hold:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        3EYDeAvkKkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: hold
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CC_003
+      relation: Content-Container
+      signature: NOUN --(nsubj)--> enclose:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        KA8LtaYZIEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: enclose
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CC_004
+      relation: Content-Container
+      signature: NOUN --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        vJaQD3r2H0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_005
+      relation: Content-Container
+      signature: NOUN --(dobj)--> give:VERB --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        J6CJsOFpHEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: give
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_006
+      relation: Content-Container
+      signature: NOUN --(dobj)--> keep:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        EHo2qz5XHEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: keep
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_007
+      relation: Content-Container
+      signature: NOUN --(nsubj)--> be:AUX --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        jNtoAG/BGUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: AUX
+          LEMMA: be
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_008
+      relation: Content-Container
+      signature: NOUN --(nsubj)--> sit:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        s3vysFBrGUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: sit
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_009
+      relation: Content-Container
+      signature: NOUN --(nsubj)--> be:AUX --(acomp)--> ADJ --(prep)--> of:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        9P3UeOnmFkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: AUX
+          LEMMA: be
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADJ
+          DEP: acomp
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_010
+      relation: Content-Container
+      signature: NOUN --(nsubjpass)--> hide:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        Io51cRvNFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: hide
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_011
+      relation: Content-Container
+      signature: NOUN --(nsubjpass)--> store:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        CKwcWmS7E0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: store
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_012
+      relation: Content-Container
+      signature: NOUN --(nsubjpass)--> contain:VERB --(prep)--> in:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        waikTkDTEkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: contain
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_013
+      relation: Content-Container
+      signature: NOUN --(amod)--> ADJ --(prep)--> of:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        INJvXwfOD0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADJ
+          DEP: amod
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_014
+      relation: Content-Container
+      signature: NOUN --(acl)--> fill:VERB --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        qRPQRNhwDEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: fill
+          DEP: acl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: CC_015
+      relation: Content-Container
+      signature: NOUN --(relcl)--> contain:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        ofgx5q6lC0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: contain
+          DEP: relcl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: CC_016
+      relation: Content-Container
+      signature: NOUN --(pobj)--> of:ADP --(prep)--> NOUN --(nsubj)--> include:VERB
+        --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        ZvfkYaFWCUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: pobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: include
+          DEP: nsubj
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+  Entity-Destination:
+    patterns:
+    - id: ED_001
+      relation: Entity-Destination
+      signature: NOUN --(prep)--> to:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        0ZFc/kP6JEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: to
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: ED_002
+      relation: Entity-Destination
+      signature: NOUN --(nsubj)--> approach:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        m+Ydp+hII0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: approach
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: ED_003
+      relation: Entity-Destination
+      signature: NOUN --(dobj)--> place:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        07zjFB2JIUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: place
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: ED_004
+      relation: Entity-Destination
+      signature: NOUN --(prep)--> into:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        kzoBTYQNG0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: ED_005
+      relation: Entity-Destination
+      signature: NOUN --(nsubj)--> arrive:VERB --(prep)--> at:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        wcqhRbazGEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: arrive
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: at
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: ED_006
+      relation: Entity-Destination
+      signature: NOUN --(nsubjpass)--> put:VERB --(prep)--> inside:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        NIC3QIKiGEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: put
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: inside
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: ED_007
+      relation: Entity-Destination
+      signature: NOUN --(nsubj)--> migrate:VERB --(prep)--> into:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        Ke0NvjCZFkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: migrate
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: ED_008
+      relation: Entity-Destination
+      signature: NOUN --(nsubjpass)--> send:VERB --(prep)--> to:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        Ad4CCYpfFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: send
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: to
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: ED_009
+      relation: Entity-Destination
+      signature: NOUN --(nsubjpass)--> instal:VERB --(prep)--> in:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        ryXkg56NE0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: instal
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: ED_010
+      relation: Entity-Destination
+      signature: NOUN --(nsubj)--> make:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        fT81XrpJE0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: ED_011
+      relation: Entity-Destination
+      signature: NOUN --(nsubjpass)--> fill:VERB --(prep)--> with:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        W7G/7J78EEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: fill
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+  Entity-Origin:
+    patterns:
+    - id: EO_001
+      relation: Entity-Origin
+      signature: NOUN --(nsubjpass)--> make:VERB --(prep)--> of:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        irDh6ZXSJ0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_002
+      relation: Entity-Origin
+      signature: NOUN --(nsubj)--> leave:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        wOyePCzUJkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: leave
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: EO_003
+      relation: Entity-Origin
+      signature: NOUN --(nsubj)--> start:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        XrpJDAKrH0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: start
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_004
+      relation: Entity-Origin
+      signature: NOUN --(nsubjpass)--> manufacture:VERB --(prep)--> in:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        IEHxY8xdHkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: manufacture
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_005
+      relation: Entity-Origin
+      signature: NOUN --(nsubj)--> originate:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        t9EA3gIJHEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: originate
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_006
+      relation: Entity-Origin
+      signature: NOUN --(nsubjpass)--> root:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        l/+Qfvv6GEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: root
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_007
+      relation: Entity-Origin
+      signature: NOUN --(nsubjpass)--> farm:VERB --(prep)--> for:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        IEHxY8zdGEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: farm
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: for
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_008
+      relation: Entity-Origin
+      signature: NOUN --(prep)--> on:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        4QuTqYJRF0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: 'on'
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_009
+      relation: Entity-Origin
+      signature: NOUN --(nsubj)--> descend:VERB --(prep)--> from:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        BaOSOgHNFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: descend
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_010
+      relation: Entity-Origin
+      signature: NOUN --(nsubjpass)--> bear:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        OwFNhA3PE0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: bear
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_011
+      relation: Entity-Origin
+      signature: NOUN --(nsubj)--> arrive:VERB --(prep)--> from:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        jLlrCfmgE0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: arrive
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_012
+      relation: Entity-Origin
+      signature: NOUN --(nsubjpass)--> make:VERB --(prep)--> with:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        +n5qvHQTE0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_013
+      relation: Entity-Origin
+      signature: NOUN --(acl)--> make:VERB --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        MuauJeSDD0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: acl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_014
+      relation: Entity-Origin
+      signature: NOUN --(nsubjpass)--> generate:VERB --(agent)--> by:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        0ETY8PTKDkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: generate
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: by
+          DEP: agent
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_015
+      relation: Entity-Origin
+      signature: NOUN --(poss)--> NOUN --(prep)--> from:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        mnecoiO5+T8=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: poss
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: EO_016
+      relation: Entity-Origin
+      signature: NOUN --(conj)--> NOUN --(nmod)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        1lbsL7sn8j8=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: conj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: nmod
+      constraints: []
+  Instrument-Agency:
+    patterns:
+    - id: IA_001
+      relation: Instrument-Agency
+      signature: NOUN --(prep)--> for:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        OGdEaW+gNUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: for
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: IA_002
+      relation: Instrument-Agency
+      signature: NOUN --(dobj)--> show:VERB --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        w9MrZRkiJ0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: show
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: IA_003
+      relation: Instrument-Agency
+      signature: NOUN --(nsubjpass)--> use:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        uK8D54zIIkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: use
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: IA_004
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> apply:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        yXa+nxoPIUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: apply
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: IA_005
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> make:VERB --(prep)--> of:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        +u3rwDljHkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: IA_006
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> attach:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        CfmgZ7PqHUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: attach
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: IA_007
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> manipulate:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        mpmZmZlZHUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: manipulate
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: IA_008
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> wear:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        u7iNBvCWF0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: wear
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: IA_009
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> bake:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        4lgXt9GAF0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: bake
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: IA_010
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> turn:VERB --(prep)--> to:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        1lbsL7vnFkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: turn
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: to
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: IA_011
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> power:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        3GgAb4GEFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: power
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: IA_012
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> enable:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        ZmZmZmamFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: enable
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: IA_013
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> buy:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        dnEbDeBtFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: buy
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: IA_014
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> be:AUX --(attr)--> NOUN --(prep)--> for:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        kxgEVg7tE0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: AUX
+          LEMMA: be
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: attr
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: for
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: IA_015
+      relation: Instrument-Agency
+      signature: NOUN --(nsubjpass)--> use:VERB --(agent)--> by:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        oImw4emVEEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: use
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: by
+          DEP: agent
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: IA_016
+      relation: Instrument-Agency
+      signature: NOUN --(relcl)--> take:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        uY0G8BZIEEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: take
+          DEP: relcl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: IA_017
+      relation: Instrument-Agency
+      signature: NOUN --(nsubj)--> be:AUX --(acomp)--> ADJ --(prep)--> with:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        Imx4eqUsBUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: AUX
+          LEMMA: be
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADJ
+          DEP: acomp
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+  Member-Collection:
+    patterns:
+    - id: MC_001
+      relation: Member-Collection
+      signature: NOUN --(nsubj)--> join:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        4C2QoPiRI0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: join
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: MC_002
+      relation: Member-Collection
+      signature: NOUN --(nsubj)--> contain:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        3EYDeAvkIUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: contain
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: MC_003
+      relation: Member-Collection
+      signature: NOUN --(nsubjpass)--> comprise:VERB --(prep)--> of:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        JuSDns3qH0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: comprise
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MC_004
+      relation: Member-Collection
+      signature: NOUN --(prep)--> of:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        eAskKH5MGUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MC_005
+      relation: Member-Collection
+      signature: NOUN --(nsubj)--> gather:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        eJyiI7k8FkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: gather
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MC_006
+      relation: Member-Collection
+      signature: NOUN --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        3nGKjuSyFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MC_007
+      relation: Member-Collection
+      signature: NOUN --(acl)--> collect:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        rIvbaADvEkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: collect
+          DEP: acl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MC_008
+      relation: Member-Collection
+      signature: NOUN --(nsubj)--> make:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        rkfhehQuEkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: MC_009
+      relation: Member-Collection
+      signature: NOUN --(nsubj)--> fall:VERB --(prep)--> into:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        Xf5D+u3rEUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: fall
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MC_010
+      relation: Member-Collection
+      signature: NOUN --(prep)--> of:ADP --(pobj)--> NOUN --(prep)--> of:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        4XoUrkchEUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MC_011
+      relation: Member-Collection
+      signature: NOUN --(nsubj)--> compose:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        xm00gLdAEEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: compose
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: MC_012
+      relation: Member-Collection
+      signature: NOUN --(nsubj)--> consist:VERB --(prep)--> of:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        F9nO91PjD0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: consist
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MC_013
+      relation: Member-Collection
+      signature: NOUN --(acl)--> eat:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        mEwVjEpqBkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: eat
+          DEP: acl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: MC_014
+      relation: Member-Collection
+      signature: NOUN --(relcl)--> be:AUX --(attr)--> NOUN --(prep)--> of:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        irDh6ZWy8T8=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: AUX
+          LEMMA: be
+          DEP: relcl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: attr
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MC_015
+      relation: Member-Collection
+      signature: ADJ --(prep)--> of:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        xEKtad5x7j8=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: ADJ
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+  Message-Topic:
+    patterns:
+    - id: MT_001
+      relation: Message-Topic
+      signature: NOUN --(nsubj)--> make:VERB --(prep)--> to:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        v30dOGcEI0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: to
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MT_002
+      relation: Message-Topic
+      signature: NOUN --(nsubj)--> show:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        mbuWkA+aIUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: show
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: MT_003
+      relation: Message-Topic
+      signature: NOUN --(nsubj)--> receive:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        sHJoke18IEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: receive
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: MT_004
+      relation: Message-Topic
+      signature: NOUN --(nsubjpass)--> concern:VERB --(prep)--> with:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        EqW9wRcmHkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: concern
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MT_005
+      relation: Message-Topic
+      signature: NOUN --(dobj)--> make:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        EhQ/xty1G0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MT_006
+      relation: Message-Topic
+      signature: NOUN --(nsubj)--> inquire:VERB --(prep)--> into:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        zO7Jw0KtG0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: inquire
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MT_007
+      relation: Message-Topic
+      signature: NOUN --(nsubjpass)--> establish:VERB --(prep)--> in:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        bcX+sntyG0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: establish
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MT_008
+      relation: Message-Topic
+      signature: NOUN --(nsubj)--> tell:VERB --(prep)--> of:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        WMoyxLEuG0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: tell
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MT_009
+      relation: Message-Topic
+      signature: NOUN --(nsubj)--> apply:VERB --(prep)--> to:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        mggbnl7pGkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: apply
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: to
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MT_010
+      relation: Message-Topic
+      signature: NOUN --(nsubj)--> form:VERB --(dobj)--> NOUN --(prep)--> of:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        xf6ye/LwFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: form
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: MT_011
+      relation: Message-Topic
+      signature: NOUN --(prep)--> on:ADP --(pobj)--> NOUN --(prep)--> of:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        7lpCPujZDUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: 'on'
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+  Other:
+    patterns:
+    - id: O_001
+      relation: Other
+      signature: NOUN --(dobj)--> put:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        arx0kxhEG0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: put
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_002
+      relation: Other
+      signature: NOUN --(prep)--> inside:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        YqHWNO/4GUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: inside
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_003
+      relation: Other
+      signature: NOUN --(nsubjpass)--> take:VERB --(prep)--> into:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        CKwcWmS7F0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: take
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_004
+      relation: Other
+      signature: NOUN --(nsubj)--> start:VERB --(prep)--> from:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        umsJ+aCnF0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: start
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_005
+      relation: Other
+      signature: NOUN --(nsubj)--> take:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        PL1SliFOF0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: take
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_006
+      relation: Other
+      signature: NOUN --(dobj)--> send:VERB --(prep)--> into:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        A3gLJCj+FkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: send
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_007
+      relation: Other
+      signature: NOUN --(nsubj)--> play:VERB --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        mggbnl5pFkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: play
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_008
+      relation: Other
+      signature: NOUN --(nsubj)--> come:VERB --(prep)--> into:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        TKYKRiW1FUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: come
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_009
+      relation: Other
+      signature: NOUN --(nsubjpass)--> find:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        1JrmHaeoFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: find
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_010
+      relation: Other
+      signature: NOUN --(nsubj)--> cultivate:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        0LNZ9blaFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: cultivate
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: O_011
+      relation: Other
+      signature: NOUN --(nsubjpass)--> place:VERB --(prep)--> into:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        YHZPHhaqFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: place
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_012
+      relation: Other
+      signature: NOUN --(nsubj)--> hide:VERB --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        rWnecYqOFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: hide
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_013
+      relation: Other
+      signature: NOUN --(nsubj)--> design:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        VHQkl/9QFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: design
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: O_014
+      relation: Other
+      signature: NOUN --(prep)--> over:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        jSjtDb5wE0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: over
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_015
+      relation: Other
+      signature: NOUN --(dobj)--> inherit:VERB --(prep)--> to:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        EoPAyqFFE0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: inherit
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: to
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_016
+      relation: Other
+      signature: NOUN --(nsubj)--> plant:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        hXzQs1n1EkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: plant
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: O_017
+      relation: Other
+      signature: NOUN --(nsubj)--> start:VERB --(prep)--> at:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        7uvAOSPKEkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: start
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: at
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_018
+      relation: Other
+      signature: NOUN --(nsubj)--> finish:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        mnecoiO5EkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: finish
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: O_019
+      relation: Other
+      signature: NOUN --(nsubjpass)--> publish:VERB --(prep)--> in:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        arx0kxiEEkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: publish
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_020
+      relation: Other
+      signature: NOUN --(nsubj)--> participate:VERB --(prep)--> in:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        CRueXilLEkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: participate
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_021
+      relation: Other
+      signature: NOUN --(nsubj)--> produce:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        eAskKH6MEUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: produce
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: O_022
+      relation: Other
+      signature: NOUN --(dobj)--> throw:VERB --(prep)--> into:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        ejarPldbEUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: throw
+          DEP: dobj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_023
+      relation: Other
+      signature: NOUN --(nsubj)--> be:AUX --(attr)--> NOUN --(prep)--> in:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        V+wvuycPEUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: AUX
+          LEMMA: be
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: attr
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_024
+      relation: Other
+      signature: NOUN --(nsubjpass)--> make:VERB --(prep)--> from:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        irDh6ZWyEEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: make
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_025
+      relation: Other
+      signature: NOUN --(acl)--> use:VERB --(prep)--> for:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        001iEFg5C0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: use
+          DEP: acl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: for
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_026
+      relation: Other
+      signature: NOUN --(relcl)--> carry:VERB --(prep)--> in:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        /Knx0k3iB0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: carry
+          DEP: relcl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_027
+      relation: Other
+      signature: NOUN --(prep)--> of:ADP --(pobj)--> NOUN --(prep)--> from:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        2PD0SlmGBUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_028
+      relation: Other
+      signature: NOUN --(prep)--> of:ADP --(pobj)--> NOUN --(prep)--> with:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        XrpJDAKrBEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_029
+      relation: Other
+      signature: NOUN --(prep)--> in:ADP --(pobj)--> NOUN --(prep)--> to:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        5dAi2/l+BEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: in
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: to
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: O_030
+      relation: Other
+      signature: NOUN --(relcl)--> contain:VERB --(dobj)--> NOUN --(prep)--> of:ADP
+        --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        jnVxGw3g+D8=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: contain
+          DEP: relcl
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+  Product-Producer:
+    patterns:
+    - id: PP_001
+      relation: Product-Producer
+      signature: NOUN --(prep)--> by:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        pN++DpyzJkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: by
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: PP_002
+      relation: Product-Producer
+      signature: NOUN --(nsubj)--> come:VERB --(prep)--> with:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        ETY8vVLWHUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: come
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: with
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: PP_003
+      relation: Product-Producer
+      signature: NOUN --(nsubj)--> use:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        ejarPldbHUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: use
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: PP_004
+      relation: Product-Producer
+      signature: NOUN --(nsubj)--> create:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        845TdCQXHUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: create
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: PP_005
+      relation: Product-Producer
+      signature: NOUN --(nsubj)--> pile:VERB --(prep)--> into:ADP --(pobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        wFsgQfFjG0A=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: pile
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: into
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: PP_006
+      relation: Product-Producer
+      signature: NOUN --(nsubj)--> construct:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        exSuR+G6GkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: construct
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: PP_007
+      relation: Product-Producer
+      signature: NOUN --(nsubj)--> write:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        Dr4wmSpYGEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: write
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: PP_008
+      relation: Product-Producer
+      signature: NOUN --(nsubj)--> throw:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        3gIJih8jFkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: throw
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: PP_009
+      relation: Product-Producer
+      signature: NOUN --(nsubj)--> think:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        qmBUUifgFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: think
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: PP_010
+      relation: Product-Producer
+      signature: NOUN --(nsubjpass)--> receive:VERB --(prep)--> from:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        8tJNYhDYFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: receive
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: PP_011
+      relation: Product-Producer
+      signature: NOUN --(nsubj)--> grow:VERB --(dobj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        2qz6XG3FFUA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: grow
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: dobj
+      constraints: []
+    - id: PP_012
+      relation: Product-Producer
+      signature: NOUN --(nsubjpass)--> generate:VERB --(prep)--> from:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        +aBns+rzFEA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: VERB
+          LEMMA: generate
+          DEP: nsubjpass
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: PP_013
+      relation: Product-Producer
+      signature: NOUN --(prep)--> from:ADP --(pobj)--> NOUN --(prep)--> of:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        taZ5xyk6EkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: from
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: PP_014
+      relation: Product-Producer
+      signature: NOUN --(nsubj)--> be:AUX --(attr)--> NOUN --(prep)--> by:ADP --(pobj)-->
+        NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        q8/VVuwvDkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: AUX
+          LEMMA: be
+          DEP: nsubj
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: attr
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: by
+          DEP: prep
+      - LEFT_ID: token_3
+        REL_OP: '>'
+        RIGHT_ID: token_4
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      constraints: []
+    - id: PP_015
+      relation: Product-Producer
+      signature: NOUN --(prep)--> of:ADP --(pobj)--> NOUN --(conj)--> NOUN
+      confidence: !!python/object/apply:numpy._core.multiarray.scalar
+      - *id001
+      - !!binary |
+        0m9fB84ZAkA=
+      matcher_pattern:
+      - RIGHT_ID: token_0
+        RIGHT_ATTRS:
+          POS: NOUN
+      - LEFT_ID: token_0
+        REL_OP: '>'
+        RIGHT_ID: token_1
+        RIGHT_ATTRS:
+          POS: ADP
+          LEMMA: of
+          DEP: prep
+      - LEFT_ID: token_1
+        REL_OP: '>'
+        RIGHT_ID: token_2
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: pobj
+      - LEFT_ID: token_2
+        REL_OP: '>'
+        RIGHT_ID: token_3
+        RIGHT_ATTRS:
+          POS: NOUN
+          DEP: conj
+      constraints: []

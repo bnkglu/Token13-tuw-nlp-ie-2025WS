@@ -1,0 +1,170 @@
+# Relation Patterns Configuration
+# ================================
+# This file contains human-reviewable patterns for rule-based relation extraction.
+# Patterns are auto-generated from training data but can be manually edited.
+#
+# Structure:
+#   relations:
+#     <RelationType>:
+#       patterns:
+#         - id: <pattern_id>
+#           signature: <human-readable pattern>
+#           confidence: <precision score>
+#           matcher_pattern: <spaCy DependencyMatcher pattern>
+#           constraints: <list of filtering constraints>
+#
+# Constraint types:
+#   - entity_type: Filter by NER type (allowed_types, blocked_types)
+#   - lemma: Filter by word lemma (allowed_lemmas, blocked_lemmas)
+#   - pos: Filter by POS tag (allowed_pos, blocked_pos)
+#   - distance: Filter by token distance (min_distance, max_distance)
+#   - dependency: Filter by dependency relation (allowed_deps, blocked_deps)
+
+version: "1.0"
+
+# Note: This is a template file. Run the pattern mining script to generate
+# patterns from training data:
+#
+#   python -m src.rules.mine_patterns --input data/processed/train/train.conllu \
+#                                      --output src/rules/config/relation_patterns.yaml
+#
+
+relations:
+  # Example patterns for Component-Whole relation
+  Component-Whole:
+    patterns:
+      # Pattern: NOUN of NOUN (most common for Component-Whole)
+      - id: CW_001
+        signature: "NOUN --(prep)--> of:ADP --(pobj)--> NOUN"
+        confidence: 0.40
+        matcher_pattern:
+          - RIGHT_ID: token_0
+            RIGHT_ATTRS:
+              POS: NOUN
+          - LEFT_ID: token_0
+            REL_OP: ">"
+            RIGHT_ID: token_1
+            RIGHT_ATTRS:
+              POS: ADP
+              LEMMA: of
+              DEP: prep
+          - LEFT_ID: token_1
+            REL_OP: ">"
+            RIGHT_ID: token_2
+            RIGHT_ATTRS:
+              POS: NOUN
+              DEP: pobj
+        constraints:
+          - type: entity_type
+            entity: e2
+            blocked_types:
+              - DATE
+              - TIME
+              - PERCENT
+              - CARDINAL
+
+      # Pattern: NOUN with NOUN
+      - id: CW_002
+        signature: "NOUN --(prep)--> with:ADP --(pobj)--> NOUN"
+        confidence: 0.28
+        matcher_pattern:
+          - RIGHT_ID: token_0
+            RIGHT_ATTRS:
+              POS: NOUN
+          - LEFT_ID: token_0
+            REL_OP: ">"
+            RIGHT_ID: token_1
+            RIGHT_ATTRS:
+              POS: ADP
+              LEMMA: with
+              DEP: prep
+          - LEFT_ID: token_1
+            REL_OP: ">"
+            RIGHT_ID: token_2
+            RIGHT_ATTRS:
+              POS: NOUN
+              DEP: pobj
+        constraints: []
+
+      # Pattern: compound noun (e.g., "car door")
+      - id: CW_003
+        signature: "NOUN --(compound)--> NOUN"
+        confidence: 0.07
+        matcher_pattern:
+          - RIGHT_ID: token_0
+            RIGHT_ATTRS:
+              POS: NOUN
+              DEP: compound
+          - LEFT_ID: token_0
+            REL_OP: ">"
+            RIGHT_ID: token_1
+            RIGHT_ATTRS:
+              POS: NOUN
+        constraints:
+          - type: lemma
+            entity: e2
+            blocked_lemmas:
+              - time
+              - day
+              - year
+              - month
+
+  # Example patterns for Cause-Effect relation
+  Cause-Effect:
+    patterns:
+      # Pattern: NOUN cause NOUN
+      - id: CE_001
+        signature: "NOUN --(nsubj)--> cause:VERB --(dobj)--> NOUN"
+        confidence: 0.50
+        matcher_pattern:
+          - RIGHT_ID: token_0
+            RIGHT_ATTRS:
+              POS: NOUN
+          - LEFT_ID: token_0
+            REL_OP: "<"
+            RIGHT_ID: token_1
+            RIGHT_ATTRS:
+              POS: VERB
+              LEMMA: cause
+          - LEFT_ID: token_1
+            REL_OP: ">"
+            RIGHT_ID: token_2
+            RIGHT_ATTRS:
+              POS: NOUN
+              DEP: dobj
+        constraints: []
+
+      # Pattern: NOUN lead to NOUN
+      - id: CE_002
+        signature: "NOUN --(nsubj)--> lead:VERB --(prep)--> to:ADP --(pobj)--> NOUN"
+        confidence: 0.45
+        matcher_pattern:
+          - RIGHT_ID: token_0
+            RIGHT_ATTRS:
+              POS: NOUN
+          - LEFT_ID: token_0
+            REL_OP: "<"
+            RIGHT_ID: token_1
+            RIGHT_ATTRS:
+              POS: VERB
+              LEMMA: lead
+          - LEFT_ID: token_1
+            REL_OP: ">"
+            RIGHT_ID: token_2
+            RIGHT_ATTRS:
+              POS: ADP
+              LEMMA: to
+              DEP: prep
+          - LEFT_ID: token_2
+            REL_OP: ">"
+            RIGHT_ID: token_3
+            RIGHT_ATTRS:
+              POS: NOUN
+              DEP: pobj
+        constraints: []
+
+# Default constraints applied to all patterns
+default_constraints:
+  - type: distance
+    min_distance: 1
+    max_distance: 15
