@@ -1,0 +1,11 @@
+# Core NLP and preprocessing libraries
+spacy>=3.7.0
+conllu>=5.0.0
+
+# Progress bar for batch processing
+tqdm>=4.66.0
+
+# Note: After installing these packages, the spaCy model must also be downloaded:
+# python3 -m spacy download en_core_web_lg
+# 
+# Alternatively, the automated setup script can be run: ./setup.sh
