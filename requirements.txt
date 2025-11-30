@@ -1,7 +1,13 @@
 # Core NLP and preprocessing libraries
 spacy>=3.7.0
 conllu>=5.0.0
-
+pandas
+numpy
+scikit-learn
+conllu
+spacy
+tqdm
+xpotato
 # Progress bar for batch processing
 tqdm>=4.66.0
 
