@@ -50,26 +50,27 @@
     4- Analyze errors, challenges and discuss potential improvements.
     5- Document the process and findings for Milestone 2 report.
 
+
 ## 24.11.2025 - Progress Meeting
-    - Each pair presented their progress.
-    - Discussed challenges faced during implementation.
+- Each person presented his progress.
+- Discussed challenges faced during implementation and further steps.
 
-    - Berke:
-        - Try POTATO with full data and gold data of RoBERTa.
-        - Rule-based approach concise and interpretable.
-        - will add interpretation, and explanation methods to Rule-Based models.
-        - **Qualitative and Quantitative explanation of results.**
-    - Bilal:
-        - will add interpretation, and explanation methods to ML models.
-        - one DL implementation. (make literature research for this implementations to see what can be done)
-        - **Qualitative and Quantitative explanation of results.**
-    - EgeA:
-        - Rule-Based implementation
-        - Interpretation of the results
-        - **Qualitative and Quantitative explanation of results.**
-    - EgeO 
-        - will make your implementation in both way. 
-        - how can we use this implementation with Rule-Based systems?
-        - **Qualitative and Quantitative explanation of results.**
+- Berke:
+    - Try POTATO with full data and gold data of RoBERTa.
+    - Rule-based approach is concise and interpretable.
+    - will add interpretation and explanation methods to Rule-Based models.
+    - **Qualitative and Quantitative explanation of results.**
+- Bilal:
+    - will add interpretation and explanation methods to ML models.
+    - one DL implementation. (Conduct a literature review for these implementations to see what can be done)
+    - **Qualitative and Quantitative explanation of results.**
+- EgeA:
+    - Rule-Based implementation
+    - Interpretation of the results
+    - **Qualitative and Quantitative explanation of results.**
+- EgeO 
+    - will make your implementation in both ways. 
+    - How can we use this implementation with Rule-Based systems?
+    - **Qualitative and Quantitative explanation of results.**
 
-    - Next Meeting TBA:
+- Next Meeting TBA:
