@@ -23,6 +23,10 @@ def count_pattern_nodes(pattern_key):
 
     if pattern_type == "DIRECT":
         return 2  # e1, e2
+    elif pattern_type == "DIRECT_2HOP":
+        return 3  # e1, mid, e2
+    elif pattern_type == "DIRECT_SIBLING":
+        return 3  # head, e1, e2
     elif pattern_type == "TRIANGLE":
         return 3  # anchor, e1, e2
     elif pattern_type == "BRIDGE":
@@ -31,22 +35,75 @@ def count_pattern_nodes(pattern_key):
         # Count: e1 + tokens + e2
         tokens_tuple = pattern_key[1]
         return 2 + len(tokens_tuple)
+    elif pattern_type == "FALLBACK":
+        # Not compiled into DependencyMatcher; treat as minimal size.
+        return 2
     else:
         return 1
 
 
-def filter_patterns_tiered(pattern_counts, concept_clusters):
+# Relation-specific precision floors (moderately stricter for problematic relations)
+RELATION_MIN_PRECISION = {
+    "Other": 0.80,             # Stricter for Other patterns
+    "Component-Whole": 0.55,   # Slightly higher (was showing low accuracy)
+    "Entity-Origin": 0.55,     # Slightly higher
+    "Member-Collection": 0.55, # Slightly higher
+}
+
+# Blacklisted anchors - too generic to be discriminative
+# These lemmas appear in many different relations and cause false positives
+BLACKLISTED_ANCHORS = {
+    "be",      # Extremely common, matches almost any sentence
+    "have",    # Very common auxiliary/possessive
+    "do",      # Common auxiliary
+    "get",     # Common light verb
+    # "make",  # Keep - useful for Product-Producer
+    # "take",  # Keep - might be useful
+    # "give",  # Keep - might be useful
+    # "go",    # Keep - useful for Entity-Destination
+    # "come",  # Keep - useful for Entity-Origin
+    # "say",   # Keep - useful for Message-Topic
+    "know",    # Mental state, not relational
+    "see",     # Perception, not relational
+    "think",   # Mental state, not relational
+    "want",    # Mental state, not relational
+    # "use",   # Keep - crucial for Instrument-Agency
+}
+
+
+def pattern_uses_generic_concept(pattern_key):
+    """Check if pattern uses generic/ambiguous concepts that need higher support."""
+    GENERIC_CONCEPTS = {'PART_PREP', 'OF_PREP', 'CONTAINER_PREP'}
+
+    pattern_type = pattern_key[0]
+    if pattern_type == 'BRIDGE':
+        # BRIDGE pattern_key[1] is prep lemma
+        if len(pattern_key) > 1 and isinstance(pattern_key[1], str):
+            return pattern_key[1].upper() in GENERIC_CONCEPTS
+    elif pattern_type == 'LINEAR':
+        # LINEAR pattern_key[1] is list of (lemma, pos) tuples
+        if len(pattern_key) > 1:
+            tokens = pattern_key[1]
+            return any(token[0].upper() in GENERIC_CONCEPTS for token in tokens)
+    return False
+
+
+def filter_patterns_tiered(pattern_counts, concept_clusters, min_global_support=1):
     """
     Apply tiered thresholds based on pattern complexity.
 
-    Thresholds:
-      1. Complex (length > 3): Precision >= 0.60, Support >= 1
-      2. Simple (length <= 3): Precision >= 0.60, Support >= 3
-      3. "Other": Precision >= 0.90, Support >= 3
+    Balanced thresholds for coverage AND accuracy:
+        - High support (>=3): Precision >= 0.45 (more permissive)
+        - Medium support (2): Precision >= 0.55
+        - Low support (1): Precision >= 0.65 (stricter)
+        - Other: Precision >= 0.80
+        - Relation-specific floors apply on top
+        - Patterns using generic concepts need support >= 3
 
     Args:
         pattern_counts: Dict[pattern_key][relation] -> count
         concept_clusters: Dict of concept definitions (for expansion)
+        min_global_support: Minimum support for any pattern (default: 1)
 
     Returns:
         filtered_patterns: List of pattern dicts
@@ -54,6 +111,7 @@ def filter_patterns_tiered(pattern_counts, concept_clusters):
     filtered_patterns = []
 
     print(f"Filtering {len(pattern_counts)} candidate patterns...")
+    print(f"  Global minimum support: {min_global_support}")
 
     for pattern_key, relation_counts in pattern_counts.items():
         total_count = sum(relation_counts.values())
@@ -67,47 +125,85 @@ def filter_patterns_tiered(pattern_counts, concept_clusters):
         # Calculate pattern length
         pattern_length = count_pattern_nodes(pattern_key)
 
-        # Apply tiered thresholds (EMERGENCY FIX: lowered to 0.30 for maximum coverage)
-        if best_relation == "Other":
-            # Keep "Other" patterns that are moderately reliable (stricter than others)
-            if precision < 0.60 or best_count < 1:  # was 0.70
+        # Global minimum support filter
+        if best_count < min_global_support:
+            continue
+
+        # Check for blacklisted anchors (too generic to be discriminative)
+        if pattern_type == "TRIANGLE":
+            # TRIANGLE: pattern_key[1] is anchor lemma
+            anchor_lemma = pattern_key[1] if len(pattern_key) > 1 else None
+            if anchor_lemma and anchor_lemma.lower() in BLACKLISTED_ANCHORS:
                 continue
-            min_support = 1
+        elif pattern_type == "BRIDGE":
+            # BRIDGE: pattern_key[1] is prep lemma - less strict for preps
+            pass  # Don't blacklist prepositions
         elif pattern_type == "LINEAR":
-            # Linear patterns: accept low-precision to maximize coverage
-            if precision < 0.30 or best_count < 1:  # was 0.40 - EMERGENCY FIX
+            # LINEAR: check tokens in the pattern
+            if len(pattern_key) > 1:
+                tokens_tuple = pattern_key[1]
+                # Skip if ANY token in linear pattern is blacklisted (too generic)
+                if any(token[0].lower() in BLACKLISTED_ANCHORS for token in tokens_tuple):
+                    continue
+
+        # Patterns using generic concepts need higher minimum support
+        if pattern_uses_generic_concept(pattern_key):
+            if best_count < 3:
+                continue  # Generic concept patterns need at least 3 support
+
+        # Get base relation for relation-specific thresholds
+        base_relation = best_relation.split('(')[0] if '(' in best_relation else best_relation
+
+        # Check relation-specific precision floor
+        rel_min_precision = RELATION_MIN_PRECISION.get(base_relation, 0.0)
+
+        # Apply tiered thresholds (Balanced for Coverage + Accuracy)
+        if best_relation == "Other":
+            # Stricter for Other patterns to reduce false positives
+            if precision < 0.80 or best_count < 2:
                 continue
-            min_support = 1
+        elif pattern_type == "LINEAR":
+            # Linear patterns: support-based threshold
+            if best_count >= 3:
+                min_precision = max(0.45, rel_min_precision)
+            else:
+                min_precision = max(0.55, rel_min_precision)
+            if precision < min_precision:
+                continue
         elif pattern_type in {"TRIANGLE", "BRIDGE"}:
-            # Accept all TRIANGLE/BRIDGE patterns that appear at least once
-            if precision < 0.30 or best_count < 1:  # was 0.40 - EMERGENCY FIX
+            # TRIANGLE/BRIDGE: support-based tiering
+            if best_count >= 5:
+                min_precision = max(0.40, rel_min_precision)
+            elif best_count >= 2:
+                min_precision = max(0.50, rel_min_precision)
+            else:
+                min_precision = max(0.60, rel_min_precision)
+            if precision < min_precision:
                 continue
-            min_support = 1
         elif pattern_type == "DIRECT":
-            # DIRECT patterns: same as TRIANGLE/BRIDGE
-            if precision < 0.30 or best_count < 1:  # was 0.40 - EMERGENCY FIX
+            # DIRECT patterns: moderate threshold
+            min_precision = max(0.50, rel_min_precision)
+            if precision < min_precision:
                 continue
-            min_support = 1
         elif pattern_type in {"DIRECT_2HOP", "DIRECT_SIBLING"}:
-            # Multi-hop patterns: same threshold
-            if precision < 0.30 or best_count < 1:  # EMERGENCY FIX
+            # Multi-hop patterns: moderate threshold
+            min_precision = max(0.45, rel_min_precision)
+            if precision < min_precision:
                 continue
-            min_support = 1
         elif pattern_type == "FALLBACK":
-            # FALLBACK catch-all: most permissive
-            if precision < 0.25 or best_count < 1:  # EMERGENCY FIX
+            # FALLBACK: stricter (catch-all is risky)
+            if precision < 0.70 or best_count < 3:
                 continue
-            min_support = 1
         elif pattern_length > 3:
-            # Complex patterns: very permissive
-            if precision < 0.30 or best_count < 1:  # was 0.40 - EMERGENCY FIX
+            # Complex patterns: moderate threshold
+            min_precision = max(0.45, rel_min_precision)
+            if precision < min_precision:
                 continue
-            min_support = 1
         else:
-            # Simple patterns: same threshold as others
-            if precision < 0.30 or best_count < 1:  # was 0.40 - EMERGENCY FIX
+            # Default: moderate threshold
+            min_precision = max(0.50, rel_min_precision)
+            if precision < min_precision:
                 continue
-            min_support = 1
 
         # Create pattern dict
         pattern_dict = create_pattern_dict(
@@ -213,9 +309,9 @@ def build_dep_matcher_pattern(pattern_key, concept_clusters):
         dep_pattern: List of dicts for DependencyMatcher
     """
     pattern_type = pattern_key[0]
-    # Entity roots in this dataset are overwhelmingly nominal, but allow a small
-    # superset to avoid recall regressions on edge cases.
-    ENTITY_POS = {"IN": ["NOUN", "PROPN", "ADJ", "VERB", "NUM"]}
+    # Entity roots are overwhelmingly nominal. Restrict to NOUN/PROPN for accuracy.
+    # Removing ADJ, VERB, NUM, PRON reduces false positive matches.
+    ENTITY_POS = {"IN": ["NOUN", "PROPN"]}
 
     if pattern_type == "DIRECT":
         _, dep_label, direction = pattern_key
@@ -232,6 +328,38 @@ def build_dep_matcher_pattern(pattern_key, concept_clusters):
             }
         ]
 
+    elif pattern_type == "DIRECT_2HOP":
+        # pattern_key: ("DIRECT_2HOP", mid_dep, child_dep, direction)
+        _, mid_dep, child_dep, direction = pattern_key
+
+        head_id = "e1" if direction == "e1->e2" else "e2"
+        tail_id = "e2" if direction == "e1->e2" else "e1"
+
+        dep_pattern = [
+            {"RIGHT_ID": head_id, "RIGHT_ATTRS": {"POS": ENTITY_POS}},
+            {
+                "LEFT_ID": head_id,
+                "REL_OP": ">",
+                "RIGHT_ID": "mid",
+                "RIGHT_ATTRS": {"DEP": mid_dep},
+            },
+            {
+                "LEFT_ID": "mid",
+                "REL_OP": ">",
+                "RIGHT_ID": tail_id,
+                "RIGHT_ATTRS": {"DEP": child_dep, "POS": ENTITY_POS},
+            },
+        ]
+
+    elif pattern_type == "DIRECT_SIBLING":
+        # pattern_key: ("DIRECT_SIBLING", e1_dep, e2_dep)
+        _, e1_dep, e2_dep = pattern_key
+        dep_pattern = [
+            {"RIGHT_ID": "head", "RIGHT_ATTRS": {}},
+            {"LEFT_ID": "head", "REL_OP": ">", "RIGHT_ID": "e1", "RIGHT_ATTRS": {"DEP": e1_dep, "POS": ENTITY_POS}},
+            {"LEFT_ID": "head", "REL_OP": ">", "RIGHT_ID": "e2", "RIGHT_ATTRS": {"DEP": e2_dep, "POS": ENTITY_POS}},
+        ]
+
     elif pattern_type == "TRIANGLE":
         # NOTE: The TRIANGLE pattern_key shape changed during Milestone 3.
         #
@@ -241,30 +369,34 @@ def build_dep_matcher_pattern(pattern_key, concept_clusters):
         #
         # Support both for backwards compatibility.
         if len(pattern_key) == 5:
-            _, anchor_concept, anchor_pos, e1_dep, e2_dep = pattern_key
+            _, anchor_lemma, anchor_pos, e1_dep, e2_dep = pattern_key
             e1_rel_op, e2_rel_op = ">", ">"
         elif len(pattern_key) == 7:
-            _, anchor_concept, anchor_pos, e1_rel_op, e1_dep, e2_rel_op, e2_dep = pattern_key
+            _, anchor_lemma, anchor_pos, e1_rel_op, e1_dep, e2_rel_op, e2_dep = pattern_key
         else:
             raise ValueError(f"Unexpected TRIANGLE pattern_key shape (len={len(pattern_key)}): {pattern_key!r}")
 
-        # Check if anchor is a concept or literal
-        anchor_words = get_concept_words(anchor_concept, concept_clusters)
+        # Use literal lemma only (no concept expansion)
+        anchor_attrs = {"LEMMA": anchor_lemma, "POS": anchor_pos}
 
-        if anchor_words:
-            anchor_attrs = {"LEMMA": {"IN": anchor_words}, "POS": anchor_pos}
-        else:
-            anchor_attrs = {"LEMMA": anchor_concept, "POS": anchor_pos}
+        # ENTITY-ROOTED: e1 is the root node to fix anchoring issues.
+        # Convert ">" (anchor > e1) to "<" (e1 < anchor) for the e1-to-anchor relationship.
+        # The "<" operator means "e1's parent is anchor".
+        # The "<<" operator means "e1's ancestor is anchor".
+        e1_to_anchor_op = "<" if e1_rel_op == ">" else "<<"
 
         dep_pattern = [
-            {"RIGHT_ID": "anchor", "RIGHT_ATTRS": anchor_attrs},
+            # e1 is the ROOT - DependencyMatcher starts matching from e1's position
+            {"RIGHT_ID": "e1", "RIGHT_ATTRS": {"DEP": e1_dep, "POS": ENTITY_POS}},
             {
-                "LEFT_ID": "anchor",
-                "REL_OP": e1_rel_op,
-                "RIGHT_ID": "e1",
-                "RIGHT_ATTRS": {"DEP": e1_dep, "POS": ENTITY_POS},
+                # anchor is e1's parent (or ancestor)
+                "LEFT_ID": "e1",
+                "REL_OP": e1_to_anchor_op,
+                "RIGHT_ID": "anchor",
+                "RIGHT_ATTRS": anchor_attrs,
             },
             {
+                # e2 is anchor's child (or descendant)
                 "LEFT_ID": "anchor",
                 "REL_OP": e2_rel_op,
                 "RIGHT_ID": "e2",
@@ -350,18 +482,18 @@ def build_dep_matcher_pattern(pattern_key, concept_clusters):
 
 def get_concept_words(concept_or_lemma, concept_clusters):
     """
-    Get list of words for a concept.
+    Concept expansion disabled - always return empty list.
+
+    Concept expansion was found to cause anchoring issues with DependencyMatcher
+    by allowing patterns to match multiple words, leading to ambiguous entity bindings.
 
     Args:
-        concept_or_lemma: Concept name or literal lemma
-        concept_clusters: Concept definitions
+        concept_or_lemma: Concept name or literal lemma (ignored)
+        concept_clusters: Concept definitions (ignored)
 
     Returns:
-        list of words, or empty list if not a concept
+        Empty list (forces literal lemma matching)
     """
-    if concept_or_lemma in concept_clusters:
-        cluster = concept_clusters[concept_or_lemma]
-        return cluster['seeds'] + cluster.get('expanded', [])
     return []
 
 
@@ -513,9 +645,12 @@ def sort_patterns(patterns):
     """
     type_rank_map = {
         "DIRECT": 0,
+        "DIRECT_2HOP": 1,
+        "DIRECT_SIBLING": 2,
         "TRIANGLE": 1,
         "BRIDGE": 2,
         "LINEAR": 3,
+        "FALLBACK": 9,
     }
     sorted_patterns = sorted(
         patterns,

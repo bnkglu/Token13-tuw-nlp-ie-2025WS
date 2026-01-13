@@ -126,16 +126,19 @@ def find_bridge_node(e1_root, e2_root):
 
 def abstract_lemma(lemma, lemma_to_concept):
     """
-    Convert lemma to concept if it exists in clusters.
+    Return literal lemma (concept abstraction disabled).
+
+    Concept abstraction was found to cause anchoring issues with DependencyMatcher
+    by expanding patterns to match multiple words, leading to ambiguous entity bindings.
 
     Args:
         lemma: Word lemma (string)
-        lemma_to_concept: Reverse mapping dict
+        lemma_to_concept: Reverse mapping dict (ignored)
 
     Returns:
-        concept or original lemma
+        Literal lowercased lemma
     """
-    return lemma_to_concept.get(lemma.lower(), lemma.lower())
+    return lemma.lower()
 
 
 def create_type_d_pattern(head, dependent, dep_label, direction):

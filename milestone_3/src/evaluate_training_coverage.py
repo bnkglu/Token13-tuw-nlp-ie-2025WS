@@ -3,11 +3,16 @@ Evaluate training set coverage and accuracy.
 
 This script measures how well the mined patterns cover the training data,
 which is critical for the maximum coverage approach.
+
+Supports two matching modes:
+  --mode dependency: Use DependencyMatcher with anchoring verification
+  --mode entity-rooted: Use entity-rooted matching (no anchoring failures)
 """
 
 import json
 import sys
 from pathlib import Path
+import argparse
 import spacy
 
 # Add parent directory to path for imports
@@ -15,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from utils import preprocess_data
 from execution_engine import compile_dependency_matcher, apply_patterns_with_anchoring
+from entity_rooted_matcher import apply_patterns_entity_rooted
 
 
 def get_directed_label(item):
@@ -28,8 +34,14 @@ def get_directed_label(item):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Evaluate training set coverage and accuracy.")
+    parser.add_argument("--limit", type=int, default=0, help="If set, evaluate only the first N samples (0 = all).")
+    parser.add_argument("--mode", type=str, default="entity-rooted", choices=["dependency", "entity-rooted"],
+                        help="Matching mode: 'dependency' uses DependencyMatcher, 'entity-rooted' uses direct structural matching (default: entity-rooted)")
+    args = parser.parse_args()
+
     print("=" * 80)
-    print("TRAINING SET COVERAGE EVALUATION")
+    print(f"TRAINING SET COVERAGE EVALUATION (mode: {args.mode})")
     print("=" * 80)
 
     # Load spaCy model
@@ -43,6 +55,10 @@ def main():
         train_data = json.load(f)
     print(f"Loaded {len(train_data)} training samples")
 
+    if args.limit and args.limit > 0:
+        train_data = train_data[:args.limit]
+        print(f"Limiting evaluation to first {len(train_data)} samples")
+
     # Preprocess
     print("Preprocessing samples...")
     train_processed = preprocess_data(train_data, nlp)
@@ -54,14 +70,20 @@ def main():
         patterns = json.load(f)
     print(f"Loaded {len(patterns)} patterns")
 
-    # Compile and apply
-    print("\nCompiling DependencyMatcher...")
-    dep_matcher, pattern_lookup = compile_dependency_matcher(patterns, nlp)
+    # Apply patterns based on mode
+    if args.mode == "dependency":
+        print("\nCompiling DependencyMatcher...")
+        dep_matcher, pattern_lookup = compile_dependency_matcher(patterns, nlp)
 
-    print("Applying patterns to training set...")
-    preds, dirs, expls, stats = apply_patterns_with_anchoring(
-        train_processed, dep_matcher, pattern_lookup, nlp
-    )
+        print("Applying patterns to training set...")
+        preds, dirs, expls, stats = apply_patterns_with_anchoring(
+            train_processed, dep_matcher, pattern_lookup, nlp
+        )
+    else:  # entity-rooted
+        print("\nApplying patterns (entity-rooted mode)...")
+        preds, dirs, expls, stats = apply_patterns_entity_rooted(
+            train_processed, patterns, nlp
+        )
 
     # Get true labels
     true_labels = [get_directed_label(item) for item in train_data]
@@ -88,12 +110,18 @@ def main():
     print(f"  Unique patterns used: {stats.get('unique_patterns_used', len(stats.get('pattern_usage', {})))}/{len(patterns)}")
     print(f"  Utilization rate: {stats.get('unique_patterns_used', len(stats.get('pattern_usage', {})))/len(patterns):.1%}")
 
-    print(f"\nAnchoring Stats:")
-    print(f"  Match attempts: {stats['match_attempts']}")
-    print(f"  Failed anchoring: {stats['failed_anchoring']}")
-    if stats['match_attempts'] > 0:
-        fail_rate = stats['failed_anchoring'] / stats['match_attempts'] * 100
-        print(f"  Anchoring failure rate: {fail_rate:.1f}%")
+    if args.mode == "dependency":
+        print(f"\nAnchoring Stats:")
+        print(f"  Match attempts: {stats['match_attempts']}")
+        print(f"  Failed anchoring: {stats['failed_anchoring']}")
+        if stats['match_attempts'] > 0:
+            fail_rate = stats['failed_anchoring'] / stats['match_attempts'] * 100
+            print(f"  Anchoring failure rate: {fail_rate:.1f}%")
+    else:
+        print(f"\nEntity-Rooted Stats:")
+        print(f"  Match attempts: {stats.get('match_attempts', 'N/A')}")
+        print(f"  Matches by type: {stats.get('matches_by_type', {})}")
+        print(f"  (No anchoring failures - entity-rooted matching guarantees alignment)")
 
     # Analyze unmatched samples
     if matched < total:

@@ -29,6 +29,11 @@ def compile_dependency_matcher(patterns, nlp):
         match_id = f"pattern_{i}"
         dep_pattern = pattern['dep_matcher_pattern']
 
+        # Skip non-compilable patterns (e.g., FALLBACK) or legacy patterns that
+        # have an empty matcher spec.
+        if not dep_pattern:
+            continue
+
         try:
             # Cache node ordering for robust anchoring verification / parsing
             node_order = [node.get("RIGHT_ID") for node in dep_pattern]
@@ -104,20 +109,21 @@ def verify_anchoring(token_indices, pattern, e1_root_idx, e2_root_idx):
 
 def verify_anchoring_relaxed(token_indices, pattern, e1_span, e2_span, max_distance=2):
     """
-    Relaxed anchoring: Allow matches within entity spans or nearby tokens.
+    Entity-rooted anchoring: e1 must match exactly, e2 can have tolerance.
 
-    This addresses the 94.6% anchoring failure rate by accepting matches
-    that are within or near entity boundaries, not just exact root positions.
+    With entity-rooted patterns (e1 as root), we require exact e1 match
+    since that's the starting point. e2 gets relaxed tolerance since it
+    may be matched via descendant operators (>>).
 
     Args:
         token_indices: DependencyMatcher result indices
         pattern: Pattern dict with cached node positions
         e1_span: Entity 1 span object (has .start, .end attributes)
         e2_span: Entity 2 span object (has .start, .end attributes)
-        max_distance: Max token distance outside span (default: 2)
+        max_distance: Max token distance outside span for e2 (default: 2)
 
     Returns:
-        bool: True if matched positions are within or near entity spans
+        bool: True if anchoring passes
     """
     idx_map = pattern.get("_node_index")
     if not idx_map:
@@ -135,9 +141,13 @@ def verify_anchoring_relaxed(token_indices, pattern, e1_span, e2_span, max_dista
     e1_matched = token_indices[e1_pos]
     e2_matched = token_indices[e2_pos]
 
-    # Check if within entity span boundaries (with tolerance)
-    e1_ok = (e1_span.start - max_distance <= e1_matched <= e1_span.end + max_distance)
-    e2_ok = (e2_span.start - max_distance <= e2_matched <= e2_span.end + max_distance)
+    # e1 must match exactly (it's the pattern root in entity-rooted patterns)
+    e1_root_idx = e1_span.root.i
+    e1_ok = (e1_matched == e1_root_idx)
+
+    # e2 can have tolerance (may be matched via descendant operators)
+    e2_end_inclusive = e2_span.end - 1
+    e2_ok = (e2_span.start - max_distance <= e2_matched <= e2_end_inclusive + max_distance)
 
     return e1_ok and e2_ok
 
