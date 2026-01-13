@@ -442,7 +442,7 @@ def train_other_resolver(args) -> None:
         # Apply resolver CONSERVATIVELY - only override with high confidence
         improved_preds = []
         overrides_to_other = 0
-        high_conf_threshold = 0.98  # Extremely conservative - only override with near-certainty
+        high_conf_threshold = 0.80  # Lowered from 0.98 to allow more aggressive "Other" classification
 
         for sample, pred in zip(processed, preds):
             other_prob = resolver.predict_proba_other(sample)

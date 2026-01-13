@@ -126,19 +126,27 @@ def find_bridge_node(e1_root, e2_root):
 
 def abstract_lemma(lemma, lemma_to_concept):
     """
-    Return literal lemma (concept abstraction disabled).
+    Selectively return concept for prepositions, literal lemma for other words.
 
     Concept abstraction was found to cause anchoring issues with DependencyMatcher
     by expanding patterns to match multiple words, leading to ambiguous entity bindings.
+    However, PART_PREP abstraction ("of" → PART_PREP) is safe and improves generalization.
 
     Args:
         lemma: Word lemma (string)
-        lemma_to_concept: Reverse mapping dict (ignored)
+        lemma_to_concept: Reverse mapping dict
 
     Returns:
-        Literal lowercased lemma
+        Concept name if lemma maps to PART_PREP cluster, else literal lowercased lemma
     """
-    return lemma.lower()
+    lemma_lower = lemma.lower()
+    concept = lemma_to_concept.get(lemma_lower)
+    
+    # Only abstract PART_PREP prepositions (safe for BRIDGE patterns)
+    if concept == "PART_PREP":
+        return concept
+    
+    return lemma_lower
 
 
 def create_type_d_pattern(head, dependent, dep_label, direction):

@@ -1,0 +1,76 @@
+[
+  {
+    "experiment": "A8_lexical_fallback",
+    "description": "Baseline + M2-style lexical fallback patterns",
+    "config": {
+      "enable_framenet_filtering": false,
+      "enhanced_matching_enabled": false,
+      "entity_type_disambiguation": true,
+      "min_frame_score": 0.5,
+      "e1_anchor_tolerance": 0,
+      "e2_anchor_tolerance": 2,
+      "wordnet_enabled": true,
+      "lexical_fallback": true
+    },
+    "pattern_count": 1502,
+    "test_metrics": {
+      "accuracy": 0.4979757085020243,
+      "precision_macro": 0.46361373733159905,
+      "recall_macro": 0.46104153545461585,
+      "f1_macro": 0.4265841821872232,
+      "precision_weighted": 0.5149430252435707,
+      "recall_weighted": 0.4979757085020243,
+      "f1_weighted": 0.47239773502685156
+    },
+    "train_metrics": {
+      "accuracy": 0.591,
+      "precision_macro": 0.5743483852422466,
+      "recall_macro": 0.5766196205839307,
+      "f1_macro": 0.54454750636552,
+      "precision_weighted": 0.6218214259357411,
+      "recall_weighted": 0.591,
+      "f1_weighted": 0.568660568355209
+    },
+    "test_stats": {
+      "total_samples": 2717,
+      "dep_pattern_matched": 2320,
+      "lexical_fallback": 136,
+      "entity_type_fallback": 89,
+      "default_other": 172,
+      "matches_by_type": {
+        "LEXICAL": 136,
+        "TRIANGLE": 949,
+        "LINEAR": 813,
+        "BRIDGE": 524,
+        "ENTITY_TYPE": 69,
+        "ENTITY_TYPE_MEDIUM": 20,
+        "DIRECT_2HOP": 34
+      },
+      "dep_pattern_rate": 0.853882959146117,
+      "lexical_rate": 0.050055207949944794,
+      "entity_type_rate": 0.032756716967243284,
+      "default_rate": 0.06330511593669488
+    },
+    "train_stats": {
+      "total_samples": 8000,
+      "dep_pattern_matched": 6956,
+      "lexical_fallback": 351,
+      "entity_type_fallback": 245,
+      "default_other": 448,
+      "matches_by_type": {
+        "BRIDGE": 1444,
+        "LINEAR": 2096,
+        "TRIANGLE": 3310,
+        "LEXICAL": 351,
+        "DIRECT_2HOP": 99,
+        "ENTITY_TYPE_MEDIUM": 51,
+        "ENTITY_TYPE": 194,
+        "DIRECT_SIBLING": 7
+      },
+      "dep_pattern_rate": 0.8695,
+      "lexical_rate": 0.043875,
+      "entity_type_rate": 0.030625,
+      "default_rate": 0.056
+    }
+  }
+]

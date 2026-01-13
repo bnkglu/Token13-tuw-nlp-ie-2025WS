@@ -20,7 +20,7 @@
       "Product-Producer(e2,e1)": 14,
       "Instrument-Agency(e2,e1)": 4
     },
-    "('BRIDGE', 'of', '>', 'pobj')": {
+    "('BRIDGE', 'PART_PREP', '>', 'pobj')": {
       "Component-Whole(e2,e1)": 17,
       "Member-Collection(e2,e1)": 555,
       "Component-Whole(e1,e2)": 284,
@@ -317,7 +317,7 @@
       "Content-Container(e1,e2)": 10,
       "Message-Topic(e2,e1)": 2
     },
-    "('LINEAR', (('of', 'ADP'), ('the', 'DET'), ('undisciplined', 'ADJ')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('the', 'DET'), ('undisciplined', 'ADJ')))": {
       "Other": 1
     },
     "('TRIANGLE', 'leave', 'VERB', '>', 'nsubj', '>', 'dobj')": {
@@ -597,7 +597,7 @@
       "Cause-Effect(e2,e1)": 1,
       "Entity-Origin(e1,e2)": 5
     },
-    "('LINEAR', (('full', 'ADJ'), ('of', 'ADP')))": {
+    "('LINEAR', (('full', 'ADJ'), ('PART_PREP', 'ADP')))": {
       "Content-Container(e2,e1)": 29
     },
     "('TRIANGLE', 'hold', 'VERB', '>', 'nsubj', '>>', 'pobj')": {
@@ -620,7 +620,7 @@
     "('TRIANGLE', 'stuff', 'VERB', '>', 'dobj', '>>', 'pobj')": {
       "Entity-Destination(e1,e2)": 10
     },
-    "('LINEAR', (('of', 'ADP'), ('terrific', 'ADJ')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('terrific', 'ADJ')))": {
       "Member-Collection(e2,e1)": 1
     },
     "('TRIANGLE', 'take', 'VERB', '>>', 'pobj', '>>', 'pobj')": {
@@ -786,7 +786,7 @@
     "('TRIANGLE', 'illustrate', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
       "Message-Topic(e2,e1)": 2
     },
-    "('BRIDGE', 'of', '>>', 'pobj')": {
+    "('BRIDGE', 'PART_PREP', '>>', 'pobj')": {
       "Member-Collection(e1,e2)": 1,
       "Content-Container(e1,e2)": 3,
       "Member-Collection(e2,e1)": 1,
@@ -892,7 +892,7 @@
     "('LINEAR', (('define', 'VERB'),))": {
       "Message-Topic(e1,e2)": 2
     },
-    "('LINEAR', (('of', 'ADP'), ('information', 'NOUN'), ('pulse', 'NOUN')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('information', 'NOUN'), ('pulse', 'NOUN')))": {
       "Cause-Effect(e2,e1)": 1
     },
     "('TRIANGLE', 'analyse', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
@@ -1023,7 +1023,7 @@
       "Message-Topic(e1,e2)": 6,
       "Entity-Origin(e1,e2)": 1
     },
-    "('LINEAR', (('compose', 'VERB'), ('of', 'ADP')))": {
+    "('LINEAR', (('compose', 'VERB'), ('PART_PREP', 'ADP')))": {
       "Component-Whole(e2,e1)": 1
     },
     "('TRIANGLE', 'apply', 'VERB', '>', 'nsubj', '>', 'dobj')": {
@@ -1086,7 +1086,7 @@
       "Other": 1,
       "Message-Topic(e1,e2)": 3
     },
-    "('LINEAR', (('consist', 'VERB'), ('of', 'ADP'), ('rectangular', 'ADJ')))": {
+    "('LINEAR', (('consist', 'VERB'), ('PART_PREP', 'ADP'), ('rectangular', 'ADJ')))": {
       "Member-Collection(e2,e1)": 1
     },
     "('TRIANGLE', 'carry', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
@@ -1336,7 +1336,7 @@
     "('LINEAR', (('that', 'PRON'), ('the', 'DET'), ('roman', 'ADJ')))": {
       "Instrument-Agency(e1,e2)": 1
     },
-    "('BRIDGE', 'of', '>>', 'compound')": {
+    "('BRIDGE', 'PART_PREP', '>>', 'compound')": {
       "Component-Whole(e1,e2)": 5,
       "Cause-Effect(e2,e1)": 2,
       "Member-Collection(e2,e1)": 4,
@@ -1438,7 +1438,7 @@
     "('TRIANGLE', 'evaporate', 'VERB', '>', 'nsubj', '>>', 'pobj')": {
       "Entity-Origin(e1,e2)": 2
     },
-    "('BRIDGE', 'of', '>>', 'dobj')": {
+    "('BRIDGE', 'PART_PREP', '>>', 'dobj')": {
       "Member-Collection(e2,e1)": 6,
       "Component-Whole(e2,e1)": 1,
       "Cause-Effect(e1,e2)": 1,
@@ -1460,7 +1460,7 @@
       "Entity-Destination(e1,e2)": 1,
       "Content-Container(e1,e2)": 1
     },
-    "('LINEAR', ((\"'s\", 'PART'), ('output', 'NOUN'), ('of', 'ADP')))": {
+    "('LINEAR', ((\"'s\", 'PART'), ('output', 'NOUN'), ('PART_PREP', 'ADP')))": {
       "Product-Producer(e2,e1)": 2
     },
     "('TRIANGLE', 'approach', 'VERB', '>', 'nsubj', '>', 'dobj')": {
@@ -1629,7 +1629,7 @@
     "('TRIANGLE', 'use', 'VERB', '>', 'nsubjpass', '>>', 'dobj')": {
       "Other": 3
     },
-    "('LINEAR', (('telling', 'NOUN'), ('of', 'ADP'), ('his', 'PRON')))": {
+    "('LINEAR', (('telling', 'NOUN'), ('PART_PREP', 'ADP'), ('his', 'PRON')))": {
       "Message-Topic(e1,e2)": 1
     },
     "('TRIANGLE', 'speak', 'VERB', '>>', 'pobj', '>>', 'pobj')": {
@@ -1764,7 +1764,7 @@
     "('TRIANGLE', 'advertise', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
       "Message-Topic(e2,e1)": 2
     },
-    "('LINEAR', (('full', 'ADJ'), ('of', 'ADP'), ('pull', 'VERB')))": {
+    "('LINEAR', (('full', 'ADJ'), ('PART_PREP', 'ADP'), ('pull', 'VERB')))": {
       "Content-Container(e2,e1)": 1
     },
     "('TRIANGLE', 'enrol', 'VERB', '>', 'nsubj', '>>', 'pobj')": {
@@ -1857,7 +1857,7 @@
     "('LINEAR', (('originate', 'VERB'), ('from', 'ADP'), ('an', 'DET')))": {
       "Cause-Effect(e2,e1)": 1
     },
-    "('LINEAR', (('place', 'VERB'), ('inside', 'ADV'), ('of', 'ADP')))": {
+    "('LINEAR', (('place', 'VERB'), ('inside', 'ADV'), ('PART_PREP', 'ADP')))": {
       "Content-Container(e1,e2)": 1
     },
     "('TRIANGLE', 'tear', 'VERB', '>', 'nsubj', '>>', 'pobj')": {
@@ -1896,7 +1896,7 @@
       "Message-Topic(e1,e2)": 6,
       "Entity-Origin(e1,e2)": 1
     },
-    "('LINEAR', (('consist', 'VERB'), ('of', 'ADP')))": {
+    "('LINEAR', (('consist', 'VERB'), ('PART_PREP', 'ADP')))": {
       "Other": 1
     },
     "('TRIANGLE', 'release', 'VERB', '>', 'dobj', '>>', 'pobj')": {
@@ -2082,7 +2082,7 @@
     "('LINEAR', (('start', 'NOUN'), ('at', 'ADP')))": {
       "Other": 1
     },
-    "('LINEAR', ((\"'s\", 'PART'), ('production', 'NOUN'), ('of', 'ADP')))": {
+    "('LINEAR', ((\"'s\", 'PART'), ('production', 'NOUN'), ('PART_PREP', 'ADP')))": {
       "Product-Producer(e2,e1)": 1
     },
     "('LINEAR', (('be', 'AUX'), ('responsible', 'ADJ'), ('for', 'ADP')))": {
@@ -2237,7 +2237,7 @@
     "('LINEAR', ((\"'s\", 'PART'), ('development', 'NOUN')))": {
       "Instrument-Agency(e2,e1)": 1
     },
-    "('LINEAR', (('of', 'ADP'), ('poison', 'VERB')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('poison', 'VERB')))": {
       "Content-Container(e2,e1)": 1
     },
     "('TRIANGLE', 'strike', 'VERB', '>', 'nsubj', '>>', 'pobj')": {
@@ -2299,7 +2299,7 @@
     "('LINEAR', (('make', 'VERB'), ('by', 'ADP'), ('western', 'ADJ')))": {
       "Other": 1
     },
-    "('LINEAR', (('of', 'ADP'), ('tissue', 'NOUN'), ('that', 'PRON')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('tissue', 'NOUN'), ('that', 'PRON')))": {
       "Other": 1
     },
     "('TRIANGLE', 'illuminate', 'VERB', '>', 'nsubj', '>>', 'pobj')": {
@@ -2439,7 +2439,7 @@
     "('TRIANGLE', 'fulfill', 'VERB', '>', 'nsubj', '>>', 'pobj')": {
       "Other": 2
     },
-    "('LINEAR', (('experience', 'NOUN'), ('of', 'ADP'), ('the', 'DET')))": {
+    "('LINEAR', (('experience', 'NOUN'), ('PART_PREP', 'ADP'), ('the', 'DET')))": {
       "Instrument-Agency(e2,e1)": 1
     },
     "('TRIANGLE', 'award', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
@@ -2730,7 +2730,7 @@
     "('LINEAR', (('responsible', 'ADJ'), ('for', 'ADP'), ('acne', 'ADJ')))": {
       "Cause-Effect(e1,e2)": 1
     },
-    "('LINEAR', (('of', 'ADP'), ('this', 'DET')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('this', 'DET')))": {
       "Component-Whole(e1,e2)": 2
     },
     "('TRIANGLE', 'surround', 'VERB', '>>', 'pobj', '>', 'nsubj')": {
@@ -2887,7 +2887,7 @@
       "Cause-Effect(e1,e2)": 1,
       "Product-Producer(e2,e1)": 3
     },
-    "('LINEAR', (('of', 'ADP'), ('flesh', 'NOUN'), ('eat', 'VERB')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('flesh', 'NOUN'), ('eat', 'VERB')))": {
       "Member-Collection(e2,e1)": 1
     },
     "('TRIANGLE', 'adjust', 'VERB', '>>', 'pobj', '>>', 'dobj')": {
@@ -2911,7 +2911,7 @@
     "('LINEAR', (('detail', 'VERB'), ('the', 'DET'), ('first', 'ADJ')))": {
       "Message-Topic(e1,e2)": 1
     },
-    "('LINEAR', (('full', 'ADJ'), ('of', 'ADP'), ('flow', 'VERB')))": {
+    "('LINEAR', (('full', 'ADJ'), ('PART_PREP', 'ADP'), ('flow', 'VERB')))": {
       "Content-Container(e2,e1)": 1
     },
     "('TRIANGLE', 'criticize', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
@@ -2989,7 +2989,7 @@
     "('LINEAR', (('in', 'ADP'), ('gourmet', 'NOUN')))": {
       "Content-Container(e1,e2)": 1
     },
-    "('LINEAR', (('consist', 'VERB'), ('of', 'ADP'), ('fixed', 'ADJ')))": {
+    "('LINEAR', (('consist', 'VERB'), ('PART_PREP', 'ADP'), ('fixed', 'ADJ')))": {
       "Component-Whole(e2,e1)": 1
     },
     "('TRIANGLE', 'solve', 'VERB', '>>', 'pobj', '>', 'nsubjpass')": {
@@ -3112,7 +3112,7 @@
     "('TRIANGLE', 'finish', 'VERB', '>', 'nsubj', '>', 'dobj')": {
       "Other": 2
     },
-    "('LINEAR', (('comprise', 'VERB'), ('of', 'ADP'), ('these', 'DET')))": {
+    "('LINEAR', (('comprise', 'VERB'), ('PART_PREP', 'ADP'), ('these', 'DET')))": {
       "Component-Whole(e2,e1)": 1
     },
     "('TRIANGLE', 'prove', 'VERB', '>', 'nsubj', '>>', 'attr')": {
@@ -3293,7 +3293,7 @@
     "('LINEAR', (('report', 'NOUN'),))": {
       "Message-Topic(e1,e2)": 1
     },
-    "('LINEAR', (('consist', 'VERB'), ('of', 'ADP'), ('fail', 'VERB')))": {
+    "('LINEAR', (('consist', 'VERB'), ('PART_PREP', 'ADP'), ('fail', 'VERB')))": {
       "Member-Collection(e2,e1)": 1
     },
     "('TRIANGLE', 'dig', 'VERB', '>', 'nsubj', '>', 'advmod')": {
@@ -3357,7 +3357,7 @@
     "('TRIANGLE', 'post', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
       "Entity-Destination(e1,e2)": 2
     },
-    "('LINEAR', (('of', 'ADP'), ('tanning', 'NOUN')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('tanning', 'NOUN')))": {
       "Other": 1
     },
     "('TRIANGLE', 'retain', 'VERB', '>', 'nsubj', '>>', 'dobj')": {
@@ -3398,7 +3398,7 @@
     "('TRIANGLE', 'survey', 'VERB', '>', 'nsubj', '>', 'dobj')": {
       "Message-Topic(e1,e2)": 2
     },
-    "('LINEAR', (('of', 'ADP'), ('the', 'DET'), ('skilled', 'ADJ')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('the', 'DET'), ('skilled', 'ADJ')))": {
       "Other": 1
     },
     "('LINEAR', (('focus', 'VERB'), ('on', 'ADP'), ('contemporary', 'ADJ')))": {
@@ -3706,7 +3706,7 @@
     "('TRIANGLE', 'pop', 'VERB', '>>', 'compound', '>>', 'pobj')": {
       "Entity-Origin(e1,e2)": 1
     },
-    "('LINEAR', ((\"'s\", 'PART'), ('seat', 'NOUN'), ('of', 'ADP')))": {
+    "('LINEAR', ((\"'s\", 'PART'), ('seat', 'NOUN'), ('PART_PREP', 'ADP')))": {
       "Instrument-Agency(e2,e1)": 1
     },
     "('LINEAR', (('manufacturing', 'NOUN'),))": {
@@ -3802,7 +3802,7 @@
     "('TRIANGLE', 'contain', 'VERB', '>', 'nsubj', '>>', 'compound')": {
       "Content-Container(e2,e1)": 1
     },
-    "('LINEAR', (('use', 'VERB'), ('series', 'NOUN'), ('of', 'ADP')))": {
+    "('LINEAR', (('use', 'VERB'), ('series', 'NOUN'), ('PART_PREP', 'ADP')))": {
       "Component-Whole(e2,e1)": 1
     },
     "('LINEAR', (('cause', 'VERB'), ('by', 'ADP'), ('pupil', 'ADJ')))": {
@@ -3885,7 +3885,7 @@
     "('LINEAR', (('that', 'PRON'), ('use', 'VERB'), ('powerful', 'ADJ')))": {
       "Component-Whole(e2,e1)": 1
     },
-    "('LINEAR', (('be', 'AUX'), ('part', 'NOUN'), ('of', 'ADP')))": {
+    "('LINEAR', (('be', 'AUX'), ('part', 'NOUN'), ('PART_PREP', 'ADP')))": {
       "Member-Collection(e1,e2)": 1
     },
     "('TRIANGLE', 'expand', 'VERB', '>>', 'pobj', '>', 'nsubj')": {
@@ -3934,7 +3934,7 @@
     "('TRIANGLE', 'feature', 'VERB', '>>', 'pobj', '>>', 'pobj')": {
       "Entity-Origin(e1,e2)": 1
     },
-    "('BRIDGE', 'of', '>>', 'conj')": {
+    "('BRIDGE', 'PART_PREP', '>>', 'conj')": {
       "Cause-Effect(e2,e1)": 1,
       "Product-Producer(e2,e1)": 2
     },
@@ -3985,7 +3985,7 @@
       "Component-Whole(e2,e1)": 1,
       "Cause-Effect(e2,e1)": 3
     },
-    "('BRIDGE', 'of', '>', 'pcomp')": {
+    "('BRIDGE', 'PART_PREP', '>', 'pcomp')": {
       "Member-Collection(e2,e1)": 1
     },
     "('TRIANGLE', 'suffer', 'VERB', '>', 'dobj', '>>', 'pobj')": {
@@ -4030,7 +4030,7 @@
     "('TRIANGLE', 'bail', 'VERB', '>', 'nsubj', '>', 'dobj')": {
       "Entity-Origin(e1,e2)": 1
     },
-    "('LINEAR', (('pop', 'VERB'), ('out', 'ADP'), ('of', 'ADP')))": {
+    "('LINEAR', (('pop', 'VERB'), ('out', 'ADP'), ('PART_PREP', 'ADP')))": {
       "Entity-Origin(e1,e2)": 1
     },
     "('LINEAR', (('tackle', 'VERB'), ('in', 'ADP'), ('the', 'DET')))": {
@@ -4067,7 +4067,7 @@
     "('TRIANGLE', 'spawn', 'VERB', '>', 'nsubj', '>', 'dobj')": {
       "Other": 1
     },
-    "('LINEAR', (('comprise', 'NOUN'), ('of', 'ADP'), ('three', 'NUM')))": {
+    "('LINEAR', (('comprise', 'NOUN'), ('PART_PREP', 'ADP'), ('three', 'NUM')))": {
       "Component-Whole(e2,e1)": 1
     },
     "('TRIANGLE', 'ship', 'VERB', '>', 'dobj', '>>', 'pobj')": {
@@ -4083,7 +4083,7 @@
     "('BRIDGE', 'over', '>>', 'pobj')": {
       "Cause-Effect(e2,e1)": 1
     },
-    "('LINEAR', (('consist', 'VERB'), ('of', 'ADP'), ('two', 'NUM')))": {
+    "('LINEAR', (('consist', 'VERB'), ('PART_PREP', 'ADP'), ('two', 'NUM')))": {
       "Member-Collection(e2,e1)": 1
     },
     "('TRIANGLE', 'blast', 'VERB', '>', 'nsubj', '>>', 'nsubj')": {
@@ -4233,7 +4233,7 @@
     "('LINEAR', (('compile', 'VERB'), ('by', 'ADP'), ('the', 'DET')))": {
       "Other": 1
     },
-    "('LINEAR', (('of', 'ADP'), ('organic', 'ADJ'), ('compound', 'NOUN')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('organic', 'ADJ'), ('compound', 'NOUN')))": {
       "Other": 1
     },
     "('LINEAR', (('make', 'VERB'), ('with', 'ADP')))": {
@@ -4370,7 +4370,7 @@
     "('TRIANGLE', 'speak', 'VERB', '>', 'nsubj', '>>', 'pobj')": {
       "Message-Topic(e1,e2)": 3
     },
-    "('LINEAR', (('output', 'NOUN'), ('of', 'ADP'), ('the', 'DET')))": {
+    "('LINEAR', (('output', 'NOUN'), ('PART_PREP', 'ADP'), ('the', 'DET')))": {
       "Product-Producer(e1,e2)": 1
     },
     "('TRIANGLE', 'be', 'AUX', '>', 'attr', '>>', 'conj')": {
@@ -4465,7 +4465,7 @@
     "('TRIANGLE', 'remade', 'VERB', '>', 'nsubj', '>>', 'appos')": {
       "Product-Producer(e2,e1)": 1
     },
-    "('LINEAR', (('compose', 'VERB'), ('of', 'ADP'), ('many', 'ADJ')))": {
+    "('LINEAR', (('compose', 'VERB'), ('PART_PREP', 'ADP'), ('many', 'ADJ')))": {
       "Component-Whole(e2,e1)": 1
     },
     "('LINEAR', (('who', 'PRON'), ('use', 'VERB')))": {
@@ -4579,10 +4579,10 @@
     "('TRIANGLE', 'instal', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
       "Entity-Destination(e1,e2)": 2
     },
-    "('LINEAR', (('of', 'ADP'), ('the', 'DET'), ('urethra', 'NOUN')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('the', 'DET'), ('urethra', 'NOUN')))": {
       "Cause-Effect(e2,e1)": 1
     },
-    "('BRIDGE', 'of', '>>', 'nsubj')": {
+    "('BRIDGE', 'PART_PREP', '>>', 'nsubj')": {
       "Message-Topic(e1,e2)": 1
     },
     "('TRIANGLE', 'succeed', 'VERB', '>', 'nsubj', '>>', 'pobj')": {
@@ -4598,7 +4598,7 @@
     "('LINEAR', (('design', 'VERB'), ('and', 'CCONJ'), ('sew', 'VERB')))": {
       "Product-Producer(e1,e2)": 1
     },
-    "('LINEAR', (('full', 'ADJ'), ('of', 'ADP'), ('warm', 'ADJ')))": {
+    "('LINEAR', (('full', 'ADJ'), ('PART_PREP', 'ADP'), ('warm', 'ADJ')))": {
       "Content-Container(e2,e1)": 1
     },
     "('TRIANGLE', 'treat', 'VERB', '>', 'dobj', '>>', 'pobj')": {
@@ -4644,7 +4644,7 @@
     "('LINEAR', (('design', 'VERB'), ('to', 'PART'), ('inform', 'VERB')))": {
       "Message-Topic(e1,e2)": 1
     },
-    "('LINEAR', (('of', 'ADP'),))": {
+    "('LINEAR', (('PART_PREP', 'ADP'),))": {
       "Member-Collection(e2,e1)": 1
     },
     "('TRIANGLE', 'pass', 'VERB', '>', 'dobj', '>>', 'pobj')": {
@@ -4663,7 +4663,7 @@
     "('TRIANGLE', 'turn', 'VERB', '>', 'dobj', '>>', 'pobj')": {
       "Content-Container(e2,e1)": 1
     },
-    "('LINEAR', (('use', 'VERB'), ('of', 'ADP')))": {
+    "('LINEAR', (('use', 'VERB'), ('PART_PREP', 'ADP')))": {
       "Instrument-Agency(e2,e1)": 1
     },
     "('TRIANGLE', 'compose', 'VERB', '>>', 'pobj', '>>', 'pobj')": {
@@ -5056,7 +5056,7 @@
     "('LINEAR', (('and', 'CCONJ'), ('magazine', 'NOUN'), ('relate', 'VERB')))": {
       "Message-Topic(e1,e2)": 1
     },
-    "('LINEAR', (('consist', 'VERB'), ('of', 'ADP'), ('eight', 'NUM')))": {
+    "('LINEAR', (('consist', 'VERB'), ('PART_PREP', 'ADP'), ('eight', 'NUM')))": {
       "Member-Collection(e2,e1)": 1
     },
     "('LINEAR', (('with', 'ADP'), ('regard', 'NOUN'), ('to', 'ADP')))": {
@@ -5101,7 +5101,7 @@
     "('TRIANGLE', 'pack', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
       "Other": 1
     },
-    "('LINEAR', (('length', 'NOUN'), ('of', 'ADP'), ('number', 'NOUN')))": {
+    "('LINEAR', (('length', 'NOUN'), ('PART_PREP', 'ADP'), ('number', 'NOUN')))": {
       "Component-Whole(e1,e2)": 1
     },
     "('LINEAR', (('descend', 'VERB'), ('from', 'ADP'), ('local', 'ADJ')))": {
@@ -5129,7 +5129,7 @@
       "Other": 1,
       "Product-Producer(e2,e1)": 1
     },
-    "('LINEAR', (('into', 'ADP'), ('couple', 'NOUN'), ('of', 'ADP')))": {
+    "('LINEAR', (('into', 'ADP'), ('couple', 'NOUN'), ('PART_PREP', 'ADP')))": {
       "Entity-Destination(e1,e2)": 1
     },
     "('LINEAR', (('takeoff', 'NOUN'), ('from', 'ADP')))": {
@@ -5138,7 +5138,7 @@
     "('LINEAR', (('that', 'PRON'), ('indicate', 'VERB'), ('the', 'DET')))": {
       "Other": 1
     },
-    "('LINEAR', (('full', 'ADJ'), ('of', 'ADP'), ('purport', 'VERB')))": {
+    "('LINEAR', (('full', 'ADJ'), ('PART_PREP', 'ADP'), ('purport', 'VERB')))": {
       "Content-Container(e2,e1)": 1
     },
     "('TRIANGLE', 'succeed', 'VERB', '>', 'nsubj', '>>', 'dobj')": {
@@ -5198,13 +5198,13 @@
     "('LINEAR', (('drive', 'VERB'), ('by', 'ADP'), ('an', 'DET')))": {
       "Other": 1
     },
-    "('LINEAR', (('full', 'ADJ'), ('of', 'ADP'), ('odd', 'ADJ')))": {
+    "('LINEAR', (('full', 'ADJ'), ('PART_PREP', 'ADP'), ('odd', 'ADJ')))": {
       "Content-Container(e2,e1)": 1
     },
     "('LINEAR', (('stack', 'VERB'), ('up', 'ADP'), ('the', 'DET')))": {
       "Other": 1
     },
-    "('BRIDGE', 'of', '>>', 'amod')": {
+    "('BRIDGE', 'PART_PREP', '>>', 'amod')": {
       "Component-Whole(e1,e2)": 1
     },
     "('TRIANGLE', 'write', 'VERB', '>', 'dobj', '>>', 'dobj')": {
@@ -5216,7 +5216,7 @@
     "('TRIANGLE', 'have', 'VERB', '>', 'dobj', '>>', 'pobj')": {
       "Component-Whole(e2,e1)": 1
     },
-    "('LINEAR', (('hedge', 'NOUN'), ('of', 'ADP')))": {
+    "('LINEAR', (('hedge', 'NOUN'), ('PART_PREP', 'ADP')))": {
       "Member-Collection(e2,e1)": 1
     },
     "('TRIANGLE', 'cause', 'VERB', '>', 'nsubj', '>', 'xcomp')": {
@@ -5512,7 +5512,7 @@
     "('LINEAR', (('and', 'CCONJ'), ('blame', 'VERB'), ('cause', 'NOUN')))": {
       "Cause-Effect(e1,e2)": 1
     },
-    "('LINEAR', (('of', 'ADP'), ('israelis', 'PROPN'), ('cause', 'VERB')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('israelis', 'PROPN'), ('cause', 'VERB')))": {
       "Cause-Effect(e2,e1)": 1
     },
     "('TRIANGLE', 'hold', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
@@ -5665,7 +5665,7 @@
     "('TRIANGLE', 'explore', 'VERB', '>>', 'pobj', '>', 'dobj')": {
       "Message-Topic(e1,e2)": 1
     },
-    "('LINEAR', (('by', 'ADP'), ('mean', 'NOUN'), ('of', 'ADP')))": {
+    "('LINEAR', (('by', 'ADP'), ('mean', 'NOUN'), ('PART_PREP', 'ADP')))": {
       "Instrument-Agency(e2,e1)": 1
     },
     "('TRIANGLE', 'lower', 'VERB', '>', 'nsubjpass', '>>', 'nsubj')": {
@@ -5746,7 +5746,7 @@
     "('TRIANGLE', 'finish', 'VERB', '>', 'nsubjpass', '>>', 'pobj')": {
       "Product-Producer(e1,e2)": 1
     },
-    "('LINEAR', (('full', 'ADJ'), ('of', 'ADP'), ('new', 'ADJ')))": {
+    "('LINEAR', (('full', 'ADJ'), ('PART_PREP', 'ADP'), ('new', 'ADJ')))": {
       "Content-Container(e2,e1)": 1
     },
     "('LINEAR', (('and', 'CCONJ'), ('biotech', 'NOUN')))": {
@@ -5930,7 +5930,7 @@
     "('TRIANGLE', 'build', 'VERB', '>>', 'conj', '>>', 'pobj')": {
       "Other": 1
     },
-    "('LINEAR', (('of', 'ADP'), ('the', 'DET'), ('company', 'NOUN')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('the', 'DET'), ('company', 'NOUN')))": {
       "Message-Topic(e1,e2)": 1
     },
     "('TRIANGLE', 'taxi', 'VERB', '>', 'nsubj', '>>', 'pobj')": {
@@ -6014,7 +6014,7 @@
     "('TRIANGLE', 'make', 'VERB', '>', 'dobj', '>>', 'dobj')": {
       "Message-Topic(e1,e2)": 1
     },
-    "('LINEAR', (('of', 'ADP'), ('employee', 'NOUN'), ('who', 'PRON')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('employee', 'NOUN'), ('who', 'PRON')))": {
       "Product-Producer(e2,e1)": 1
     },
     "('LINEAR', (('assert', 'VERB'), ('their', 'PRON')))": {
@@ -6372,7 +6372,7 @@
     "('LINEAR', (('produce', 'VERB'), ('by', 'ADP'), ('cooperative', 'ADJ')))": {
       "Product-Producer(e1,e2)": 1
     },
-    "('LINEAR', (('of', 'ADP'), ('the', 'DET'), ('breast', 'NOUN')))": {
+    "('LINEAR', (('PART_PREP', 'ADP'), ('the', 'DET'), ('breast', 'NOUN')))": {
       "Cause-Effect(e2,e1)": 1
     },
     "('TRIANGLE', 'produce', 'VERB', '>', 'nsubjpass', '>>', 'pcomp')": {
@@ -6696,6 +6696,6 @@
   "metadata": {
     "total_samples": 8000,
     "total_patterns": 1958,
-    "concept_clusters_used": 141
+    "concept_clusters_used": 164
   }
 }

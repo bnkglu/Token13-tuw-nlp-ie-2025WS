@@ -233,12 +233,30 @@ def filter_patterns_tiered(pattern_counts, concept_clusters, min_global_support=
                 continue
         elif pattern_type in {"TRIANGLE", "BRIDGE"}:
             # TRIANGLE/BRIDGE: support-based tiering
-            if best_count >= 5:
-                min_precision = max(0.40, rel_min_precision)
-            elif best_count >= 2:
-                min_precision = max(0.50, rel_min_precision)
+            # Special handling for ambiguous PART_PREP patterns
+            is_part_prep_pattern = False
+            if pattern_type == "BRIDGE" and len(pattern_key) > 1:
+                prep_lemma = pattern_key[1]
+                if prep_lemma == "PART_PREP":
+                    is_part_prep_pattern = True
+            
+            if is_part_prep_pattern:
+                # Stricter threshold for "of" patterns (PART_PREP) to reduce overfitting
+                if best_count < 3:
+                    continue  # Require at least 3 support for PART_PREP patterns
+                if best_count >= 5:
+                    min_precision = max(0.45, rel_min_precision)
+                else:  # best_count is 3 or 4
+                    min_precision = max(0.55, rel_min_precision)
             else:
-                min_precision = max(0.60, rel_min_precision)
+                # Standard tiering for other TRIANGLE/BRIDGE patterns
+                if best_count >= 5:
+                    min_precision = max(0.40, rel_min_precision)
+                elif best_count >= 2:
+                    min_precision = max(0.50, rel_min_precision)
+                else:
+                    min_precision = max(0.60, rel_min_precision)
+            
             if precision < min_precision:
                 continue
         elif pattern_type == "DIRECT":

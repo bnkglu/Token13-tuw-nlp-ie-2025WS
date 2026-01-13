@@ -1,0 +1,150 @@
+[
+  {
+    "experiment": "A1_baseline",
+    "description": "Baseline - current system as-is",
+    "config": {
+      "enable_framenet_filtering": false,
+      "enhanced_matching_enabled": false,
+      "entity_type_disambiguation": true,
+      "min_frame_score": 0.5,
+      "e1_anchor_tolerance": 0,
+      "e2_anchor_tolerance": 2,
+      "wordnet_enabled": true,
+      "lexical_fallback": false
+    },
+    "pattern_count": 1546,
+    "test_metrics": {
+      "accuracy": 0.4825174825174825,
+      "precision_macro": 0.45324656016696596,
+      "recall_macro": 0.443021363513866,
+      "f1_macro": 0.4135234566399631,
+      "precision_weighted": 0.5056188628269418,
+      "recall_weighted": 0.4825174825174825,
+      "f1_weighted": 0.46202486948483057
+    },
+    "train_metrics": {
+      "accuracy": 0.580625,
+      "precision_macro": 0.5699589571221519,
+      "recall_macro": 0.5634961747708043,
+      "f1_macro": 0.536519124322952,
+      "precision_weighted": 0.6138790626593074,
+      "recall_weighted": 0.580625,
+      "f1_weighted": 0.5616601146900428
+    },
+    "test_stats": {
+      "total_samples": 2717,
+      "matched": 2358,
+      "entity_type_fallback": 107,
+      "default_other": 252,
+      "matches_by_type": {
+        "TRIANGLE": 952,
+        "LINEAR": 847,
+        "BRIDGE": 524,
+        "ENTITY_TYPE": 82,
+        "ENTITY_TYPE_MEDIUM": 25,
+        "DIRECT_2HOP": 35
+      },
+      "failed_anchoring": 0,
+      "match_attempts": 2955885,
+      "match_rate": 0.8678689731321311,
+      "entity_type_rate": 0.03938167096061833,
+      "default_rate": 0.09274935590725064,
+      "unique_patterns_used": 452
+    },
+    "train_stats": {
+      "total_samples": 8000,
+      "matched": 7061,
+      "entity_type_fallback": 285,
+      "default_other": 654,
+      "matches_by_type": {
+        "BRIDGE": 1443,
+        "LINEAR": 2187,
+        "TRIANGLE": 3323,
+        "DIRECT_2HOP": 101,
+        "ENTITY_TYPE": 220,
+        "ENTITY_TYPE_MEDIUM": 65,
+        "DIRECT_SIBLING": 7
+      },
+      "failed_anchoring": 0,
+      "match_attempts": 8196910,
+      "match_rate": 0.882625,
+      "entity_type_rate": 0.035625,
+      "default_rate": 0.08175,
+      "unique_patterns_used": 1283
+    }
+  },
+  {
+    "experiment": "A8_lexical_fallback",
+    "description": "Baseline + M2-style lexical fallback patterns",
+    "config": {
+      "enable_framenet_filtering": false,
+      "enhanced_matching_enabled": false,
+      "entity_type_disambiguation": true,
+      "min_frame_score": 0.5,
+      "e1_anchor_tolerance": 0,
+      "e2_anchor_tolerance": 2,
+      "wordnet_enabled": true,
+      "lexical_fallback": true
+    },
+    "pattern_count": 1546,
+    "test_metrics": {
+      "accuracy": 0.4920868605079131,
+      "precision_macro": 0.45676897260754157,
+      "recall_macro": 0.45589408263777914,
+      "f1_macro": 0.4213715903690091,
+      "precision_weighted": 0.5056763330217019,
+      "recall_weighted": 0.4920868605079131,
+      "f1_weighted": 0.4640900230916568
+    },
+    "train_metrics": {
+      "accuracy": 0.58825,
+      "precision_macro": 0.5736466500628196,
+      "recall_macro": 0.5750878937639294,
+      "f1_macro": 0.5434609352724386,
+      "precision_weighted": 0.6190387875441642,
+      "recall_weighted": 0.58825,
+      "f1_weighted": 0.563725025813425
+    },
+    "test_stats": {
+      "total_samples": 2717,
+      "dep_pattern_matched": 2358,
+      "lexical_fallback": 115,
+      "entity_type_fallback": 85,
+      "default_other": 159,
+      "matches_by_type": {
+        "LEXICAL": 115,
+        "TRIANGLE": 952,
+        "LINEAR": 847,
+        "BRIDGE": 524,
+        "ENTITY_TYPE": 66,
+        "ENTITY_TYPE_MEDIUM": 19,
+        "DIRECT_2HOP": 35
+      },
+      "dep_pattern_rate": 0.8678689731321311,
+      "lexical_rate": 0.04232609495767391,
+      "entity_type_rate": 0.031284504968715494,
+      "default_rate": 0.058520426941479575
+    },
+    "train_stats": {
+      "total_samples": 8000,
+      "dep_pattern_matched": 7061,
+      "lexical_fallback": 291,
+      "entity_type_fallback": 232,
+      "default_other": 416,
+      "matches_by_type": {
+        "BRIDGE": 1443,
+        "LINEAR": 2187,
+        "TRIANGLE": 3323,
+        "LEXICAL": 291,
+        "DIRECT_2HOP": 101,
+        "ENTITY_TYPE_MEDIUM": 47,
+        "ENTITY_TYPE": 185,
+        "DIRECT_SIBLING": 7
+      },
+      "dep_pattern_rate": 0.882625,
+      "lexical_rate": 0.036375,
+      "entity_type_rate": 0.029,
+      "default_rate": 0.052
+    }
+  }
+]

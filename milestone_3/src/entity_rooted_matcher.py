@@ -480,7 +480,7 @@ def check_triangle_pattern(e1_root, e2_root, pattern, relation=None):
     return True
 
 
-def check_bridge_pattern(e1_root, e2_root, pattern, relation=None):
+def check_bridge_pattern(e1_root, e2_root, pattern, relation=None, e1_text=None, e2_text=None):
     """
     Check if BRIDGE pattern exists at entity roots.
 
@@ -491,6 +491,8 @@ def check_bridge_pattern(e1_root, e2_root, pattern, relation=None):
         e2_root: Entity 2 root token
         pattern: Pattern dict with pattern_key
         relation: Optional relation for enhanced WordNet matching
+        e1_text: Entity 1 text (for entity type gating)
+        e2_text: Entity 2 text (for entity type gating)
 
     Returns:
         bool: True if pattern matches
@@ -513,6 +515,24 @@ def check_bridge_pattern(e1_root, e2_root, pattern, relation=None):
 
     # Acceptable dependency labels for e2 attached to preposition
     VALID_PREP_DEPS = {'pobj', 'pcomp', 'nmod', 'obl', 'dobj', 'attr', 'oprd', 'conj'}
+
+    # Entity type gating for PART_PREP patterns
+    # Disambiguate Member-Collection vs Component-Whole based on e2 entity type
+    entity_type_gate_passed = True
+    if prep_lemma == "PART_PREP" and ENTITY_TYPE_DISAMBIGUATION_AVAILABLE and e2_text:
+        e2_type = get_entity_type(e2_text)
+        # Filter based on relation and entity type compatibility
+        if relation == "Member-Collection":
+            # Member-Collection prefers e2 to be group/organization
+            if e2_type not in {"group", "organization", "person", None}:
+                entity_type_gate_passed = False
+        elif relation == "Component-Whole":
+            # Component-Whole prefers e2 to be artifact/object/body
+            if e2_type not in {"artifact", "object", "body", "substance", "location", None}:
+                entity_type_gate_passed = False
+    
+    if not entity_type_gate_passed:
+        return False
 
     # Find prepositions that are children of e1
     for child in e1_root.children:
@@ -723,13 +743,23 @@ def apply_patterns_entity_rooted(samples, patterns, nlp):
             elif pattern_type == 'TRIANGLE':
                 matched = check_triangle_pattern(e1_root, e2_root, pattern, pattern_relation)
             elif pattern_type == 'BRIDGE':
-                matched = check_bridge_pattern(e1_root, e2_root, pattern, pattern_relation)
+                matched = check_bridge_pattern(e1_root, e2_root, pattern, pattern_relation, e1_text, e2_text)
             elif pattern_type == 'LINEAR':
                 matched = check_linear_pattern(e1_root, e2_root, pattern, doc, pattern_relation)
             elif pattern_type == 'FALLBACK':
                 matched = check_fallback_pattern(e1_root, e2_root, pattern)
 
             if matched:
+                # Confidence-based pattern skipping: skip low-quality patterns
+                pattern_precision = pattern.get('precision', 1.0)
+                pattern_support = pattern.get('support', 999)
+                
+                # Skip if low confidence (precision < 0.55 AND support < 3)
+                # This allows fallback to higher-quality patterns in the pipeline
+                if pattern_precision < 0.55 and pattern_support < 3:
+                    # Continue searching for better patterns
+                    continue
+                
                 matched_pattern = pattern
                 stats['matches_by_type'][pattern_type] = stats['matches_by_type'].get(pattern_type, 0) + 1
                 break
@@ -818,6 +848,169 @@ def apply_patterns_entity_rooted(samples, patterns, nlp):
     print(f"  Entity type fallback: {stats['entity_type_fallback']} ({stats['entity_type_rate']:.1%})")
     print(f"  Default to Other: {stats['default_other']} ({stats['default_rate']:.1%})")
     print(f"  Unique patterns used: {stats['unique_patterns_used']}")
+    print(f"  Matches by type: {stats['matches_by_type']}")
+
+    return predictions, directions, explanations, stats
+
+
+def apply_patterns_with_lexical_fallback(samples, patterns, nlp, lexical_matcher=None):
+    """
+    Apply patterns with lexical fallback for unmatched samples.
+
+    Three-stage classification:
+      1. Entity-rooted dependency patterns (highest priority)
+      2. Lexical patterns from between-entity span (M2-style fallback)
+      3. Entity type disambiguation (WordNet-based)
+      4. Default to "Other"
+
+    Args:
+        samples: List of processed samples
+        patterns: List of pattern dicts (sorted by priority)
+        nlp: spaCy model
+        lexical_matcher: Optional LexicalPatternMatcher instance
+
+    Returns:
+        predictions: List of predicted relations
+        directions: List of predicted directions
+        explanations: List of explanations
+        stats: Dict with matching statistics
+    """
+    predictions = []
+    directions = []
+    explanations = []
+
+    # Statistics
+    stats = {
+        'total_samples': len(samples),
+        'dep_pattern_matched': 0,
+        'lexical_fallback': 0,
+        'entity_type_fallback': 0,
+        'default_other': 0,
+        'pattern_usage': {},
+        'matches_by_type': {},
+    }
+
+    use_lexical = lexical_matcher is not None and lexical_matcher.is_compiled
+    use_entity_type = ENTITY_TYPE_DISAMBIGUATION_ENABLED and ENTITY_TYPE_DISAMBIGUATION_AVAILABLE
+
+    print(f"\nApplying {len(patterns)} patterns to {len(samples)} samples...")
+    print(f"  Lexical fallback: {'ENABLED' if use_lexical else 'DISABLED'}")
+    print(f"  Entity type disambiguation: {'ENABLED' if use_entity_type else 'DISABLED'}")
+
+    for sample in tqdm(samples, desc="Classifying"):
+        doc = sample['doc']
+        e1_root = sample['e1_span'].root
+        e2_root = sample['e2_span'].root
+        e1_text = sample['e1_span'].text
+        e2_text = sample['e2_span'].text
+
+        matched_pattern = None
+        prediction = None
+        direction = None
+        explanation = None
+
+        # Stage 1: Try dependency patterns
+        for pattern in patterns:
+            pattern_type = pattern['pattern_type']
+            pattern_relation = pattern.get('relation', None)
+            matched = False
+
+            if pattern_type == 'DIRECT':
+                matched = check_direct_pattern(e1_root, e2_root, pattern)
+            elif pattern_type == 'DIRECT_2HOP':
+                matched = check_direct_2hop_pattern(e1_root, e2_root, pattern)
+            elif pattern_type == 'DIRECT_SIBLING':
+                matched = check_direct_sibling_pattern(e1_root, e2_root, pattern)
+            elif pattern_type == 'TRIANGLE':
+                matched = check_triangle_pattern(e1_root, e2_root, pattern, pattern_relation)
+            elif pattern_type == 'BRIDGE':
+                matched = check_bridge_pattern(e1_root, e2_root, pattern, pattern_relation, e1_text, e2_text)
+            elif pattern_type == 'LINEAR':
+                matched = check_linear_pattern(e1_root, e2_root, pattern, doc, pattern_relation)
+            elif pattern_type == 'FALLBACK':
+                matched = check_fallback_pattern(e1_root, e2_root, pattern)
+
+            if matched:
+                # Confidence-based pattern skipping: skip low-quality patterns
+                pattern_precision = pattern.get('precision', 1.0)
+                pattern_support = pattern.get('support', 999)
+                
+                # Skip if low confidence (precision < 0.55 AND support < 3)
+                if pattern_precision < 0.55 and pattern_support < 3:
+                    continue
+                
+                matched_pattern = pattern
+                break
+
+        if matched_pattern:
+            prediction = matched_pattern['relation']
+            direction = matched_pattern['direction']
+            explanation = (
+                f"Pattern {matched_pattern['pattern_id']} "
+                f"(type={matched_pattern['pattern_type']}, "
+                f"precision={matched_pattern['precision']:.2f})"
+            )
+            stats['dep_pattern_matched'] += 1
+            stats['matches_by_type'][matched_pattern['pattern_type']] = \
+                stats['matches_by_type'].get(matched_pattern['pattern_type'], 0) + 1
+
+            pattern_id = matched_pattern['pattern_id']
+            stats['pattern_usage'][pattern_id] = stats['pattern_usage'].get(pattern_id, 0) + 1
+
+        # Stage 2: Try lexical fallback
+        elif use_lexical:
+            lex_pred, lex_dir, lex_expl = lexical_matcher.match(sample)
+            if lex_pred:
+                prediction = lex_pred
+                direction = lex_dir
+                explanation = lex_expl
+                stats['lexical_fallback'] += 1
+                stats['matches_by_type']['LEXICAL'] = stats['matches_by_type'].get('LEXICAL', 0) + 1
+
+        # Stage 3: Try entity type disambiguation
+        if prediction is None and use_entity_type:
+            e1_type = get_entity_type(e1_text)
+            e2_type = get_entity_type(e2_text)
+            type_pair = (e1_type, e2_type)
+
+            if type_pair in ENTITY_TYPE_RELATION_RULES:
+                prediction = ENTITY_TYPE_RELATION_RULES[type_pair]
+                if '(' in prediction:
+                    direction = prediction.split('(')[1].rstrip(')')
+                explanation = f"Entity type rule: ({e1_type}, {e2_type}) -> {prediction}"
+                stats['entity_type_fallback'] += 1
+                stats['matches_by_type']['ENTITY_TYPE'] = stats['matches_by_type'].get('ENTITY_TYPE', 0) + 1
+
+            elif type_pair in ENTITY_TYPE_RELATION_RULES_MEDIUM:
+                prediction = ENTITY_TYPE_RELATION_RULES_MEDIUM[type_pair]
+                if '(' in prediction:
+                    direction = prediction.split('(')[1].rstrip(')')
+                explanation = f"Entity type rule (medium): ({e1_type}, {e2_type}) -> {prediction}"
+                stats['entity_type_fallback'] += 1
+                stats['matches_by_type']['ENTITY_TYPE_MEDIUM'] = stats['matches_by_type'].get('ENTITY_TYPE_MEDIUM', 0) + 1
+
+        # Stage 4: Default to Other
+        if prediction is None:
+            prediction = 'Other'
+            direction = None
+            explanation = 'No pattern matched; defaulting to Other.'
+            stats['default_other'] += 1
+
+        predictions.append(prediction)
+        directions.append(direction)
+        explanations.append(explanation)
+
+    # Calculate rates
+    stats['dep_pattern_rate'] = stats['dep_pattern_matched'] / stats['total_samples'] if stats['total_samples'] > 0 else 0
+    stats['lexical_rate'] = stats['lexical_fallback'] / stats['total_samples'] if stats['total_samples'] > 0 else 0
+    stats['entity_type_rate'] = stats['entity_type_fallback'] / stats['total_samples'] if stats['total_samples'] > 0 else 0
+    stats['default_rate'] = stats['default_other'] / stats['total_samples'] if stats['total_samples'] > 0 else 0
+
+    print(f"\nClassification complete!")
+    print(f"  Dependency patterns: {stats['dep_pattern_matched']} ({stats['dep_pattern_rate']:.1%})")
+    print(f"  Lexical fallback: {stats['lexical_fallback']} ({stats['lexical_rate']:.1%})")
+    print(f"  Entity type fallback: {stats['entity_type_fallback']} ({stats['entity_type_rate']:.1%})")
+    print(f"  Default to Other: {stats['default_other']} ({stats['default_rate']:.1%})")
     print(f"  Matches by type: {stats['matches_by_type']}")
 
     return predictions, directions, explanations, stats
