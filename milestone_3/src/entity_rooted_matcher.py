@@ -23,12 +23,23 @@ try:
     from wordnet_augmentor import (
         hypernym_matches as wn_hypernym_matches,
         relation_specific_match,
-        WORDNET_AVAILABLE
+        WORDNET_AVAILABLE,
+        # Entity type disambiguation
+        get_entity_type,
+        disambiguate_by_entity_type,
+        ENTITY_TYPE_RELATION_RULES,
+        ENTITY_TYPE_RELATION_RULES_MEDIUM,
     )
+    ENTITY_TYPE_DISAMBIGUATION_AVAILABLE = True
 except ImportError:
     WORDNET_AVAILABLE = False
+    ENTITY_TYPE_DISAMBIGUATION_AVAILABLE = False
     wn_hypernym_matches = None
     relation_specific_match = None
+    get_entity_type = None
+    disambiguate_by_entity_type = None
+    ENTITY_TYPE_RELATION_RULES = {}
+    ENTITY_TYPE_RELATION_RULES_MEDIUM = {}
 
 try:
     from framenet_scorer import score_frame_compatibility
@@ -152,11 +163,42 @@ def lemma_matches_enhanced(
 
 
 # Flag to enable/disable enhanced matching globally
-# RE-ENABLED with stricter constraints (both WordNet and FrameNet must agree)
-ENHANCED_MATCHING_ENABLED = True
+# DISABLED - Enhanced matching was causing accuracy drop (too permissive)
+ENHANCED_MATCHING_ENABLED = False
+
+# Flag to enable/disable entity type disambiguation
+# ENABLED - Uses WordNet supersenses to disambiguate relations based on entity types
+ENTITY_TYPE_DISAMBIGUATION_ENABLED = True
 
 # Minimum FrameNet score for semantic validation (0.0-1.0)
-MIN_FRAME_SCORE = 0.4
+# Set to 0.5 (neutral base score) so unknown verbs pass but mismatches fail
+# Higher values (0.55+) are too strict as they reject patterns with unknown verbs
+MIN_FRAME_SCORE = 0.5
+
+
+def get_matching_config():
+    """
+    Return current matching configuration for notebook display.
+    
+    This helper function exposes the configuration state for verification
+    and debugging in notebooks.
+    
+    Returns:
+        dict: Configuration values including:
+            - enhanced_matching_enabled: Whether WordNet enhanced matching is on
+            - entity_type_disambiguation_enabled: Whether entity type rules are used
+            - min_frame_score: Threshold for FrameNet semantic validation
+            - wordnet_available: Whether WordNet is available for use
+            - entity_type_rules_count: Number of entity type rules available
+    """
+    return {
+        'enhanced_matching_enabled': ENHANCED_MATCHING_ENABLED,
+        'entity_type_disambiguation_enabled': ENTITY_TYPE_DISAMBIGUATION_ENABLED,
+        'min_frame_score': MIN_FRAME_SCORE,
+        'wordnet_available': WORDNET_AVAILABLE,
+        'entity_type_disambiguation_available': ENTITY_TYPE_DISAMBIGUATION_AVAILABLE,
+        'entity_type_rules_count': len(ENTITY_TYPE_RELATION_RULES) + len(ENTITY_TYPE_RELATION_RULES_MEDIUM),
+    }
 
 
 def semantic_validation(
@@ -192,22 +234,27 @@ def semantic_validation(
         pos = 'v' if anchor_pos == 'VERB' else 'n'
         wn_match, wn_conf, _ = relation_specific_match(anchor_lemma, relation, pos)
 
-    # Combined scoring logic:
-    # - Both agree: high confidence (average of both)
-    # - One strongly agrees: moderate confidence
-    # - Neither agrees: low confidence, may invalidate
-    if wn_match and frame_score >= 0.6:
-        # Both sources agree - high confidence
+    # Combined scoring logic (stricter thresholds for better precision):
+    # - Both agree strongly: high confidence
+    # - FrameNet alone confident: accept with FrameNet score
+    # - WordNet + moderate FrameNet: moderate confidence
+    # - Low FrameNet only: lower confidence
+    # - Below MIN_FRAME_SCORE: reject
+    if wn_match and frame_score >= 0.65:
+        # Both sources agree strongly - highest confidence
         return True, (wn_conf + frame_score) / 2
-    elif wn_match or frame_score >= 0.5:
-        # One source supports the match
-        return True, max(wn_conf, frame_score) * 0.8
-    elif frame_score < MIN_FRAME_SCORE:
-        # FrameNet strongly disagrees - reject match
-        return False, frame_score
+    elif frame_score >= 0.65:
+        # FrameNet alone is highly confident
+        return True, frame_score
+    elif wn_match and frame_score >= MIN_FRAME_SCORE:
+        # WordNet agrees + moderate FrameNet support
+        return True, 0.70
+    elif frame_score >= MIN_FRAME_SCORE:
+        # Only moderate FrameNet support - lower confidence
+        return True, frame_score * 0.75
     else:
-        # Neutral - allow with low confidence
-        return True, 0.4
+        # Below MIN_FRAME_SCORE threshold - reject match
+        return False, frame_score
 
 
 def check_direct_pattern(e1_root, e2_root, pattern):
@@ -612,7 +659,9 @@ def apply_patterns_entity_rooted(samples, patterns, nlp):
       2. For each pattern (sorted by priority):
          a. Check if pattern structure exists at entity roots
          b. Return first match
-      3. Default to "Other" if no match
+      3. If no pattern matched and entity type disambiguation is enabled,
+         use WordNet entity types to predict relation
+      4. Default to "Other" if no match and no entity type rule
 
     Args:
         samples: List of processed samples
@@ -633,6 +682,7 @@ def apply_patterns_entity_rooted(samples, patterns, nlp):
     stats = {
         'total_samples': len(samples),
         'matched': 0,
+        'entity_type_fallback': 0,  # NEW: predictions from entity type rules
         'default_other': 0,
         'pattern_usage': {},
         'matches_by_type': {},
@@ -641,11 +691,15 @@ def apply_patterns_entity_rooted(samples, patterns, nlp):
     }
 
     print(f"\nApplying {len(patterns)} patterns (entity-rooted) to {len(samples)} samples...")
+    if ENTITY_TYPE_DISAMBIGUATION_ENABLED and ENTITY_TYPE_DISAMBIGUATION_AVAILABLE:
+        print(f"  Entity type disambiguation: ENABLED ({len(ENTITY_TYPE_RELATION_RULES)} high-conf rules)")
 
     for sample in tqdm(samples, desc="Classifying"):
         doc = sample['doc']
         e1_root = sample['e1_span'].root
         e2_root = sample['e2_span'].root
+        e1_text = sample['e1_span'].text
+        e2_text = sample['e2_span'].text
 
         matched_pattern = None
 
@@ -696,6 +750,57 @@ def apply_patterns_entity_rooted(samples, patterns, nlp):
             # Track pattern usage
             pattern_id = matched_pattern['pattern_id']
             stats['pattern_usage'][pattern_id] = stats['pattern_usage'].get(pattern_id, 0) + 1
+        
+        # NEW: Entity type fallback when no pattern matched
+        elif ENTITY_TYPE_DISAMBIGUATION_ENABLED and ENTITY_TYPE_DISAMBIGUATION_AVAILABLE:
+            # Get entity types
+            e1_type = get_entity_type(e1_text)
+            e2_type = get_entity_type(e2_text)
+            type_pair = (e1_type, e2_type)
+            
+            # Check high-confidence rules first
+            if type_pair in ENTITY_TYPE_RELATION_RULES:
+                predicted_relation = ENTITY_TYPE_RELATION_RULES[type_pair]
+                predictions.append(predicted_relation)
+                # Extract direction from relation string like "Member-Collection(e2,e1)"
+                if '(' in predicted_relation:
+                    dir_str = predicted_relation.split('(')[1].rstrip(')')
+                    directions.append(dir_str)
+                else:
+                    directions.append(None)
+                explanations.append(
+                    f"Entity type rule: ({e1_type}, {e2_type}) -> {predicted_relation} "
+                    f"(high confidence, no pattern matched)"
+                )
+                stats['entity_type_fallback'] += 1
+                stats['matches_by_type']['ENTITY_TYPE'] = stats['matches_by_type'].get('ENTITY_TYPE', 0) + 1
+            
+            # Check medium-confidence rules
+            elif type_pair in ENTITY_TYPE_RELATION_RULES_MEDIUM:
+                predicted_relation = ENTITY_TYPE_RELATION_RULES_MEDIUM[type_pair]
+                predictions.append(predicted_relation)
+                if '(' in predicted_relation:
+                    dir_str = predicted_relation.split('(')[1].rstrip(')')
+                    directions.append(dir_str)
+                else:
+                    directions.append(None)
+                explanations.append(
+                    f"Entity type rule: ({e1_type}, {e2_type}) -> {predicted_relation} "
+                    f"(medium confidence, no pattern matched)"
+                )
+                stats['entity_type_fallback'] += 1
+                stats['matches_by_type']['ENTITY_TYPE_MEDIUM'] = stats['matches_by_type'].get('ENTITY_TYPE_MEDIUM', 0) + 1
+            
+            else:
+                # No entity type rule - default to Other
+                predictions.append('Other')
+                directions.append(None)
+                explanations.append(
+                    f'No pattern matched; entity types ({e1_type}, {e2_type}) have no rule; '
+                    f'defaulting to Other.'
+                )
+                stats['default_other'] += 1
+        
         else:
             predictions.append('Other')
             directions.append(None)
@@ -704,11 +809,13 @@ def apply_patterns_entity_rooted(samples, patterns, nlp):
 
     # Calculate statistics
     stats['match_rate'] = stats['matched'] / stats['total_samples'] if stats['total_samples'] > 0 else 0
+    stats['entity_type_rate'] = stats['entity_type_fallback'] / stats['total_samples'] if stats['total_samples'] > 0 else 0
     stats['default_rate'] = stats['default_other'] / stats['total_samples'] if stats['total_samples'] > 0 else 0
     stats['unique_patterns_used'] = len(stats['pattern_usage'])
 
     print(f"\nClassification complete!")
-    print(f"  Matched: {stats['matched']} ({stats['match_rate']:.1%})")
+    print(f"  Pattern matched: {stats['matched']} ({stats['match_rate']:.1%})")
+    print(f"  Entity type fallback: {stats['entity_type_fallback']} ({stats['entity_type_rate']:.1%})")
     print(f"  Default to Other: {stats['default_other']} ({stats['default_rate']:.1%})")
     print(f"  Unique patterns used: {stats['unique_patterns_used']}")
     print(f"  Matches by type: {stats['matches_by_type']}")

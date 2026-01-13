@@ -16,7 +16,12 @@ import json
 from ast import literal_eval
 from pathlib import Path
 
-from pattern_augmentation import filter_patterns_tiered, generate_passive_variants, sort_patterns
+from pattern_augmentation import (
+    filter_patterns_tiered,
+    filter_patterns_framenet_aware,
+    generate_passive_variants,
+    sort_patterns
+)
 
 
 def main() -> None:
@@ -48,6 +53,11 @@ def main() -> None:
     print(f"Candidate patterns: {len(pattern_counts)}")
 
     filtered_patterns = filter_patterns_tiered(pattern_counts, expanded_clusters)
+    print(f"After tiered filtering: {len(filtered_patterns)} patterns")
+
+    # FrameNet filtering DISABLED - was hurting accuracy
+    # framenet_filtered = filter_patterns_framenet_aware(filtered_patterns)
+    # print(f"After FrameNet validation: {len(framenet_filtered)} patterns")
 
     # Optional passive variants to improve recall on alternations.
     augmented_patterns = generate_passive_variants(filtered_patterns, min_precision_for_flip=0.75)

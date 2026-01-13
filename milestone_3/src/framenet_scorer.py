@@ -142,8 +142,9 @@ ROLE_EXPECTATIONS: Dict[str, List[Tuple[str, str, float]]] = {
 
 
 # Verb-to-frame mappings for common relation verbs
+# Expanded with 30+ additional verbs for better coverage
 VERB_FRAMES: Dict[str, List[str]] = {
-    # Causation verbs
+    # Causation verbs (expanded)
     "cause": ["Causation"],
     "trigger": ["Causation"],
     "create": ["Creating", "Causation"],
@@ -152,30 +153,102 @@ VERB_FRAMES: Dict[str, List[str]] = {
     "lead": ["Causation"],
     "result": ["Causation"],
     "bring": ["Causation", "Cause_motion"],
+    "affect": ["Objective_influence", "Causation"],
+    "impact": ["Objective_influence", "Causation"],
+    "influence": ["Objective_influence", "Causation"],
+    "prevent": ["Preventing", "Thwarting"],
+    "stop": ["Preventing", "Activity_stop"],
+    "enable": ["Causation", "Assistance"],
+    "force": ["Causation", "Cause_motion"],
+    "accelerate": ["Causation", "Change_position_on_a_scale"],
+    "hinder": ["Hindering", "Thwarting"],
+    "inhibit": ["Hindering", "Preventing"],
+    "suppress": ["Hindering", "Preventing"],
+    "promote": ["Causation", "Assistance"],
+    "facilitate": ["Assistance", "Causation"],
+    "induce": ["Causation"],
+    "spark": ["Causation"],
+    "block": ["Preventing", "Hindering"],
 
-    # Containment verbs
+    # Containment/Part-Whole verbs (expanded)
     "contain": ["Containing", "Part_whole"],
     "include": ["Inclusion", "Part_whole"],
     "hold": ["Containing"],
     "store": ["Storing", "Containing"],
+    "comprise": ["Part_whole", "Inclusion"],
+    "consist": ["Part_whole"],
+    "constitute": ["Part_whole"],
+    "form": ["Part_whole", "Creating"],
+    "encompass": ["Inclusion", "Part_whole"],
+    "embed": ["Containing", "Part_whole"],
+    "partition": ["Part_whole"],
+    "segment": ["Part_whole"],
 
-    # Origin verbs
+    # Origin verbs (expanded)
     "derive": ["Origin", "Source_of_getting"],
     "come": ["Origin", "Motion"],
     "originate": ["Origin", "Coming_to_be"],
     "stem": ["Origin"],
+    "descend": ["Origin", "Kinship"],
+    "evolve": ["Origin", "Progress"],
+    "develop": ["Origin", "Progress", "Creating"],
+    "spring": ["Origin"],
+    "emerge": ["Origin", "Coming_to_be"],
+    "arise": ["Origin", "Coming_to_be"],
 
     # Movement/destination verbs
     "move": ["Motion", "Cause_motion"],
     "go": ["Motion"],
     "send": ["Sending", "Cause_motion"],
     "travel": ["Motion"],
+    "transport": ["Cause_motion", "Bringing"],
+    "deliver": ["Bringing", "Sending"],
+    "ship": ["Sending", "Bringing"],
 
-    # Communication verbs
+    # Communication/Message-Topic verbs (expanded)
     "say": ["Statement", "Communication"],
     "tell": ["Telling", "Communication"],
     "describe": ["Communication", "Statement"],
     "report": ["Reporting", "Communication"],
+    "discuss": ["Discussion", "Communication", "Topic"],
+    "analyze": ["Scrutiny", "Communication"],
+    "address": ["Communication", "Topic"],
+    "mention": ["Statement", "Communication"],
+    "explain": ["Statement", "Communication"],
+    "explore": ["Scrutiny", "Research"],
+    "examine": ["Scrutiny", "Research"],
+    "investigate": ["Scrutiny", "Research"],
+    "review": ["Scrutiny", "Communication"],
+    "treat": ["Topic", "Communication"],
+    "cover": ["Topic", "Communication"],
+
+    # Instrument-Agency verbs (new)
+    "use": ["Using", "Tool_purpose"],
+    "apply": ["Using", "Cause_to_make_progress"],
+    "employ": ["Using", "Employing"],
+    "operate": ["Operating_a_system", "Using"],
+    "activate": ["Change_operational_state", "Causation"],
+    "handle": ["Manipulation", "Using"],
+    "utilize": ["Using"],
+    "wield": ["Using", "Manipulation"],
+
+    # Product-Producer verbs (new)
+    "make": ["Manufacturing", "Creating"],
+    "manufacture": ["Manufacturing"],
+    "build": ["Building", "Creating"],
+    "construct": ["Building", "Creating"],
+    "design": ["Intentionally_create", "Creating"],
+    "invent": ["Intentionally_create", "Creating"],
+    "write": ["Text_creation", "Creating"],
+    "compose": ["Text_creation", "Creating"],
+
+    # Member-Collection verbs (new)
+    "belong": ["Membership"],
+    "join": ["Becoming_a_member"],
+    "collect": ["Gathering_up"],
+    "gather": ["Gathering_up"],
+    "group": ["Categorization"],
+    "assemble": ["Gathering_up", "Building"],
 }
 
 

@@ -33,6 +33,85 @@ def get_directed_label(item):
     return f"{rel_type}({direction})"
 
 
+def evaluate_coverage(train_processed, train_data, patterns, nlp, mode="entity-rooted"):
+    """
+    Evaluate patterns on preprocessed data.
+    
+    This function is designed to be importable from notebooks for evaluation.
+    
+    Args:
+        train_processed: List of preprocessed samples (from preprocess_data)
+        train_data: Original training data (for labels)
+        patterns: List of pattern dictionaries
+        nlp: spaCy model
+        mode: "entity-rooted" (default) or "dependency"
+        
+    Returns:
+        dict: Evaluation results containing:
+            - predictions: List of predicted labels
+            - true_labels: List of ground truth labels
+            - stats: Matching statistics
+            - metrics: Computed metrics (accuracy, coverage, etc.)
+            - per_relation: Per-relation accuracy breakdown
+    """
+    # Apply patterns based on mode
+    if mode == "dependency":
+        dep_matcher, pattern_lookup = compile_dependency_matcher(patterns, nlp)
+        preds, dirs, expls, stats = apply_patterns_with_anchoring(
+            train_processed, dep_matcher, pattern_lookup, nlp
+        )
+    else:  # entity-rooted
+        preds, dirs, expls, stats = apply_patterns_entity_rooted(
+            train_processed, patterns, nlp
+        )
+    
+    # Get true labels
+    true_labels = [get_directed_label(item) for item in train_data]
+    
+    # Calculate metrics
+    correct = sum(1 for t, p in zip(true_labels, preds) if t == p)
+    matched = stats['matched']
+    total = len(train_data)
+    
+    accuracy = correct / total if total > 0 else 0
+    coverage = matched / total if total > 0 else 0
+    
+    # Per-relation accuracy
+    relation_stats = {}
+    for true, pred in zip(true_labels, preds):
+        if true not in relation_stats:
+            relation_stats[true] = {'total': 0, 'correct': 0}
+        relation_stats[true]['total'] += 1
+        if true == pred:
+            relation_stats[true]['correct'] += 1
+    
+    # Compute per-relation accuracy
+    per_relation = {}
+    for rel, rel_stats in relation_stats.items():
+        per_relation[rel] = {
+            'total': rel_stats['total'],
+            'correct': rel_stats['correct'],
+            'accuracy': rel_stats['correct'] / rel_stats['total'] if rel_stats['total'] > 0 else 0
+        }
+    
+    return {
+        'predictions': preds,
+        'directions': dirs,
+        'explanations': expls,
+        'true_labels': true_labels,
+        'stats': stats,
+        'metrics': {
+            'accuracy': accuracy,
+            'coverage': coverage,
+            'correct': correct,
+            'matched': matched,
+            'total': total,
+            'default_other': stats['default_other'],
+        },
+        'per_relation': per_relation,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description="Evaluate training set coverage and accuracy.")
     parser.add_argument("--limit", type=int, default=0, help="If set, evaluate only the first N samples (0 = all).")

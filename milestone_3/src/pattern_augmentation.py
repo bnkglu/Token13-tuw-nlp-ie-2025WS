@@ -42,12 +42,19 @@ def count_pattern_nodes(pattern_key):
         return 1
 
 
-# Relation-specific precision floors (moderately stricter for problematic relations)
+# Relation-specific precision floors (original values restored)
+# Lower thresholds = more patterns = better coverage but potentially more errors
 RELATION_MIN_PRECISION = {
-    "Other": 0.80,             # Stricter for Other patterns
-    "Component-Whole": 0.55,   # Slightly higher (was showing low accuracy)
-    "Entity-Origin": 0.55,     # Slightly higher
-    "Member-Collection": 0.55, # Slightly higher
+    "Other": 0.80,              # Strict for Other patterns
+    "Cause-Effect": 0.45,       # Original value
+    "Component-Whole": 0.55,    # Original value
+    "Entity-Origin": 0.55,      # Original value
+    "Member-Collection": 0.55,  # Original value
+    "Message-Topic": 0.50,      # Original value
+    "Instrument-Agency": 0.45,  # Original value
+    "Content-Container": 0.50,  # Original value
+    "Entity-Destination": 0.45, # Original value
+    "Product-Producer": 0.50,   # Original value
 }
 
 # Blacklisted anchors - too generic to be discriminative
@@ -86,6 +93,60 @@ def pattern_uses_generic_concept(pattern_key):
             tokens = pattern_key[1]
             return any(token[0].upper() in GENERIC_CONCEPTS for token in tokens)
     return False
+
+
+def filter_patterns_framenet_aware(patterns):
+    """
+    Filter TRIANGLE patterns to validate against FrameNet verb-frame mappings.
+
+    Patterns with anchor verbs that have known FrameNet frames are prioritized.
+    Patterns with anchor verbs that don't match their claimed relation's frames
+    are deprioritized (lower confidence).
+
+    Args:
+        patterns: List of pattern dicts
+
+    Returns:
+        Filtered list of patterns with adjusted confidence
+    """
+    try:
+        from framenet_scorer import VERB_FRAMES, get_relation_frames
+    except ImportError:
+        # FrameNet not available, return patterns unchanged
+        return patterns
+
+    filtered = []
+    for pattern in patterns:
+        # Only check TRIANGLE patterns (they have anchor verbs)
+        if pattern.get('pattern_type') == 'TRIANGLE':
+            pattern_key = pattern.get('pattern_key', [])
+            if len(pattern_key) >= 2:
+                anchor_lemma = pattern_key[1]
+                relation = pattern.get('relation', '').split('(')[0]
+
+                # Check if anchor is in VERB_FRAMES
+                if anchor_lemma in VERB_FRAMES:
+                    verb_frames = VERB_FRAMES[anchor_lemma]
+                    relation_frames = get_relation_frames(relation)
+
+                    # Check frame overlap
+                    if any(vf in relation_frames for vf in verb_frames):
+                        # Good match - verb evokes frames for this relation
+                        pattern['framenet_validated'] = True
+                        filtered.append(pattern)
+                        continue
+                    else:
+                        # Verb known but doesn't match relation's frames
+                        # Reduce precision as penalty
+                        pattern['precision'] = pattern.get('precision', 0.5) * 0.85
+                        pattern['framenet_validated'] = False
+                        filtered.append(pattern)
+                        continue
+
+        # Keep non-TRIANGLE patterns or patterns with unknown anchors
+        filtered.append(pattern)
+
+    return filtered
 
 
 def filter_patterns_tiered(pattern_counts, concept_clusters, min_global_support=1):
