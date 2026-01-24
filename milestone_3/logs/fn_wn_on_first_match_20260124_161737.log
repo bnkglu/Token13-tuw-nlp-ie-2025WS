@@ -1,0 +1,934 @@
+================================================================================
+STATISTICAL RULE-BASED SYSTEM - SemEval 2010 Task 8
+================================================================================
+Configuration:
+  --use-semantics:   True
+  --prediction-mode: first_match
+================================================================================
+
+Loading spaCy model...
+Libraries loaded successfully!
+spaCy version: 3.8.7
+Downloading NLTK resources...
+✓ NLTK resources loaded.
+
+Current working directory: /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/statistical_rule_based_system
+Script directory: /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/statistical_rule_based_system
+Project root: /Users/berke/Token13-tuw-nlp-ie-2025WS
+Output directory: /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/03_fn_wn_on_first_match
+
+Loading datasets...
+Training samples: 8000
+Test samples: 2717
+Processing data...
+
+Processing:   0%|          | 0/8000 [00:00<?, ?it/s]Processing:  12%|█▏        | 938/8000 [00:00<00:00, 9378.20it/s]Processing:  29%|██▊       | 2298/8000 [00:00<00:00, 11857.91it/s]Processing:  47%|████▋     | 3761/8000 [00:00<00:00, 13121.84it/s]Processing:  64%|██████▍   | 5157/8000 [00:00<00:00, 13451.18it/s]Processing:  83%|████████▎ | 6630/8000 [00:00<00:00, 13910.93it/s]Processing: 100%|██████████| 8000/8000 [00:00<00:00, 13488.17it/s]
+
+Processing test data...
+Processing:   0%|          | 0/2717 [00:00<?, ?it/s]Processing:  55%|█████▍    | 1483/2717 [00:00<00:00, 14818.57it/s]Processing: 100%|██████████| 2717/2717 [00:00<00:00, 15176.47it/s]
+
+Processed 8000 training samples
+Processed 2717 test samples
+
+================================================================================
+Sample output:
+================================================================================
+Text: The system as described above has its greatest application in an arrayed configuration of antenna elements.
+Entity 1: configuration (POS: NOUN, DEP: pobj)
+Entity 2: elements (POS: NOUN, DEP: pobj)
+Relation: Component-Whole
+
+Dependency path: [('pobj', 'NOUN', 'configuration'), ('prep', 'ADP', 'of'), ('pobj', 'NOUN', 'element')]...
+Between words: ['of', 'antenna']
+
+================================================================================
+GENERATING DATA-DRIVEN PATTERNS
+Top features per relation extracted from analysis
+================================================================================
+
+Cause-Effect(e1,e2):
+  Keywords (30): ['cause', 'result', 'lead', 'produce', 'water', 'people', 'stress', 'common', 'make', 'skin']
+  Verbs (15): ['cause', 'result', 'produce', 'lead', 'make', 'increase', 'give', 'have', 'emit', 'contain', 'use', 'take', 'radiate', 'trigger', 'help']
+  Preps (10): ['of', 'in', 'on', 'to', 'for', 'with', 'by', 'from', 'at', 'as']
+  Dep patterns: 5 patterns extracted
+
+Cause-Effect(e2,e1):
+  Keywords (30): ['cause', 'come', 'trigger', 'year', 'time', 'generate', 'result', 'people', 'find', 'produce']
+  Verbs (15): ['cause', 'come', 'trigger', 'have', 'make', 'get', 'generate', 'take', 'find', 'produce', 'follow', 'use', 'help', 'see', 'reduce']
+  Preps (10): ['of', 'by', 'from', 'in', 'to', 'with', 'for', 'on', 'after', 'as']
+  Dep patterns: 5 patterns extracted
+
+Component-Whole(e1,e2):
+  Keywords (30): ['inside', 'hand', 'show', 'form', 'small', 'right', 'good', 'connect', 'hold', 'see']
+  Verbs (15): ['use', 'have', 'make', 'show', 'see', 'connect', 'hold', 'take', 'form', 'provide', 'find', 'locate', 'set', 'come', 'appear']
+  Preps (10): ['of', 'in', 'on', 'to', 'with', 'from', 'at', 'for', 'by', 'as']
+  Dep patterns: 5 patterns extracted
+
+Component-Whole(e2,e1):
+  Keywords (30): ['comprise', 'contain', 'include', 'large', 'like', 'time', 'open', 'consist', 'end', 'year']
+  Verbs (15): ['have', 'comprise', 'contain', 'include', 'use', 'make', 'consist', 'move', 'compose', 'provide', 'take', 'show', 'develop', 'hold', 'open']
+  Preps (10): ['of', 'with', 'in', 'on', 'for', 'to', 'from', 'by', 'at', 'as']
+  Dep patterns: 5 patterns extracted
+
+Content-Container(e1,e2):
+  Keywords (30): ['inside', 'contain', 'store', 'find', 'enclose', 'lock', 'hide', 'discover', 'place', 'plastic']
+  Verbs (15): ['contain', 'store', 'find', 'enclose', 'lock', 'hide', 'discover', 'keep', 'use', 'place', 'see', 'put', 'seal', 'have', 'make']
+  Preps (10): ['in', 'of', 'inside', 'with', 'to', 'on', 'for', 'at', 'from', 'by']
+  Dep patterns: 5 patterns extracted
+
+Content-Container(e2,e1):
+  Keywords (30): ['contain', 'find', 'content', 'inside', 'give', 'fill', 'include', 'hold', 'small', 'carry']
+  Verbs (15): ['contain', 'find', 'give', 'have', 'fill', 'include', 'hold', 'carry', 'bring', 'put', 'take', 'pull', 'get', 'make', 'leave']
+  Preps (10): ['of', 'in', 'with', 'on', 'to', 'at', 'out', 'as', 'for', 'from']
+  Dep patterns: 5 patterns extracted
+
+Entity-Destination(e1,e2):
+  Keywords (30): ['place', 'pour', 'move', 'new', 'send', 'inside', 'release', 'migrate', 'drop', 'add']
+  Verbs (15): ['put', 'place', 'pour', 'move', 'send', 'release', 'migrate', 'add', 'drop', 'deliver', 'arrive', 'insert', 'spread', 'take', 'throw']
+  Preps (10): ['into', 'to', 'in', 'of', 'for', 'on', 'with', 'by', 'inside', 'from']
+  Dep patterns: 5 patterns extracted
+
+Entity-Destination(e2,e1):
+  Keywords (9): ['stainless', 'steel', 'fill', 'pressure', 'outer', 'volume', 'chamber', 'keep', 'steady']
+  Verbs (2): ['fill', 'keep']
+  Preps (3): ['with', 'in', 'of']
+  Dep patterns: 1 patterns extracted
+
+Entity-Origin(e1,e2):
+  Keywords (30): ['away', 'come', 'leave', 'derive', 'run', 'arrive', 'distil', 'originate', 'like', 'get']
+  Verbs (15): ['come', 'make', 'leave', 'derive', 'run', 'distil', 'arrive', 'originate', 'have', 'get', 'take', 'fall', 'pop', 'use', 'depart']
+  Preps (10): ['from', 'of', 'in', 'to', 'on', 'with', 'by', 'out', 'for', 'as']
+  Dep patterns: 5 patterns extracted
+
+Entity-Origin(e2,e1):
+  Keywords (30): ['farm', 'source', 'beer', 'flavor', 'drink', 'ago', 'ingredient', 'year', 'high', 'time']
+  Verbs (15): ['make', 'use', 'have', 'farm', 'give', 'find', 'taste', 'drink', 'produce', 'extract', 'become', 'add', 'come', 'include', 'see']
+  Preps (10): ['of', 'in', 'for', 'with', 'from', 'to', 'as', 'on', 'at', 'by']
+  Dep patterns: 5 patterns extracted
+
+Instrument-Agency(e1,e2):
+  Keywords (30): ['good', 'order', 'power', 'tool', 'drive', 'hand', 'string', 'need', 'way', 'purpose']
+  Verbs (15): ['use', 'power', 'drive', 'have', 'help', 'let', 'need', 'make', 'assist', 'determine', 'take', 'refer', 'work', 'produce', 'start']
+  Preps (10): ['of', 'in', 'by', 'for', 'to', 'as', 'on', 'with', 'from', 'at']
+  Dep patterns: 5 patterns extracted
+
+Instrument-Agency(e2,e1):
+  Keywords (30): ['use', 'apply', 'take', 'time', 'create', 'work', 'help', 'hand', 'kill', 'order']
+  Verbs (15): ['use', 'take', 'apply', 'create', 'make', 'kill', 'show', 'have', 'attach', 'wield', 'find', 'build', 'hold', 'allow', 'pull']
+  Preps (10): ['with', 'of', 'in', 'to', 'on', 'by', 'from', 'for', 'at', 'through']
+  Dep patterns: 5 patterns extracted
+
+Member-Collection(e1,e2):
+  Keywords (30): ['member', 'new', 'state', 'collect', 'role', 'way', 'provide', 'feel', 'gather', 'family']
+  Verbs (15): ['have', 'take', 'collect', 'become', 'provide', 'feel', 'gather', 'join', 'fall', 'use', 'play', 'rule', 'score', 'perform', 'entitle']
+  Preps (10): ['of', 'in', 'as', 'to', 'from', 'on', 'for', 'at', 'by', 'with']
+  Dep patterns: 5 patterns extracted
+
+Member-Collection(e2,e1):
+  Keywords (30): ['large', 'new', 'like', 'small', 'year', 'great', 'day', 'work', 'find', 'take']
+  Verbs (15): ['have', 'take', 'make', 'see', 'find', 'come', 'look', 'include', 'live', 'consist', 'bring', 'work', 'use', 'become', 'pass']
+  Preps (10): ['of', 'in', 'with', 'to', 'on', 'for', 'by', 'from', 'as', 'at']
+  Dep patterns: 5 patterns extracted
+
+Message-Topic(e1,e2):
+  Keywords (30): ['new', 'concern', 'give', 'describe', 'set', 'present', 'explain', 'relate', 'focus', 'point']
+  Verbs (15): ['make', 'give', 'have', 'concern', 'describe', 'explain', 'relate', 'contain', 'provide', 'discuss', 'define', 'use', 'inform', 'focus', 'present']
+  Preps (10): ['of', 'in', 'to', 'on', 'with', 'about', 'for', 'by', 'as', 'from']
+  Dep patterns: 5 patterns extracted
+
+Message-Topic(e2,e1):
+  Keywords (30): ['subject', 'topic', 'early', 'reflect', 'discuss', 'previous', 'describe', 'new', 'relate', 'form']
+  Verbs (15): ['reflect', 'discuss', 'become', 'describe', 'make', 'relate', 'form', 'present', 'publish', 'document', 'summarise', 'receive', 'define', 'analyse', 'follow']
+  Preps (10): ['in', 'of', 'to', 'by', 'on', 'for', 'from', 'at', 'with', 'about']
+  Dep patterns: 5 patterns extracted
+
+Other:
+  Keywords (30): ['year', 'new', 'inside', 'time', 'make', 'start', 'work', 'take', 'come', 'great']
+  Verbs (15): ['make', 'use', 'have', 'take', 'start', 'come', 'see', 'keep', 'give', 'show', 'produce', 'contain', 'run', 'find', 'work']
+  Preps (10): ['of', 'in', 'with', 'to', 'from', 'for', 'into', 'by', 'on', 'at']
+  Dep patterns: 5 patterns extracted
+
+Product-Producer(e1,e2):
+  Keywords (30): ['produce', 'write', 'new', 'create', 'year', 'build', 'come', 'work', 'find', 'book']
+  Verbs (15): ['make', 'produce', 'write', 'create', 'build', 'come', 'name', 'use', 'find', 'know', 'develop', 'found', 'put', 'work', 'take']
+  Preps (10): ['by', 'of', 'in', 'from', 'for', 'on', 'with', 'as', 'to', 'at']
+  Dep patterns: 5 patterns extracted
+
+Product-Producer(e2,e1):
+  Keywords (30): ['produce', 'create', 'year', 'make', 'build', 'complete', 'come', 'new', 'write', 'work']
+  Verbs (15): ['make', 'produce', 'create', 'use', 'build', 'complete', 'come', 'write', 'construct', 'put', 'start', 'work', 'know', 'develop', 'dig']
+  Preps (10): ['of', 'in', 'for', 'to', 'with', 'on', 'from', 'by', 'up', 'into']
+  Dep patterns: 5 patterns extracted
+
+================================================================================
+Data-driven patterns generated successfully!
+These patterns are based on actual frequency analysis of the training data.
+================================================================================
+
+Step 1: Mining patterns from training data...
+Extracting patterns:   0%|          | 0/8000 [00:00<?, ?it/s]Extracting patterns:   0%|          | 9/8000 [00:00<01:28, 89.95it/s]Extracting patterns:   0%|          | 18/8000 [00:00<01:29, 89.22it/s]Extracting patterns:   0%|          | 27/8000 [00:00<01:29, 89.41it/s]Extracting patterns:   1%|          | 44/8000 [00:00<01:06, 119.77it/s]Extracting patterns:   1%|          | 67/8000 [00:00<00:52, 150.94it/s]Extracting patterns:   1%|          | 82/8000 [00:00<01:00, 130.40it/s]Extracting patterns:   1%|          | 96/8000 [00:00<01:09, 113.07it/s]Extracting patterns:   2%|▏         | 124/8000 [00:00<00:52, 150.66it/s]Extracting patterns:   2%|▏         | 140/8000 [00:01<00:57, 136.90it/s]Extracting patterns:   2%|▏         | 155/8000 [00:01<00:56, 140.03it/s]Extracting patterns:   2%|▏         | 172/8000 [00:01<00:53, 147.27it/s]Extracting patterns:   2%|▏         | 191/8000 [00:01<00:49, 158.63it/s]Extracting patterns:   3%|▎         | 217/8000 [00:01<00:42, 185.12it/s]Extracting patterns:   3%|▎         | 236/8000 [00:01<00:48, 159.32it/s]Extracting patterns:   3%|▎         | 253/8000 [00:01<00:52, 146.25it/s]Extracting patterns:   3%|▎         | 278/8000 [00:01<00:44, 171.61it/s]Extracting patterns:   4%|▎         | 299/8000 [00:02<00:42, 180.42it/s]Extracting patterns:   4%|▍         | 328/8000 [00:02<00:36, 209.61it/s]Extracting patterns:   4%|▍         | 355/8000 [00:02<00:33, 225.94it/s]Extracting patterns:   5%|▍         | 383/8000 [00:02<00:31, 240.39it/s]Extracting patterns:   5%|▌         | 424/8000 [00:02<00:26, 288.21it/s]Extracting patterns:   6%|▌         | 454/8000 [00:02<00:27, 279.10it/s]Extracting patterns:   6%|▌         | 483/8000 [00:02<00:27, 270.58it/s]Extracting patterns:   6%|▋         | 511/8000 [00:02<00:29, 252.00it/s]Extracting patterns:   7%|▋         | 567/8000 [00:02<00:22, 333.59it/s]Extracting patterns:   8%|▊         | 602/8000 [00:02<00:21, 336.93it/s]Extracting patterns:   8%|▊         | 637/8000 [00:03<00:23, 314.15it/s]Extracting patterns:   8%|▊         | 670/8000 [00:03<00:27, 266.69it/s]Extracting patterns:   9%|▉         | 710/8000 [00:03<00:24, 297.73it/s]Extracting patterns:   9%|▉         | 742/8000 [00:03<00:24, 291.94it/s]Extracting patterns:  10%|▉         | 783/8000 [00:03<00:22, 321.90it/s]Extracting patterns:  10%|█         | 833/8000 [00:03<00:19, 368.14it/s]Extracting patterns:  11%|█         | 872/8000 [00:03<00:22, 322.79it/s]Extracting patterns:  11%|█▏        | 907/8000 [00:03<00:22, 318.43it/s]Extracting patterns:  12%|█▏        | 981/8000 [00:04<00:16, 424.98it/s]Extracting patterns:  13%|█▎        | 1063/8000 [00:04<00:13, 528.69it/s]Extracting patterns:  14%|█▍        | 1119/8000 [00:04<00:14, 462.84it/s]Extracting patterns:  15%|█▍        | 1169/8000 [00:04<00:14, 470.90it/s]Extracting patterns:  15%|█▌        | 1219/8000 [00:04<00:15, 429.65it/s]Extracting patterns:  16%|█▋        | 1302/8000 [00:04<00:13, 508.53it/s]Extracting patterns:  17%|█▋        | 1376/8000 [00:04<00:11, 565.46it/s]Extracting patterns:  18%|█▊        | 1435/8000 [00:05<00:14, 439.30it/s]Extracting patterns:  19%|█▉        | 1506/8000 [00:05<00:13, 482.65it/s]Extracting patterns:  20%|█▉        | 1560/8000 [00:05<00:13, 494.46it/s]Extracting patterns:  20%|██        | 1630/8000 [00:05<00:11, 544.20it/s]Extracting patterns:  21%|██        | 1688/8000 [00:05<00:11, 553.59it/s]Extracting patterns:  22%|██▏       | 1753/8000 [00:05<00:10, 577.21it/s]Extracting patterns:  23%|██▎       | 1826/8000 [00:05<00:10, 616.73it/s]Extracting patterns:  24%|██▎       | 1894/8000 [00:05<00:09, 632.97it/s]Extracting patterns:  24%|██▍       | 1959/8000 [00:05<00:11, 547.48it/s]Extracting patterns:  25%|██▌       | 2026/8000 [00:05<00:10, 576.70it/s]Extracting patterns:  26%|██▌       | 2086/8000 [00:06<00:10, 559.14it/s]Extracting patterns:  27%|██▋       | 2144/8000 [00:06<00:10, 563.10it/s]Extracting patterns:  28%|██▊       | 2204/8000 [00:06<00:10, 570.03it/s]Extracting patterns:  29%|██▊       | 2299/8000 [00:06<00:08, 671.81it/s]Extracting patterns:  30%|██▉       | 2373/8000 [00:06<00:08, 688.30it/s]Extracting patterns:  31%|███       | 2443/8000 [00:06<00:08, 689.21it/s]Extracting patterns:  31%|███▏      | 2513/8000 [00:06<00:07, 688.90it/s]Extracting patterns:  32%|███▏      | 2583/8000 [00:06<00:07, 690.23it/s]Extracting patterns:  33%|███▎      | 2653/8000 [00:06<00:08, 663.62it/s]Extracting patterns:  34%|███▍      | 2727/8000 [00:07<00:07, 682.93it/s]Extracting patterns:  35%|███▍      | 2796/8000 [00:07<00:07, 682.13it/s]Extracting patterns:  36%|███▌      | 2865/8000 [00:07<00:07, 655.95it/s]Extracting patterns:  37%|███▋      | 2960/8000 [00:07<00:06, 734.72it/s]Extracting patterns:  38%|███▊      | 3058/8000 [00:07<00:06, 797.45it/s]Extracting patterns:  39%|███▉      | 3147/8000 [00:07<00:05, 820.37it/s]Extracting patterns:  41%|████▏     | 3317/8000 [00:07<00:04, 1064.79it/s]Extracting patterns:  43%|████▎     | 3444/8000 [00:07<00:04, 1113.62it/s]Extracting patterns:  45%|████▍     | 3566/8000 [00:07<00:03, 1135.00it/s]Extracting patterns:  47%|████▋     | 3731/8000 [00:07<00:03, 1270.49it/s]Extracting patterns:  48%|████▊     | 3859/8000 [00:08<00:03, 1205.04it/s]Extracting patterns:  50%|█████     | 4033/8000 [00:08<00:02, 1336.20it/s]Extracting patterns:  52%|█████▏    | 4168/8000 [00:08<00:03, 971.25it/s] Extracting patterns:  54%|█████▍    | 4344/8000 [00:08<00:03, 1136.06it/s]Extracting patterns:  56%|█████▌    | 4472/8000 [00:08<00:03, 996.74it/s] Extracting patterns:  57%|█████▋    | 4587/8000 [00:08<00:03, 1027.52it/s]Extracting patterns:  59%|█████▉    | 4700/8000 [00:08<00:03, 920.64it/s] Extracting patterns:  60%|██████    | 4800/8000 [00:09<00:03, 929.24it/s]Extracting patterns:  62%|██████▏   | 4928/8000 [00:09<00:03, 1008.60it/s]Extracting patterns:  63%|██████▎   | 5066/8000 [00:09<00:02, 1093.06it/s]Extracting patterns:  65%|██████▌   | 5232/8000 [00:09<00:02, 1229.01it/s]Extracting patterns:  67%|██████▋   | 5365/8000 [00:09<00:02, 1246.00it/s]Extracting patterns:  69%|██████▊   | 5493/8000 [00:09<00:02, 1242.81it/s]Extracting patterns:  70%|███████   | 5620/8000 [00:09<00:02, 1071.68it/s]Extracting patterns:  72%|███████▏  | 5764/8000 [00:09<00:01, 1151.24it/s]Extracting patterns:  74%|███████▍  | 5919/8000 [00:09<00:01, 1243.38it/s]Extracting patterns:  76%|███████▌  | 6072/8000 [00:10<00:01, 1297.70it/s]Extracting patterns:  78%|███████▊  | 6258/8000 [00:10<00:01, 1377.99it/s]Extracting patterns:  80%|███████▉  | 6398/8000 [00:10<00:01, 1372.38it/s]Extracting patterns:  82%|████████▏ | 6537/8000 [00:10<00:01, 1142.35it/s]Extracting patterns:  83%|████████▎ | 6658/8000 [00:10<00:01, 1153.68it/s]Extracting patterns:  86%|████████▌ | 6847/8000 [00:10<00:00, 1329.90it/s]Extracting patterns:  88%|████████▊ | 7030/8000 [00:10<00:00, 1443.76it/s]Extracting patterns:  90%|████████▉ | 7179/8000 [00:10<00:00, 1336.25it/s]Extracting patterns:  91%|█████████▏| 7317/8000 [00:11<00:00, 1310.76it/s]Extracting patterns:  93%|█████████▎| 7479/8000 [00:11<00:00, 1378.76it/s]Extracting patterns:  95%|█████████▌| 7636/8000 [00:11<00:00, 1418.70it/s]Extracting patterns:  98%|█████████▊| 7801/8000 [00:11<00:00, 1468.14it/s]Extracting patterns:  99%|█████████▉| 7950/8000 [00:11<00:00, 1305.67it/s]Extracting patterns: 100%|██████████| 8000/8000 [00:11<00:00, 693.90it/s] 
+Learned 111 frame-relation mappings
+Pattern extraction complete.
+
+Step 2: Filtering by precision >= 0.6 and support >= 2...
+DEBUG: Processing type LEMMA, 4388 candidates
+DEBUG: Type LEMMA: Kept 447 rules
+DEBUG: Processing type BIGRAM, 10402 candidates
+DEBUG: Type BIGRAM: Kept 953 rules
+DEBUG: Processing type PREP, 48 candidates
+DEBUG: Type PREP: Kept 8 rules
+DEBUG: Processing type BEFORE_E1, 1534 candidates
+DEBUG: Type BEFORE_E1: Kept 113 rules
+DEBUG: Processing type AFTER_E2, 588 candidates
+DEBUG: Type AFTER_E2: Kept 32 rules
+DEBUG: Processing type ENTITY_POS, 16 candidates
+DEBUG: Type ENTITY_POS: Kept 2 rules
+DEBUG: Processing type DEP_VERB, 214 candidates
+DEBUG: Type DEP_VERB: Kept 78 rules
+DEBUG: Processing type DEP_LABELS, 154 candidates
+DEBUG: Type DEP_LABELS: Kept 18 rules
+DEBUG: Processing type SYNSET, 683 candidates
+DEBUG: Type SYNSET: Kept 176 rules
+DEBUG: Processing type LEXNAME, 15 candidates
+DEBUG: Type LEXNAME: Kept 0 rules
+DEBUG: Processing type HYPERNYM, 6935 candidates
+DEBUG: Type HYPERNYM: Kept 391 rules
+DEBUG: Processing type FRAME, 543 candidates
+DEBUG: Type FRAME: Kept 124 rules
+DEBUG: Processing type PREP_STRUCT_LEXNAME, 5040 candidates
+DEBUG: Type PREP_STRUCT_LEXNAME: Kept 414 rules
+DEBUG: Processing type PREP_STRUCT_HYPERNYM, 5688 candidates
+DEBUG: Type PREP_STRUCT_HYPERNYM: Kept 78 rules
+DEBUG: Processing type PREP_STRUCT, 3230 candidates
+DEBUG: Type PREP_STRUCT: Kept 587 rules
+DEBUG: Processing type PREP_GOV_LEX, 443 candidates
+DEBUG: Type PREP_GOV_LEX: Kept 118 rules
+DEBUG: Processing type PREP_ROLES, 375 candidates
+DEBUG: Type PREP_ROLES: Kept 66 rules
+Created 3605 rules after filtering
+
+Discovered 3605 high-quality rules
+
+Top 10 rules:
+====================================================================================================
+Relation                  Type            Precision    Support    Pattern
+----------------------------------------------------------------------------------------------------
+Cause-Effect(e1,e2)       BIGRAM          1.000        27         (('cause', 'of'),)
+Cause-Effect(e2,e1)       BIGRAM          1.000        25         (('trigger', 'by'),)
+Entity-Destination(e1,e2) PREP_STRUCT     1.000        21         ('into', 'migrate', 'nsubj', 'prep')
+Cause-Effect(e1,e2)       BIGRAM          1.000        20         (('cause', 'the'),)
+Cause-Effect(e1,e2)       PREP_STRUCT     1.000        20         ('in', 'result', 'nsubj', 'prep')
+Cause-Effect(e1,e2)       BIGRAM          1.000        18         (('that', 'cause'),)
+Cause-Effect(e1,e2)       PREP_STRUCT     1.000        16         ('of', 'one', 'none', 'prep')
+Cause-Effect(e2,e1)       PREP_STRUCT     1.000        16         ('by', 'trigger', 'none', 'agent')
+Entity-Origin(e1,e2)      BIGRAM          1.000        15         (('arrive', 'from'),)
+Entity-Origin(e1,e2)      PREP_STRUCT     1.000        15         ('from', 'arrive', 'nsubj', 'prep')
+
+====================================================================================================
+TOP RULES BY RELATION TYPE (for Explainability)
+====================================================================================================
+
+====================================================================================================
+Relation: Cause-Effect(e1,e2) (166 total rules)
+====================================================================================================
+
+  Rule 1: Cause-Effect(e1,e2)_BIGRAM_481
+    Type: BIGRAM
+    Precision: 1.000 | Support: 27
+    Pattern Data: (('cause', 'of'),)
+
+  Rule 2: Cause-Effect(e1,e2)_BIGRAM_487
+    Type: BIGRAM
+    Precision: 1.000 | Support: 20
+    Pattern Data: (('cause', 'the'),)
+
+  Rule 3: Cause-Effect(e1,e2)_PREP_STRUCT_2972
+    Type: PREP_STRUCT
+    Precision: 1.000 | Support: 20
+    Pattern Data: ('in', 'result', 'nsubj', 'prep')
+
+====================================================================================================
+Relation: Cause-Effect(e2,e1) (311 total rules)
+====================================================================================================
+
+  Rule 1: Cause-Effect(e2,e1)_BIGRAM_510
+    Type: BIGRAM
+    Precision: 1.000 | Support: 25
+    Pattern Data: (('trigger', 'by'),)
+
+  Rule 2: Cause-Effect(e2,e1)_PREP_STRUCT_2858
+    Type: PREP_STRUCT
+    Precision: 1.000 | Support: 16
+    Pattern Data: ('by', 'trigger', 'none', 'agent')
+
+  Rule 3: Cause-Effect(e2,e1)_PREP_STRUCT_LEXNAME_2361
+    Type: PREP_STRUCT_LEXNAME
+    Precision: 1.000 | Support: 10
+    Pattern Data: ('by', 'cause', 'none', 'agent', 'noun.state', 'noun.state')
+
+====================================================================================================
+Relation: Component-Whole(e1,e2) (165 total rules)
+====================================================================================================
+
+  Rule 1: Component-Whole(e1,e2)_BIGRAM_816
+    Type: BIGRAM
+    Precision: 1.000 | Support: 7
+    Pattern Data: (('good', 'part'),)
+
+  Rule 2: Component-Whole(e1,e2)_PREP_STRUCT_LEXNAME_2662
+    Type: PREP_STRUCT_LEXNAME
+    Precision: 1.000 | Support: 5
+    Pattern Data: ('of', 'part', 'none', 'prep', 'noun.body', 'noun.body')
+
+  Rule 3: Component-Whole(e1,e2)_HYPERNYM_2043
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 4
+    Pattern Data: ('form.n.01', 'woody_plant.n.01')
+
+====================================================================================================
+Relation: Component-Whole(e2,e1) (136 total rules)
+====================================================================================================
+
+  Rule 1: Component-Whole(e2,e1)_BIGRAM_812
+    Type: BIGRAM
+    Precision: 1.000 | Support: 8
+    Pattern Data: (('comprise', 'a'),)
+
+  Rule 2: Component-Whole(e2,e1)_BIGRAM_709
+    Type: BIGRAM
+    Precision: 1.000 | Support: 7
+    Pattern Data: (('have', 'two'),)
+
+  Rule 3: Component-Whole(e2,e1)_BIGRAM_1269
+    Type: BIGRAM
+    Precision: 1.000 | Support: 5
+    Pattern Data: (('include', 'the'),)
+
+====================================================================================================
+Relation: Content-Container(e1,e2) (170 total rules)
+====================================================================================================
+
+  Rule 1: Content-Container(e1,e2)_BIGRAM_521
+    Type: BIGRAM
+    Precision: 1.000 | Support: 14
+    Pattern Data: (('be', 'hide'),)
+
+  Rule 2: Content-Container(e1,e2)_BIGRAM_522
+    Type: BIGRAM
+    Precision: 1.000 | Support: 14
+    Pattern Data: (('hide', 'in'),)
+
+  Rule 3: Content-Container(e1,e2)_PREP_STRUCT_LEXNAME_2374
+    Type: PREP_STRUCT_LEXNAME
+    Precision: 1.000 | Support: 11
+    Pattern Data: ('in', 'contain', 'nsubjpass', 'prep', 'noun.substance', 'noun.artifact')
+
+====================================================================================================
+Relation: Content-Container(e2,e1) (52 total rules)
+====================================================================================================
+
+  Rule 1: Content-Container(e2,e1)_PREP_STRUCT_LEXNAME_2375
+    Type: PREP_STRUCT_LEXNAME
+    Precision: 1.000 | Support: 12
+    Pattern Data: ('of', 'full', 'none', 'prep', 'noun.artifact', 'noun.food')
+
+  Rule 2: Content-Container(e2,e1)_PREP_STRUCT_LEXNAME_2481
+    Type: PREP_STRUCT_LEXNAME
+    Precision: 1.000 | Support: 12
+    Pattern Data: ('of', 'full', 'none', 'prep', 'noun.artifact', 'noun.substance')
+
+  Rule 3: Content-Container(e2,e1)_HYPERNYM_2044
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 6
+    Pattern Data: ('vessel.n.03', 'binary_compound.n.01')
+
+====================================================================================================
+Relation: Entity-Destination(e1,e2) (500 total rules)
+====================================================================================================
+
+  Rule 1: Entity-Destination(e1,e2)_PREP_STRUCT_2895
+    Type: PREP_STRUCT
+    Precision: 1.000 | Support: 21
+    Pattern Data: ('into', 'migrate', 'nsubj', 'prep')
+
+  Rule 2: Entity-Destination(e1,e2)_BIGRAM_577
+    Type: BIGRAM
+    Precision: 1.000 | Support: 12
+    Pattern Data: (('release', 'into'),)
+
+  Rule 3: Entity-Destination(e1,e2)_PREP_STRUCT_2958
+    Type: PREP_STRUCT
+    Precision: 1.000 | Support: 12
+    Pattern Data: ('to', 'send', 'nsubjpass', 'prep')
+
+====================================================================================================
+Relation: Entity-Origin(e1,e2) (303 total rules)
+====================================================================================================
+
+  Rule 1: Entity-Origin(e1,e2)_BIGRAM_605
+    Type: BIGRAM
+    Precision: 1.000 | Support: 15
+    Pattern Data: (('arrive', 'from'),)
+
+  Rule 2: Entity-Origin(e1,e2)_PREP_STRUCT_2917
+    Type: PREP_STRUCT
+    Precision: 1.000 | Support: 15
+    Pattern Data: ('from', 'arrive', 'nsubj', 'prep')
+
+  Rule 3: Entity-Origin(e1,e2)_PREP_STRUCT_3171
+    Type: PREP_STRUCT
+    Precision: 1.000 | Support: 9
+    Pattern Data: ('out', 'pop', 'nsubj', 'prep')
+
+====================================================================================================
+Relation: Entity-Origin(e2,e1) (32 total rules)
+====================================================================================================
+
+  Rule 1: Entity-Origin(e2,e1)_HYPERNYM_1988
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 5
+    Pattern Data: ('fruit_tree.n.01', 'secretion.n.02')
+
+  Rule 2: Entity-Origin(e2,e1)_HYPERNYM_2003
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 3
+    Pattern Data: ('fruit.n.01', 'lipid.n.01')
+
+  Rule 3: Entity-Origin(e2,e1)_HYPERNYM_2071
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 3
+    Pattern Data: ('cereal.n.01', 'alcohol.n.01')
+
+====================================================================================================
+Relation: Instrument-Agency(e1,e2) (31 total rules)
+====================================================================================================
+
+  Rule 1: Instrument-Agency(e1,e2)_BIGRAM_683
+    Type: BIGRAM
+    Precision: 1.000 | Support: 14
+    Pattern Data: (('use', 'by'),)
+
+  Rule 2: Instrument-Agency(e1,e2)_PREP_STRUCT_2955
+    Type: PREP_STRUCT
+    Precision: 1.000 | Support: 11
+    Pattern Data: ('by', 'use', 'nsubjpass', 'agent')
+
+  Rule 3: Instrument-Agency(e1,e2)_PREP_STRUCT_LEXNAME_2572
+    Type: PREP_STRUCT_LEXNAME
+    Precision: 1.000 | Support: 5
+    Pattern Data: ('by', 'use', 'nsubjpass', 'agent', 'noun.communication', 'noun.person')
+
+====================================================================================================
+Relation: Instrument-Agency(e2,e1) (278 total rules)
+====================================================================================================
+
+  Rule 1: Instrument-Agency(e2,e1)_LEMMA_327
+    Type: LEMMA
+    Precision: 1.000 | Support: 9
+    Pattern Data: ('wield',)
+
+  Rule 2: Instrument-Agency(e2,e1)_SYNSET_1790
+    Type: SYNSET
+    Precision: 1.000 | Support: 9
+    Pattern Data: ('wield.v.01',)
+
+  Rule 3: Instrument-Agency(e2,e1)_DEP_VERB_1605
+    Type: DEP_VERB
+    Precision: 1.000 | Support: 7
+    Pattern Data: ('wield', 'nsubj', 'dobj')
+
+====================================================================================================
+Relation: Member-Collection(e1,e2) (54 total rules)
+====================================================================================================
+
+  Rule 1: Member-Collection(e1,e2)_PREP_STRUCT_LEXNAME_2482
+    Type: PREP_STRUCT_LEXNAME
+    Precision: 1.000 | Support: 5
+    Pattern Data: ('of', 'part', 'none', 'prep', 'noun.person', 'noun.group')
+
+  Rule 2: Member-Collection(e1,e2)_HYPERNYM_1861
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 4
+    Pattern Data: ('aquatic_vertebrate.n.01', 'sandbank.n.01')
+
+  Rule 3: Member-Collection(e1,e2)_HYPERNYM_2008
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 4
+    Pattern Data: ('lawman.n.01', 'organization.n.01')
+
+====================================================================================================
+Relation: Member-Collection(e2,e1) (255 total rules)
+====================================================================================================
+
+  Rule 1: Member-Collection(e2,e1)_HYPERNYM_1831
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 5
+    Pattern Data: ('army_unit.n.01', 'infantryman.n.01')
+
+  Rule 2: Member-Collection(e2,e1)_PREP_STRUCT_3123
+    Type: PREP_STRUCT
+    Precision: 1.000 | Support: 5
+    Pattern Data: ('of', 'pleiad', 'pobj', 'prep')
+
+  Rule 3: Member-Collection(e2,e1)_HYPERNYM_2029
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 4
+    Pattern Data: ('fleet.n.04', 'vessel.n.02')
+
+====================================================================================================
+Relation: Message-Topic(e1,e2) (372 total rules)
+====================================================================================================
+
+  Rule 1: Message-Topic(e1,e2)_BIGRAM_942
+    Type: BIGRAM
+    Precision: 1.000 | Support: 7
+    Pattern Data: (('reflect', 'on'),)
+
+  Rule 2: Message-Topic(e1,e2)_BIGRAM_1024
+    Type: BIGRAM
+    Precision: 1.000 | Support: 6
+    Pattern Data: (('discuss', 'the'),)
+
+  Rule 3: Message-Topic(e1,e2)_BIGRAM_1172
+    Type: BIGRAM
+    Precision: 1.000 | Support: 6
+    Pattern Data: (('be', 'about'),)
+
+====================================================================================================
+Relation: Message-Topic(e2,e1) (79 total rules)
+====================================================================================================
+
+  Rule 1: Message-Topic(e2,e1)_LEMMA_229
+    Type: LEMMA
+    Precision: 1.000 | Support: 4
+    Pattern Data: ('theme',)
+
+  Rule 2: Message-Topic(e2,e1)_BIGRAM_865
+    Type: BIGRAM
+    Precision: 1.000 | Support: 4
+    Pattern Data: (('be', 'document'),)
+
+  Rule 3: Message-Topic(e2,e1)_BIGRAM_1002
+    Type: BIGRAM
+    Precision: 1.000 | Support: 4
+    Pattern Data: (('summarise', 'in'),)
+
+====================================================================================================
+Relation: Other (443 total rules)
+====================================================================================================
+
+  Rule 1: Other_LEMMA_56
+    Type: LEMMA
+    Precision: 1.000 | Support: 8
+    Pattern Data: ('denote',)
+
+  Rule 2: Other_SYNSET_1685
+    Type: SYNSET
+    Precision: 1.000 | Support: 8
+    Pattern Data: ('denote.v.01',)
+
+  Rule 3: Other_BEFORE_E1_1483
+    Type: BEFORE_E1
+    Precision: 1.000 | Support: 6
+    Pattern Data: ('tree',)
+
+====================================================================================================
+Relation: Product-Producer(e1,e2) (104 total rules)
+====================================================================================================
+
+  Rule 1: Product-Producer(e1,e2)_PREP_STRUCT_LEXNAME_2450
+    Type: PREP_STRUCT_LEXNAME
+    Precision: 1.000 | Support: 8
+    Pattern Data: ('by', 'write', 'none', 'agent', 'noun.communication', 'noun.person')
+
+  Rule 2: Product-Producer(e1,e2)_HYPERNYM_1879
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 7
+    Pattern Data: ('publication.n.01', 'communicator.n.01')
+
+  Rule 3: Product-Producer(e1,e2)_LEMMA_337
+    Type: LEMMA
+    Precision: 1.000 | Support: 5
+    Pattern Data: ('pen',)
+
+====================================================================================================
+Relation: Product-Producer(e2,e1) (154 total rules)
+====================================================================================================
+
+  Rule 1: Product-Producer(e2,e1)_BIGRAM_1301
+    Type: BIGRAM
+    Precision: 1.000 | Support: 11
+    Pattern Data: (('create', 'the'),)
+
+  Rule 2: Product-Producer(e2,e1)_DEP_VERB_1587
+    Type: DEP_VERB
+    Precision: 1.000 | Support: 8
+    Pattern Data: ('write', 'nsubj', 'dobj')
+
+  Rule 3: Product-Producer(e2,e1)_HYPERNYM_2112
+    Type: HYPERNYM
+    Precision: 1.000 | Support: 6
+    Pattern Data: ('communicator.n.01', 'publication.n.01')
+
+Testing rule-based classifier on sample sentences...
+================================================================================
+Classifying:   0%|          | 0/5 [00:00<?, ?it/s]Classifying: 100%|██████████| 5/5 [00:00<00:00, 221.29it/s]
+
+Sample 1:
+Text: The system as described above has its greatest application in an arrayed configuration of antenna el...
+E1: 'configuration' | E2: 'elements'
+True: Component-Whole(e2,e1)
+Predicted: Other
+Explanation: No high-precision rule matched; defaulting to Other.
+Match: ✗
+
+Sample 2:
+Text: The child was carefully wrapped and bound into the cradle by means of a cord....
+E1: 'child' | E2: 'cradle'
+True: Other
+Predicted: Entity-Destination(e1,e2)
+Explanation: Rule Entity-Destination(e1,e2)_BIGRAM_447: BIGRAM: (('into', 'the'),) (precision=0.91, support=267, priority=4009082)
+Match: ✗
+
+Sample 3:
+Text: The author of a keygen uses a disassembler to look at the raw assembly code....
+E1: 'author' | E2: 'disassembler'
+True: Instrument-Agency(e2,e1)
+Predicted: Instrument-Agency(e2,e1)
+Explanation: Rule Instrument-Agency(e2,e1)_DEP_VERB_1555: DEP_VERB: ('use', 'nsubj', 'dobj') (precision=0.87, support=45, priority=4008655)
+Match: ✓
+
+Sample 4:
+Text: A misty ridge uprises from the surge....
+E1: 'ridge' | E2: 'surge'
+True: Other
+Predicted: Entity-Origin(e1,e2)
+Explanation: Rule Entity-Origin(e1,e2)_PREP_ROLES_3539: PREP_ROLES: ('from', 'compound', 'prep') (precision=0.80, support=12, priority=2008000)
+Match: ✗
+
+Sample 5:
+Text: The student association is the voice of the undergraduate student population of the State University...
+E1: 'student' | E2: 'association'
+True: Member-Collection(e1,e2)
+Predicted: Member-Collection(e1,e2)
+Explanation: Rule Member-Collection(e1,e2)_HYPERNYM_1827: HYPERNYM: ('enrollee.n.01', 'organization.n.01') (precision=1.00, support=2, priority=6010001)
+Match: ✓
+
+Evaluating on training set...
+Classifying:   0%|          | 0/8000 [00:00<?, ?it/s]Classifying:   0%|          | 32/8000 [00:00<00:24, 319.99it/s]Classifying:   1%|          | 64/8000 [00:00<00:27, 293.05it/s]Classifying:   1%|          | 94/8000 [00:00<00:28, 280.88it/s]Classifying:   2%|▏         | 124/8000 [00:00<00:27, 286.95it/s]Classifying:   2%|▏         | 153/8000 [00:00<00:28, 272.45it/s]Classifying:   2%|▏         | 184/8000 [00:00<00:27, 282.76it/s]Classifying:   3%|▎         | 214/8000 [00:00<00:27, 287.80it/s]Classifying:   3%|▎         | 245/8000 [00:00<00:26, 291.32it/s]Classifying:   4%|▎         | 281/8000 [00:00<00:24, 309.22it/s]Classifying:   4%|▍         | 313/8000 [00:01<00:26, 288.12it/s]Classifying:   4%|▍         | 343/8000 [00:01<00:26, 288.17it/s]Classifying:   5%|▍         | 373/8000 [00:01<00:26, 289.59it/s]Classifying:   5%|▌         | 403/8000 [00:01<00:26, 289.96it/s]Classifying:   5%|▌         | 435/8000 [00:01<00:25, 298.29it/s]Classifying:   6%|▌         | 465/8000 [00:01<00:26, 280.14it/s]Classifying:   6%|▌         | 495/8000 [00:01<00:26, 284.87it/s]Classifying:   7%|▋         | 534/8000 [00:01<00:23, 313.62it/s]Classifying:   7%|▋         | 573/8000 [00:01<00:22, 334.53it/s]Classifying:   8%|▊         | 607/8000 [00:02<00:22, 329.83it/s]Classifying:   8%|▊         | 642/8000 [00:02<00:22, 333.32it/s]Classifying:   8%|▊         | 676/8000 [00:02<00:21, 332.98it/s]Classifying:   9%|▉         | 710/8000 [00:02<00:23, 309.57it/s]Classifying:   9%|▉         | 742/8000 [00:02<00:23, 311.77it/s]Classifying:  10%|▉         | 774/8000 [00:02<00:23, 303.28it/s]Classifying:  10%|█         | 805/8000 [00:02<00:24, 297.09it/s]Classifying:  10%|█         | 835/8000 [00:02<00:24, 294.11it/s]Classifying:  11%|█         | 865/8000 [00:02<00:25, 274.74it/s]Classifying:  11%|█         | 898/8000 [00:03<00:24, 287.45it/s]Classifying:  12%|█▏        | 928/8000 [00:03<00:24, 283.17it/s]Classifying:  12%|█▏        | 957/8000 [00:03<00:25, 280.45it/s]Classifying:  12%|█▏        | 993/8000 [00:03<00:23, 301.65it/s]Classifying:  13%|█▎        | 1024/8000 [00:03<00:24, 287.12it/s]Classifying:  13%|█▎        | 1062/8000 [00:03<00:22, 310.42it/s]Classifying:  14%|█▎        | 1094/8000 [00:03<00:22, 304.22it/s]Classifying:  14%|█▍        | 1126/8000 [00:03<00:22, 305.65it/s]Classifying:  14%|█▍        | 1157/8000 [00:03<00:22, 301.40it/s]Classifying:  15%|█▍        | 1196/8000 [00:03<00:20, 326.07it/s]Classifying:  15%|█▌        | 1229/8000 [00:04<00:21, 318.75it/s]Classifying:  16%|█▌        | 1266/8000 [00:04<00:20, 330.69it/s]Classifying:  16%|█▋        | 1301/8000 [00:04<00:20, 332.86it/s]Classifying:  17%|█▋        | 1335/8000 [00:04<00:20, 318.84it/s]Classifying:  17%|█▋        | 1368/8000 [00:04<00:22, 300.68it/s]Classifying:  18%|█▊        | 1401/8000 [00:04<00:21, 308.32it/s]Classifying:  18%|█▊        | 1433/8000 [00:04<00:23, 283.63it/s]Classifying:  18%|█▊        | 1471/8000 [00:04<00:21, 306.92it/s]Classifying:  19%|█▉        | 1503/8000 [00:04<00:21, 306.80it/s]Classifying:  19%|█▉        | 1535/8000 [00:05<00:21, 305.53it/s]Classifying:  20%|█▉        | 1566/8000 [00:05<00:22, 287.11it/s]Classifying:  20%|█▉        | 1596/8000 [00:05<00:22, 282.65it/s]Classifying:  20%|██        | 1625/8000 [00:05<00:22, 282.10it/s]Classifying:  21%|██        | 1657/8000 [00:05<00:21, 289.54it/s]Classifying:  21%|██        | 1689/8000 [00:05<00:21, 295.51it/s]Classifying:  21%|██▏       | 1719/8000 [00:05<00:21, 291.91it/s]Classifying:  22%|██▏       | 1749/8000 [00:05<00:21, 291.78it/s]Classifying:  22%|██▏       | 1779/8000 [00:05<00:21, 291.44it/s]Classifying:  23%|██▎       | 1810/8000 [00:06<00:20, 294.95it/s]Classifying:  23%|██▎       | 1840/8000 [00:06<00:21, 287.46it/s]Classifying:  23%|██▎       | 1873/8000 [00:06<00:20, 294.72it/s]Classifying:  24%|██▍       | 1903/8000 [00:06<00:21, 283.07it/s]Classifying:  24%|██▍       | 1938/8000 [00:06<00:20, 297.94it/s]Classifying:  25%|██▍       | 1968/8000 [00:06<00:21, 286.60it/s]Classifying:  25%|██▌       | 2000/8000 [00:06<00:20, 292.03it/s]Classifying:  25%|██▌       | 2030/8000 [00:06<00:21, 277.31it/s]Classifying:  26%|██▌       | 2062/8000 [00:06<00:20, 288.25it/s]Classifying:  26%|██▌       | 2092/8000 [00:07<00:20, 289.78it/s]Classifying:  27%|██▋       | 2122/8000 [00:07<00:20, 291.52it/s]Classifying:  27%|██▋       | 2158/8000 [00:07<00:18, 308.08it/s]Classifying:  27%|██▋       | 2195/8000 [00:07<00:17, 324.40it/s]Classifying:  28%|██▊       | 2228/8000 [00:07<00:19, 293.38it/s]Classifying:  28%|██▊       | 2258/8000 [00:07<00:20, 279.91it/s]Classifying:  29%|██▊       | 2287/8000 [00:07<00:20, 272.23it/s]Classifying:  29%|██▉       | 2321/8000 [00:07<00:19, 290.15it/s]Classifying:  29%|██▉       | 2352/8000 [00:07<00:19, 290.78it/s]Classifying:  30%|██▉       | 2385/8000 [00:08<00:18, 301.38it/s]Classifying:  30%|███       | 2424/8000 [00:08<00:17, 322.91it/s]Classifying:  31%|███       | 2458/8000 [00:08<00:16, 327.16it/s]Classifying:  31%|███       | 2491/8000 [00:08<00:17, 321.42it/s]Classifying:  32%|███▏      | 2524/8000 [00:08<00:18, 302.76it/s]Classifying:  32%|███▏      | 2556/8000 [00:08<00:17, 304.87it/s]Classifying:  32%|███▏      | 2588/8000 [00:08<00:17, 307.25it/s]Classifying:  33%|███▎      | 2619/8000 [00:08<00:18, 294.62it/s]Classifying:  33%|███▎      | 2649/8000 [00:08<00:18, 286.93it/s]Classifying:  34%|███▎      | 2686/8000 [00:08<00:17, 309.20it/s]Classifying:  34%|███▍      | 2725/8000 [00:09<00:15, 330.77it/s]Classifying:  35%|███▍      | 2764/8000 [00:09<00:15, 343.39it/s]Classifying:  35%|███▍      | 2799/8000 [00:09<00:15, 341.36it/s]Classifying:  35%|███▌      | 2834/8000 [00:09<00:15, 326.95it/s]Classifying:  36%|███▌      | 2867/8000 [00:09<00:16, 308.25it/s]Classifying:  36%|███▌      | 2899/8000 [00:09<00:17, 298.85it/s]Classifying:  37%|███▋      | 2932/8000 [00:09<00:16, 306.03it/s]Classifying:  37%|███▋      | 2964/8000 [00:09<00:16, 305.63it/s]Classifying:  37%|███▋      | 2995/8000 [00:09<00:16, 301.39it/s]Classifying:  38%|███▊      | 3033/8000 [00:10<00:15, 318.60it/s]Classifying:  38%|███▊      | 3065/8000 [00:10<00:16, 306.87it/s]Classifying:  39%|███▊      | 3098/8000 [00:10<00:15, 311.11it/s]Classifying:  39%|███▉      | 3134/8000 [00:10<00:15, 323.61it/s]Classifying:  40%|███▉      | 3167/8000 [00:10<00:14, 324.65it/s]Classifying:  40%|████      | 3200/8000 [00:10<00:15, 319.16it/s]Classifying:  40%|████      | 3235/8000 [00:10<00:14, 326.19it/s]Classifying:  41%|████      | 3268/8000 [00:10<00:15, 313.03it/s]Classifying:  41%|████▏     | 3300/8000 [00:10<00:15, 305.71it/s]Classifying:  42%|████▏     | 3331/8000 [00:11<00:16, 290.04it/s]Classifying:  42%|████▏     | 3366/8000 [00:11<00:15, 305.72it/s]Classifying:  42%|████▏     | 3397/8000 [00:11<00:15, 300.88it/s]Classifying:  43%|████▎     | 3428/8000 [00:11<00:16, 272.17it/s]Classifying:  43%|████▎     | 3456/8000 [00:11<00:17, 267.08it/s]Classifying:  44%|████▎     | 3486/8000 [00:11<00:16, 273.67it/s]Classifying:  44%|████▍     | 3514/8000 [00:11<00:16, 270.92it/s]Classifying:  44%|████▍     | 3546/8000 [00:11<00:15, 282.82it/s]Classifying:  45%|████▍     | 3576/8000 [00:11<00:15, 286.42it/s]Classifying:  45%|████▌     | 3605/8000 [00:12<00:16, 265.86it/s]Classifying:  45%|████▌     | 3636/8000 [00:12<00:15, 275.53it/s]Classifying:  46%|████▌     | 3668/8000 [00:12<00:15, 286.90it/s]Classifying:  46%|████▋     | 3701/8000 [00:12<00:14, 295.28it/s]Classifying:  47%|████▋     | 3732/8000 [00:12<00:14, 298.51it/s]Classifying:  47%|████▋     | 3766/8000 [00:12<00:13, 305.84it/s]Classifying:  47%|████▋     | 3797/8000 [00:12<00:13, 301.18it/s]Classifying:  48%|████▊     | 3828/8000 [00:12<00:14, 283.41it/s]Classifying:  48%|████▊     | 3857/8000 [00:12<00:15, 270.77it/s]Classifying:  49%|████▊     | 3885/8000 [00:13<00:15, 271.72it/s]Classifying:  49%|████▉     | 3916/8000 [00:13<00:14, 281.90it/s]Classifying:  49%|████▉     | 3949/8000 [00:13<00:13, 294.67it/s]Classifying:  50%|████▉     | 3983/8000 [00:13<00:13, 305.91it/s]Classifying:  50%|█████     | 4015/8000 [00:13<00:12, 307.21it/s]Classifying:  51%|█████     | 4047/8000 [00:13<00:12, 307.07it/s]Classifying:  51%|█████     | 4078/8000 [00:13<00:13, 296.62it/s]Classifying:  51%|█████▏    | 4108/8000 [00:13<00:13, 282.67it/s]Classifying:  52%|█████▏    | 4137/8000 [00:13<00:14, 267.76it/s]Classifying:  52%|█████▏    | 4168/8000 [00:13<00:13, 275.13it/s]Classifying:  52%|█████▏    | 4198/8000 [00:14<00:13, 278.27it/s]Classifying:  53%|█████▎    | 4226/8000 [00:14<00:13, 275.63it/s]Classifying:  53%|█████▎    | 4259/8000 [00:14<00:12, 288.87it/s]Classifying:  54%|█████▎    | 4289/8000 [00:14<00:13, 278.92it/s]Classifying:  54%|█████▍    | 4324/8000 [00:14<00:12, 298.20it/s]Classifying:  54%|█████▍    | 4355/8000 [00:14<00:12, 294.88it/s]Classifying:  55%|█████▍    | 4385/8000 [00:14<00:13, 277.84it/s]Classifying:  55%|█████▌    | 4414/8000 [00:14<00:13, 275.77it/s]Classifying:  56%|█████▌    | 4442/8000 [00:14<00:12, 275.06it/s]Classifying:  56%|█████▌    | 4475/8000 [00:15<00:12, 286.79it/s]Classifying:  56%|█████▋    | 4504/8000 [00:15<00:12, 283.82it/s]Classifying:  57%|█████▋    | 4534/8000 [00:15<00:12, 287.09it/s]Classifying:  57%|█████▋    | 4566/8000 [00:15<00:11, 295.56it/s]Classifying:  57%|█████▋    | 4598/8000 [00:15<00:11, 298.84it/s]Classifying:  58%|█████▊    | 4628/8000 [00:15<00:11, 289.62it/s]Classifying:  58%|█████▊    | 4658/8000 [00:15<00:12, 271.71it/s]Classifying:  59%|█████▊    | 4698/8000 [00:15<00:10, 301.36it/s]Classifying:  59%|█████▉    | 4729/8000 [00:15<00:10, 301.18it/s]Classifying:  60%|█████▉    | 4760/8000 [00:16<00:11, 276.66it/s]Classifying:  60%|█████▉    | 4789/8000 [00:16<00:11, 275.56it/s]Classifying:  60%|██████    | 4825/8000 [00:16<00:10, 298.08it/s]Classifying:  61%|██████    | 4856/8000 [00:16<00:10, 287.88it/s]Classifying:  61%|██████    | 4890/8000 [00:16<00:10, 299.95it/s]Classifying:  62%|██████▏   | 4921/8000 [00:16<00:10, 301.91it/s]Classifying:  62%|██████▏   | 4956/8000 [00:16<00:09, 312.20it/s]Classifying:  62%|██████▏   | 4988/8000 [00:16<00:10, 276.76it/s]Classifying:  63%|██████▎   | 5017/8000 [00:16<00:10, 278.63it/s]Classifying:  63%|██████▎   | 5052/8000 [00:17<00:09, 296.50it/s]Classifying:  64%|██████▎   | 5083/8000 [00:17<00:10, 286.34it/s]Classifying:  64%|██████▍   | 5113/8000 [00:17<00:10, 277.65it/s]Classifying:  64%|██████▍   | 5142/8000 [00:17<00:10, 273.08it/s]Classifying:  65%|██████▍   | 5180/8000 [00:17<00:09, 301.92it/s]Classifying:  65%|██████▌   | 5211/8000 [00:17<00:09, 286.76it/s]Classifying:  66%|██████▌   | 5241/8000 [00:17<00:09, 286.67it/s]Classifying:  66%|██████▌   | 5270/8000 [00:17<00:09, 275.81it/s]Classifying:  66%|██████▌   | 5298/8000 [00:17<00:09, 270.85it/s]Classifying:  67%|██████▋   | 5326/8000 [00:18<00:10, 264.30it/s]Classifying:  67%|██████▋   | 5356/8000 [00:18<00:09, 273.34it/s]Classifying:  67%|██████▋   | 5384/8000 [00:18<00:09, 271.24it/s]Classifying:  68%|██████▊   | 5420/8000 [00:18<00:08, 295.09it/s]Classifying:  68%|██████▊   | 5450/8000 [00:18<00:08, 289.75it/s]Classifying:  68%|██████▊   | 5480/8000 [00:18<00:08, 283.95it/s]Classifying:  69%|██████▉   | 5516/8000 [00:18<00:08, 302.89it/s]Classifying:  69%|██████▉   | 5549/8000 [00:18<00:07, 308.22it/s]Classifying:  70%|██████▉   | 5580/8000 [00:18<00:07, 305.65it/s]Classifying:  70%|███████   | 5611/8000 [00:19<00:08, 288.03it/s]Classifying:  71%|███████   | 5646/8000 [00:19<00:07, 303.97it/s]Classifying:  71%|███████   | 5677/8000 [00:19<00:07, 303.39it/s]Classifying:  71%|███████▏  | 5708/8000 [00:19<00:07, 299.71it/s]Classifying:  72%|███████▏  | 5741/8000 [00:19<00:07, 306.29it/s]Classifying:  72%|███████▏  | 5772/8000 [00:19<00:07, 299.51it/s]Classifying:  73%|███████▎  | 5803/8000 [00:19<00:07, 283.70it/s]Classifying:  73%|███████▎  | 5834/8000 [00:19<00:07, 288.27it/s]Classifying:  73%|███████▎  | 5864/8000 [00:19<00:07, 290.88it/s]Classifying:  74%|███████▎  | 5899/8000 [00:19<00:06, 302.68it/s]Classifying:  74%|███████▍  | 5930/8000 [00:20<00:06, 300.86it/s]Classifying:  75%|███████▍  | 5961/8000 [00:20<00:06, 296.83it/s]Classifying:  75%|███████▍  | 5996/8000 [00:20<00:06, 308.58it/s]Classifying:  75%|███████▌  | 6032/8000 [00:20<00:06, 322.87it/s]Classifying:  76%|███████▌  | 6065/8000 [00:20<00:06, 317.76it/s]Classifying:  76%|███████▌  | 6097/8000 [00:20<00:06, 302.59it/s]Classifying:  77%|███████▋  | 6128/8000 [00:20<00:06, 297.99it/s]Classifying:  77%|███████▋  | 6158/8000 [00:20<00:06, 275.23it/s]Classifying:  77%|███████▋  | 6192/8000 [00:20<00:06, 290.00it/s]Classifying:  78%|███████▊  | 6222/8000 [00:21<00:06, 286.03it/s]Classifying:  78%|███████▊  | 6251/8000 [00:21<00:06, 276.41it/s]Classifying:  79%|███████▊  | 6285/8000 [00:21<00:05, 292.04it/s]Classifying:  79%|███████▉  | 6324/8000 [00:21<00:05, 317.12it/s]Classifying:  79%|███████▉  | 6356/8000 [00:21<00:05, 305.35it/s]Classifying:  80%|███████▉  | 6387/8000 [00:21<00:05, 297.20it/s]Classifying:  80%|████████  | 6417/8000 [00:21<00:05, 286.37it/s]Classifying:  81%|████████  | 6448/8000 [00:21<00:05, 291.36it/s]Classifying:  81%|████████  | 6478/8000 [00:21<00:05, 292.35it/s]Classifying:  81%|████████▏ | 6508/8000 [00:22<00:05, 289.07it/s]Classifying:  82%|████████▏ | 6549/8000 [00:22<00:04, 318.16it/s]Classifying:  82%|████████▏ | 6581/8000 [00:22<00:04, 307.17it/s]Classifying:  83%|████████▎ | 6615/8000 [00:22<00:04, 313.79it/s]Classifying:  83%|████████▎ | 6655/8000 [00:22<00:04, 334.43it/s]Classifying:  84%|████████▎ | 6691/8000 [00:22<00:03, 338.56it/s]Classifying:  84%|████████▍ | 6725/8000 [00:22<00:03, 321.93it/s]Classifying:  84%|████████▍ | 6758/8000 [00:22<00:03, 317.63it/s]Classifying:  85%|████████▍ | 6792/8000 [00:22<00:03, 323.68it/s]Classifying:  85%|████████▌ | 6825/8000 [00:23<00:04, 288.97it/s]Classifying:  86%|████████▌ | 6855/8000 [00:23<00:04, 283.80it/s]Classifying:  86%|████████▌ | 6889/8000 [00:23<00:03, 298.61it/s]Classifying:  87%|████████▋ | 6921/8000 [00:23<00:03, 302.89it/s]Classifying:  87%|████████▋ | 6954/8000 [00:23<00:03, 309.86it/s]Classifying:  87%|████████▋ | 6986/8000 [00:23<00:03, 305.72it/s]Classifying:  88%|████████▊ | 7017/8000 [00:23<00:03, 301.78it/s]Classifying:  88%|████████▊ | 7048/8000 [00:23<00:03, 285.34it/s]Classifying:  88%|████████▊ | 7079/8000 [00:23<00:03, 291.15it/s]Classifying:  89%|████████▉ | 7114/8000 [00:23<00:02, 304.99it/s]Classifying:  89%|████████▉ | 7145/8000 [00:24<00:02, 296.85it/s]Classifying:  90%|████████▉ | 7175/8000 [00:24<00:03, 274.09it/s]Classifying:  90%|█████████ | 7203/8000 [00:24<00:03, 263.68it/s]Classifying:  90%|█████████ | 7230/8000 [00:24<00:03, 255.20it/s]Classifying:  91%|█████████ | 7258/8000 [00:24<00:02, 260.71it/s]Classifying:  91%|█████████ | 7285/8000 [00:24<00:02, 254.17it/s]Classifying:  91%|█████████▏| 7311/8000 [00:24<00:02, 252.99it/s]Classifying:  92%|█████████▏| 7337/8000 [00:24<00:02, 251.52it/s]Classifying:  92%|█████████▏| 7366/8000 [00:24<00:02, 261.32it/s]Classifying:  92%|█████████▏| 7393/8000 [00:25<00:02, 260.16it/s]Classifying:  93%|█████████▎| 7425/8000 [00:25<00:02, 275.74it/s]Classifying:  93%|█████████▎| 7455/8000 [00:25<00:01, 279.78it/s]Classifying:  94%|█████████▎| 7484/8000 [00:25<00:01, 269.90it/s]Classifying:  94%|█████████▍| 7512/8000 [00:25<00:01, 266.08it/s]Classifying:  94%|█████████▍| 7542/8000 [00:25<00:01, 271.80it/s]Classifying:  95%|█████████▍| 7570/8000 [00:25<00:01, 258.15it/s]Classifying:  95%|█████████▍| 7596/8000 [00:25<00:01, 255.68it/s]Classifying:  95%|█████████▌| 7622/8000 [00:25<00:01, 254.03it/s]Classifying:  96%|█████████▌| 7651/8000 [00:26<00:01, 260.72it/s]Classifying:  96%|█████████▌| 7678/8000 [00:26<00:01, 249.92it/s]Classifying:  96%|█████████▋| 7707/8000 [00:26<00:01, 258.46it/s]Classifying:  97%|█████████▋| 7733/8000 [00:26<00:01, 249.75it/s]Classifying:  97%|█████████▋| 7759/8000 [00:26<00:00, 242.56it/s]Classifying:  97%|█████████▋| 7787/8000 [00:26<00:00, 251.50it/s]Classifying:  98%|█████████▊| 7813/8000 [00:26<00:00, 245.26it/s]Classifying:  98%|█████████▊| 7840/8000 [00:26<00:00, 251.86it/s]Classifying:  98%|█████████▊| 7871/8000 [00:26<00:00, 266.71it/s]Classifying:  99%|█████████▉| 7900/8000 [00:27<00:00, 272.96it/s]Classifying:  99%|█████████▉| 7930/8000 [00:27<00:00, 280.67it/s]Classifying:  99%|█████████▉| 7959/8000 [00:27<00:00, 259.69it/s]Classifying: 100%|█████████▉| 7988/8000 [00:27<00:00, 266.01it/s]Classifying: 100%|██████████| 8000/8000 [00:27<00:00, 292.08it/s]
+
+Evaluating on test set...
+Classifying:   0%|          | 0/2717 [00:00<?, ?it/s]Classifying:   1%|          | 28/2717 [00:00<00:10, 267.34it/s]Classifying:   2%|▏         | 55/2717 [00:00<00:12, 211.49it/s]Classifying:   3%|▎         | 77/2717 [00:00<00:13, 189.34it/s]Classifying:   4%|▎         | 100/2717 [00:00<00:13, 198.44it/s]Classifying:   5%|▍         | 127/2717 [00:00<00:11, 219.68it/s]Classifying:   6%|▌         | 150/2717 [00:00<00:12, 211.52it/s]Classifying:   7%|▋         | 177/2717 [00:00<00:11, 228.74it/s]Classifying:   7%|▋         | 201/2717 [00:00<00:11, 215.55it/s]Classifying:   8%|▊         | 223/2717 [00:01<00:11, 214.13it/s]Classifying:   9%|▉         | 249/2717 [00:01<00:10, 225.54it/s]Classifying:  10%|█         | 276/2717 [00:01<00:10, 236.47it/s]Classifying:  11%|█         | 304/2717 [00:01<00:09, 247.30it/s]Classifying:  12%|█▏        | 329/2717 [00:01<00:09, 243.23it/s]Classifying:  13%|█▎        | 354/2717 [00:01<00:09, 237.24it/s]Classifying:  14%|█▍        | 378/2717 [00:01<00:10, 219.72it/s]Classifying:  15%|█▍        | 401/2717 [00:01<00:11, 208.42it/s]Classifying:  16%|█▌        | 426/2717 [00:01<00:10, 216.78it/s]Classifying:  16%|█▋        | 448/2717 [00:02<00:10, 207.81it/s]Classifying:  17%|█▋        | 472/2717 [00:02<00:10, 213.52it/s]Classifying:  18%|█▊        | 499/2717 [00:02<00:09, 225.84it/s]Classifying:  19%|█▉        | 522/2717 [00:02<00:10, 204.34it/s]Classifying:  20%|██        | 550/2717 [00:02<00:09, 224.18it/s]Classifying:  21%|██        | 573/2717 [00:02<00:09, 225.04it/s]Classifying:  22%|██▏       | 596/2717 [00:02<00:10, 206.47it/s]Classifying:  23%|██▎       | 623/2717 [00:02<00:09, 220.77it/s]Classifying:  24%|██▍       | 646/2717 [00:02<00:09, 218.56it/s]Classifying:  25%|██▍       | 671/2717 [00:03<00:09, 225.72it/s]Classifying:  26%|██▌       | 697/2717 [00:03<00:08, 233.84it/s]Classifying:  27%|██▋       | 721/2717 [00:03<00:08, 224.10it/s]Classifying:  28%|██▊       | 749/2717 [00:03<00:08, 236.94it/s]Classifying:  28%|██▊       | 773/2717 [00:03<00:08, 219.44it/s]Classifying:  29%|██▉       | 797/2717 [00:03<00:08, 219.94it/s]Classifying:  30%|███       | 822/2717 [00:03<00:08, 218.41it/s]Classifying:  31%|███▏      | 850/2717 [00:03<00:07, 234.30it/s]Classifying:  32%|███▏      | 874/2717 [00:03<00:07, 232.69it/s]Classifying:  33%|███▎      | 898/2717 [00:04<00:08, 223.68it/s]Classifying:  34%|███▍      | 923/2717 [00:04<00:07, 229.44it/s]Classifying:  35%|███▌      | 953/2717 [00:04<00:07, 245.52it/s]Classifying:  36%|███▌      | 978/2717 [00:04<00:07, 219.59it/s]Classifying:  37%|███▋      | 1003/2717 [00:04<00:07, 225.06it/s]Classifying:  38%|███▊      | 1026/2717 [00:04<00:08, 208.29it/s]Classifying:  39%|███▊      | 1048/2717 [00:04<00:07, 209.57it/s]Classifying:  39%|███▉      | 1070/2717 [00:04<00:07, 206.18it/s]Classifying:  40%|████      | 1091/2717 [00:04<00:07, 204.58it/s]Classifying:  41%|████      | 1112/2717 [00:05<00:07, 203.42it/s]Classifying:  42%|████▏     | 1134/2717 [00:05<00:07, 206.49it/s]Classifying:  43%|████▎     | 1164/2717 [00:05<00:06, 232.10it/s]Classifying:  44%|████▍     | 1192/2717 [00:05<00:06, 240.94it/s]Classifying:  45%|████▍     | 1218/2717 [00:05<00:06, 245.88it/s]Classifying:  46%|████▌     | 1245/2717 [00:05<00:05, 250.63it/s]Classifying:  47%|████▋     | 1271/2717 [00:05<00:05, 249.05it/s]Classifying:  48%|████▊     | 1298/2717 [00:05<00:05, 252.85it/s]Classifying:  49%|████▊     | 1324/2717 [00:05<00:05, 238.95it/s]Classifying:  50%|████▉     | 1349/2717 [00:06<00:06, 218.38it/s]Classifying:  50%|█████     | 1372/2717 [00:06<00:06, 214.53it/s]Classifying:  52%|█████▏    | 1409/2717 [00:06<00:05, 255.80it/s]Classifying:  53%|█████▎    | 1438/2717 [00:06<00:04, 264.78it/s]Classifying:  54%|█████▍    | 1466/2717 [00:06<00:05, 230.18it/s]Classifying:  55%|█████▍    | 1491/2717 [00:06<00:05, 218.73it/s]Classifying:  56%|█████▌    | 1517/2717 [00:06<00:05, 226.52it/s]Classifying:  57%|█████▋    | 1541/2717 [00:06<00:05, 225.24it/s]Classifying:  58%|█████▊    | 1564/2717 [00:06<00:05, 215.56it/s]Classifying:  59%|█████▊    | 1591/2717 [00:07<00:04, 230.03it/s]Classifying:  59%|█████▉    | 1615/2717 [00:07<00:04, 222.40it/s]Classifying:  60%|██████    | 1638/2717 [00:07<00:05, 214.95it/s]Classifying:  61%|██████    | 1660/2717 [00:07<00:04, 213.78it/s]Classifying:  62%|██████▏   | 1682/2717 [00:07<00:04, 211.46it/s]Classifying:  63%|██████▎   | 1706/2717 [00:07<00:04, 217.68it/s]Classifying:  64%|██████▎   | 1728/2717 [00:07<00:04, 212.09it/s]Classifying:  65%|██████▍   | 1756/2717 [00:07<00:04, 230.99it/s]Classifying:  66%|██████▌   | 1780/2717 [00:07<00:04, 232.24it/s]Classifying:  66%|██████▋   | 1804/2717 [00:08<00:03, 228.33it/s]Classifying:  67%|██████▋   | 1831/2717 [00:08<00:03, 237.26it/s]Classifying:  68%|██████▊   | 1855/2717 [00:08<00:03, 230.98it/s]Classifying:  69%|██████▉   | 1879/2717 [00:08<00:03, 227.60it/s]Classifying:  70%|███████   | 1903/2717 [00:08<00:03, 230.89it/s]Classifying:  71%|███████   | 1927/2717 [00:08<00:03, 227.99it/s]Classifying:  72%|███████▏  | 1950/2717 [00:08<00:03, 224.83it/s]Classifying:  73%|███████▎  | 1975/2717 [00:08<00:03, 231.91it/s]Classifying:  74%|███████▎  | 1999/2717 [00:08<00:03, 218.67it/s]Classifying:  74%|███████▍  | 2022/2717 [00:09<00:03, 217.82it/s]Classifying:  75%|███████▌  | 2048/2717 [00:09<00:02, 226.87it/s]Classifying:  76%|███████▌  | 2071/2717 [00:09<00:03, 214.49it/s]Classifying:  77%|███████▋  | 2098/2717 [00:09<00:02, 226.32it/s]Classifying:  78%|███████▊  | 2126/2717 [00:09<00:02, 240.05it/s]Classifying:  79%|███████▉  | 2155/2717 [00:09<00:02, 252.79it/s]Classifying:  80%|████████  | 2181/2717 [00:09<00:02, 253.18it/s]Classifying:  81%|████████  | 2207/2717 [00:09<00:02, 241.49it/s]Classifying:  82%|████████▏ | 2238/2717 [00:09<00:01, 258.61it/s]Classifying:  83%|████████▎ | 2265/2717 [00:09<00:01, 259.82it/s]Classifying:  84%|████████▍ | 2292/2717 [00:10<00:01, 243.89it/s]Classifying:  85%|████████▌ | 2317/2717 [00:10<00:01, 231.45it/s]Classifying:  86%|████████▌ | 2341/2717 [00:10<00:01, 224.12it/s]Classifying:  87%|████████▋ | 2364/2717 [00:10<00:01, 219.47it/s]Classifying:  88%|████████▊ | 2388/2717 [00:10<00:01, 222.89it/s]Classifying:  89%|████████▊ | 2411/2717 [00:10<00:01, 207.01it/s]Classifying:  90%|████████▉ | 2435/2717 [00:10<00:01, 215.02it/s]Classifying:  91%|█████████ | 2465/2717 [00:10<00:01, 238.08it/s]Classifying:  92%|█████████▏| 2495/2717 [00:10<00:00, 255.07it/s]Classifying:  93%|█████████▎| 2521/2717 [00:11<00:00, 243.09it/s]Classifying:  94%|█████████▎| 2546/2717 [00:11<00:00, 231.28it/s]Classifying:  95%|█████████▍| 2577/2717 [00:11<00:00, 252.70it/s]Classifying:  96%|█████████▌| 2603/2717 [00:11<00:00, 246.95it/s]Classifying:  97%|█████████▋| 2628/2717 [00:11<00:00, 229.87it/s]Classifying:  98%|█████████▊| 2657/2717 [00:11<00:00, 244.56it/s]Classifying:  99%|█████████▊| 2682/2717 [00:11<00:00, 242.42it/s]Classifying: 100%|█████████▉| 2707/2717 [00:11<00:00, 236.75it/s]Classifying: 100%|██████████| 2717/2717 [00:11<00:00, 227.81it/s]
+================================================================================
+DETERMINISTIC RULE-BASED SYSTEM EVALUATION
+================================================================================
+
+### TRAINING SET RESULTS ###
+
+Accuracy: 0.722
+
+Per-class metrics:
+                           precision    recall  f1-score   support
+
+      Cause-Effect(e1,e2)       0.91      0.76      0.83       344
+      Cause-Effect(e2,e1)       0.79      0.85      0.82       659
+   Component-Whole(e1,e2)       0.92      0.54      0.68       470
+   Component-Whole(e2,e1)       0.85      0.57      0.68       471
+ Content-Container(e1,e2)       0.75      0.92      0.83       374
+ Content-Container(e2,e1)       0.85      0.57      0.68       166
+Entity-Destination(e1,e2)       0.81      0.95      0.88       844
+Entity-Destination(e2,e1)       0.00      0.00      0.00         1
+     Entity-Origin(e1,e2)       0.78      0.87      0.82       568
+     Entity-Origin(e2,e1)       0.89      0.54      0.67       148
+ Instrument-Agency(e1,e2)       0.85      0.57      0.68        97
+ Instrument-Agency(e2,e1)       0.83      0.79      0.81       407
+ Member-Collection(e1,e2)       0.89      0.64      0.75        78
+ Member-Collection(e2,e1)       0.80      0.72      0.76       612
+     Message-Topic(e1,e2)       0.85      0.79      0.82       490
+     Message-Topic(e2,e1)       0.81      0.67      0.73       144
+                    Other       0.43      0.62      0.51      1410
+  Product-Producer(e1,e2)       0.86      0.49      0.63       323
+  Product-Producer(e2,e1)       0.83      0.56      0.67       394
+
+                 accuracy                           0.72      8000
+                macro avg       0.77      0.65      0.70      8000
+             weighted avg       0.76      0.72      0.73      8000
+
+================================================================================
+
+### TEST SET RESULTS ###
+
+Accuracy: 0.590
+
+Per-class metrics:
+                           precision    recall  f1-score   support
+
+      Cause-Effect(e1,e2)      0.860     0.731     0.790       134
+      Cause-Effect(e2,e1)      0.715     0.840     0.773       194
+   Component-Whole(e1,e2)      0.726     0.377     0.496       162
+   Component-Whole(e2,e1)      0.674     0.387     0.492       150
+ Content-Container(e1,e2)      0.658     0.830     0.734       153
+ Content-Container(e2,e1)      0.714     0.513     0.597        39
+Entity-Destination(e1,e2)      0.746     0.907     0.819       291
+Entity-Destination(e2,e1)      0.000     0.000     0.000         1
+     Entity-Origin(e1,e2)      0.778     0.796     0.787       211
+     Entity-Origin(e2,e1)      0.800     0.255     0.387        47
+ Instrument-Agency(e1,e2)      0.583     0.318     0.412        22
+ Instrument-Agency(e2,e1)      0.575     0.485     0.526       134
+ Member-Collection(e1,e2)      0.667     0.375     0.480        32
+ Member-Collection(e2,e1)      0.708     0.592     0.645       201
+     Message-Topic(e1,e2)      0.686     0.633     0.658       210
+     Message-Topic(e2,e1)      0.634     0.510     0.565        51
+                    Other      0.252     0.403     0.310       454
+  Product-Producer(e1,e2)      0.704     0.352     0.469       108
+  Product-Producer(e2,e1)      0.649     0.390     0.487       123
+
+                 accuracy                          0.590      2717
+                macro avg      0.638     0.510     0.549      2717
+             weighted avg      0.633     0.590     0.593      2717
+
+
+================================================================================
+RULE DIAGNOSTICS
+================================================================================
+
+Rules discovered per relation:
+Relation                       Number of Rules
+--------------------------------------------------
+Cause-Effect(e1,e2)            166
+Cause-Effect(e2,e1)            311
+Component-Whole(e1,e2)         165
+Component-Whole(e2,e1)         136
+Content-Container(e1,e2)       170
+Content-Container(e2,e1)       52
+Entity-Destination(e1,e2)      500
+Entity-Origin(e1,e2)           303
+Entity-Origin(e2,e1)           32
+Instrument-Agency(e1,e2)       31
+Instrument-Agency(e2,e1)       278
+Member-Collection(e1,e2)       54
+Member-Collection(e2,e1)       255
+Message-Topic(e1,e2)           372
+Message-Topic(e2,e1)           79
+Other                          443
+Product-Producer(e1,e2)        104
+Product-Producer(e2,e1)        154
+
+Total rules: 3605
+Average precision: 0.899
+Average support: 5.9
+
+Metric                         Test Set        Train Set      
+------------------------------------------------------------
+Macro-averaged Precision       0.638           0.774          
+Macro-averaged Recall          0.510           0.654          
+Macro-averaged F1              0.549           0.697          
+Accuracy                       0.590           0.722          
+
+Analyzing errors on test set...
+Total errors: 1115 / 2717 (41.0%)
+
+Showing first 15 errors:
+
+================================================================================
+
+Error 1:
+Text: The company fabricates plastic chairs.
+Entity 1: company
+Entity 2: chairs
+True relation: Product-Producer(e2,e1)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['fabricates', 'plastic']
+Dependency path: nsubj(company) -> ROOT(fabricate) -> dobj(chair)
+--------------------------------------------------------------------------------
+
+Error 2:
+Text: The school master teaches the lesson with a stick.
+Entity 1: master
+Entity 2: stick
+True relation: Instrument-Agency(e2,e1)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['teaches', 'the', 'lesson', 'with', 'a']
+Dependency path: nsubj(master) -> ROOT(teach) -> prep(with) -> pobj(stick)
+--------------------------------------------------------------------------------
+
+Error 3:
+Text: A child is told a lie for several years by their parents before he/she realizes that a Santa Claus does not exist.
+Entity 1: lie
+Entity 2: parents
+True relation: Product-Producer(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['for', 'several', 'years', 'by', 'their']
+Dependency path: dobj(lie) -> ROOT(tell) -> agent(by) -> pobj(parent)
+--------------------------------------------------------------------------------
+
+Error 4:
+Text: Skype, a free software, allows a hookup of multiple computer users to join in an online conference call without incurring any telephone costs.
+Entity 1: hookup
+Entity 2: users
+True relation: Member-Collection(e2,e1)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['of', 'multiple', 'computer']
+Dependency path: nsubj(hookup) -> prep(of) -> pobj(user)
+--------------------------------------------------------------------------------
+
+Error 5:
+Text: The disgusting scene was retaliation against her brother Philip who rents the room inside this apartment house on Lombard street.
+Entity 1: room
+Entity 2: house
+True relation: Component-Whole(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['inside', 'this', 'apartment']
+Dependency path: dobj(room) -> prep(inside) -> pobj(house)
+--------------------------------------------------------------------------------
+
+Error 6:
+Text: As a landscape company in Atlanta, we know which plants thrive in this planting zone and know the optimum landscaping designs for local yards and business.
+Entity 1: landscape
+Entity 2: company
+True relation: Product-Producer(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: []
+Dependency path: compound(landscape) -> pobj(company)
+--------------------------------------------------------------------------------
+
+Error 7:
+Text: Beneath this invocation there is a zoo of fearsome beasts, including several man-eaters, as well as sphinxes with lions' bodies and human heads.
+Entity 1: zoo
+Entity 2: beasts
+True relation: Member-Collection(e2,e1)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['of', 'fearsome']
+Dependency path: attr(zoo) -> prep(of) -> pobj(beast)
+--------------------------------------------------------------------------------
+
+Error 8:
+Text: The song was composed for a famous Brazilian musician.
+Entity 1: song
+Entity 2: musician
+True relation: Product-Producer(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['was', 'composed', 'for', 'a', 'famous', 'Brazilian']
+Dependency path: nsubjpass(song) -> ROOT(compose) -> prep(for) -> pobj(musician)
+--------------------------------------------------------------------------------
+
+Error 9:
+Text: I spent a year working for a software company to pay off my college loans.
+Entity 1: software
+Entity 2: company
+True relation: Product-Producer(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: []
+Dependency path: compound(software) -> pobj(company)
+--------------------------------------------------------------------------------
+
+Error 10:
+Text: Organic sesame oil has an anti-bacterial and anti imflammatory effect.
+Entity 1: sesame
+Entity 2: oil
+True relation: Entity-Origin(e2,e1)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: []
+Dependency path: compound(sesame) -> nsubj(oil)
+--------------------------------------------------------------------------------
+
+Error 11:
+Text: Mileson has sold his humble abode to a housing developer.
+Entity 1: housing
+Entity 2: developer
+True relation: Product-Producer(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: []
+Dependency path: compound(housing) -> pobj(developer)
+--------------------------------------------------------------------------------
+
+Error 12:
+Text: The same effect is achieved the traditional way, with a team of workers like Keebler elves.
+Entity 1: effect
+Entity 2: way
+True relation: Cause-Effect(e2,e1)
+Predicted: Message-Topic(e1,e2)
+Rule applied: Rule Message-Topic(e1,e2)_LEMMA_319: LEMMA: ('traditional',) (precision=0.67, support=2, priority=2006668)
+Between words: ['is', 'achieved', 'the', 'traditional']
+Dependency path: nsubjpass(effect) -> ROOT(achieve) -> dobj(way)
+--------------------------------------------------------------------------------
+
+Error 13:
+Text: He produces drawings and videos that have been shown in museums in Europe and America.
+Entity 1: drawings
+Entity 2: museums
+True relation: Other
+Predicted: Cause-Effect(e2,e1)
+Rule applied: Rule Cause-Effect(e2,e1)_BIGRAM_644: BIGRAM: (('that', 'have'),) (precision=0.77, support=17, priority=4007728)
+Between words: ['and', 'videos', 'that', 'have', 'been', 'shown', 'in']
+Dependency path: dobj(drawing) -> relcl(show) -> prep(in) -> pobj(museum)
+--------------------------------------------------------------------------------
+
+Error 14:
+Text: Therefore, nowadays China is the complex mixture of different cultures from various epochs.
+Entity 1: cultures
+Entity 2: epochs
+True relation: Entity-Origin(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['from', 'various']
+Dependency path: pobj(culture) -> prep(from) -> pobj(epoch)
+--------------------------------------------------------------------------------
+
+Error 15:
+Text: Many of his literary pieces narrate and mention stories that took place in Lipa.
+Entity 1: pieces
+Entity 2: stories
+True relation: Message-Topic(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['narrate', 'and', 'mention']
+Dependency path: pobj(piece) -> prep(of) -> nsubj(many) -> ROOT(narrate) -> conj(mention)
+--------------------------------------------------------------------------------
+
+Most Common Misclassification Patterns:
+================================================================================
+True Label                Predicted As              Count     
+--------------------------------------------------------------------------------
+Component-Whole(e1,e2)    Other                     71        
+Member-Collection(e2,e1)  Other                     64        
+Component-Whole(e2,e1)    Other                     63        
+Message-Topic(e1,e2)      Other                     58        
+Product-Producer(e2,e1)   Other                     53        
+Other                     Entity-Destination(e1,e2) 53        
+Product-Producer(e1,e2)   Other                     42        
+Instrument-Agency(e2,e1)  Other                     41        
+Other                     Message-Topic(e1,e2)      33        
+Entity-Origin(e2,e1)      Other                     32        
+Other                     Content-Container(e1,e2)  32        
+Other                     Entity-Origin(e1,e2)      25        
+Other                     Member-Collection(e2,e1)  24        
+Other                     Instrument-Agency(e2,e1)  24        
+Entity-Origin(e1,e2)      Other                     23        
+
+Saving discovered rules...
+  Saved 3605 rules to /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/03_fn_wn_on_first_match/rules/rules.json
+  Saved rules summary to /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/03_fn_wn_on_first_match/rules/rules_summary.tsv
+
+Saving predictions with triggered rules...
+  Saved 2717 test predictions to /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/03_fn_wn_on_first_match/predictions/test_predictions.json
+  Accuracy: 1602/2717 (59.0%)
+
+Saving evaluation results and plots...
+Saved evaluation results to /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/03_fn_wn_on_first_match/evaluation/evaluation_results.txt
+Saved confusion matrix plot to /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/03_fn_wn_on_first_match/evaluation/confusion_matrix_test.png
+
+================================================================================
+All results saved to: /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/03_fn_wn_on_first_match
+================================================================================
