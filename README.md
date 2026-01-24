@@ -8,7 +8,7 @@ This repository belongs to the Token13 group, created for tuw-nlp-ie-2025WS's pr
 - H. Berke Bankoglu
 - M. Bilal Hussain
 
-> **Note:** For setup and installation instructions, see the [Setup and Installation](#setup-and-installation) section below.
+> **Note:** For the latest implementation (Milestone 3), please navigate to the [`milestone_3/`](milestone_3/README.md) directory.
 
 # Topic 8 - Explainable Relation Extraction
 **Instructors** Gábor Recski
@@ -51,61 +51,24 @@ Each group will present the main results of their work to all other groups worki
 - **16.01.2026** — Final presentations  
 - **25.01.2026, 23:55** — Final submission deadline (code + report)
 
-## Setup and Installation
+## Setup and Installation (Milestone 3)
 
-### Quick Setup
-The automated setup script can be run:
+The project has evolved towards Milestone 3 (Semantic-Enriched Rule Based System).
+
+### Installation
+**We recommend using the standard Python venv approach.**
+
+Navigate to the Milestone 3 directory and follow the instructions there:
 ```bash
-./setup.sh
+cd milestone_3
 ```
 
-### Manual Setup
-For manual installation:
+Detailed installation (create venv, install requirements, download models) are covered in the [Milestone 3 README](milestone_3/README.md).
 
-1. **Install Python dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Quick Run
+To run the ablation study comparing Baseline vs Semantic models:
 
-2. **Download spaCy language model:**
-   ```bash
-   python3 -m spacy download en_core_web_lg
-   ```
-
-3. **Run preprocessing:**
-   ```bash
-   python3 src/preprocess.py --split both
-   ```
-
-### Requirements
-See [requirements.txt](requirements.txt) for the complete list of dependencies.
-
-**Note:** The spaCy English model `en_core_web_lg` must be downloaded separately (included in setup script).
-
-
-## Project Structure
-
+```bash
+cd milestone_3
+./run_ablation.sh --all
 ```
-Token13-tuw-nlp-ie-2025WS/
-├── src/
-│   ├── config.py                      # Configuration and paths
-│   ├── preprocess.py                  # Main preprocessing script
-│   ├── preprocessing/
-│   │   ├── __init__.py
-│   │   ├── data_loader.py             # SemEval data loader
-│   │   ├── text_processor.py          # spaCy processing
-│   │   └── format_converters.py       # Export to formats
-│   └── utils/
-│       ├── __init__.py
-│       ├── validators.py              # Data validation
-│       └── statistics.py              # Statistics computation
-├── data/
-│   └── processed/
-│       ├── train/                     # Training data outputs
-│       ├── test/                      # Test data outputs
-│       └── statistics/                # Statistics and plots
-├── resources/                         # Raw SemEval data
-├── requirements.txt                   # Python dependencies
-├── PREPROCESSING.md                   # This document
-├── setup.sh                           # Automated setup script
-└── README.md                          # Project overview

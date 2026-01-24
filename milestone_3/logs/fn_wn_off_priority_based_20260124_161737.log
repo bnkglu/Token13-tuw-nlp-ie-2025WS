@@ -1,0 +1,913 @@
+================================================================================
+STATISTICAL RULE-BASED SYSTEM - SemEval 2010 Task 8
+================================================================================
+Configuration:
+  --use-semantics:   False
+  --prediction-mode: priority_based
+================================================================================
+
+Loading spaCy model...
+Libraries loaded successfully!
+spaCy version: 3.8.7
+
+Current working directory: /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/statistical_rule_based_system
+Script directory: /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/statistical_rule_based_system
+Project root: /Users/berke/Token13-tuw-nlp-ie-2025WS
+Output directory: /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/02_fn_wn_off_priority_based
+
+Loading datasets...
+Training samples: 8000
+Test samples: 2717
+Processing data...
+
+Processing:   0%|          | 0/8000 [00:00<?, ?it/s]Processing:  13%|█▎        | 1066/8000 [00:00<00:00, 10657.98it/s]Processing:  31%|███       | 2478/8000 [00:00<00:00, 12693.19it/s]Processing:  50%|█████     | 4003/8000 [00:00<00:00, 13858.05it/s]Processing:  70%|███████   | 5602/8000 [00:00<00:00, 14696.21it/s]Processing:  88%|████████▊ | 7072/8000 [00:00<00:00, 11043.70it/s]Processing: 100%|██████████| 8000/8000 [00:00<00:00, 12364.94it/s]
+
+Processing test data...
+Processing:   0%|          | 0/2717 [00:00<?, ?it/s]Processing:  62%|██████▏   | 1680/2717 [00:00<00:00, 16787.57it/s]Processing: 100%|██████████| 2717/2717 [00:00<00:00, 17015.93it/s]
+
+Processed 8000 training samples
+Processed 2717 test samples
+
+================================================================================
+Sample output:
+================================================================================
+Text: The system as described above has its greatest application in an arrayed configuration of antenna elements.
+Entity 1: configuration (POS: NOUN, DEP: pobj)
+Entity 2: elements (POS: NOUN, DEP: pobj)
+Relation: Component-Whole
+
+Dependency path: [('pobj', 'NOUN', 'configuration'), ('prep', 'ADP', 'of'), ('pobj', 'NOUN', 'element')]...
+Between words: ['of', 'antenna']
+
+================================================================================
+GENERATING DATA-DRIVEN PATTERNS
+Top features per relation extracted from analysis
+================================================================================
+
+Cause-Effect(e1,e2):
+  Keywords (30): ['cause', 'result', 'lead', 'produce', 'water', 'people', 'stress', 'common', 'make', 'skin']
+  Verbs (15): ['cause', 'result', 'produce', 'lead', 'make', 'increase', 'give', 'have', 'emit', 'contain', 'use', 'take', 'radiate', 'trigger', 'help']
+  Preps (10): ['of', 'in', 'on', 'to', 'for', 'with', 'by', 'from', 'at', 'as']
+  Dep patterns: 5 patterns extracted
+
+Cause-Effect(e2,e1):
+  Keywords (30): ['cause', 'come', 'trigger', 'year', 'time', 'generate', 'result', 'people', 'find', 'produce']
+  Verbs (15): ['cause', 'come', 'trigger', 'have', 'make', 'get', 'generate', 'take', 'find', 'produce', 'follow', 'use', 'help', 'see', 'reduce']
+  Preps (10): ['of', 'by', 'from', 'in', 'to', 'with', 'for', 'on', 'after', 'as']
+  Dep patterns: 5 patterns extracted
+
+Component-Whole(e1,e2):
+  Keywords (30): ['inside', 'hand', 'show', 'form', 'small', 'right', 'good', 'connect', 'hold', 'see']
+  Verbs (15): ['use', 'have', 'make', 'show', 'see', 'connect', 'hold', 'take', 'form', 'provide', 'find', 'locate', 'set', 'come', 'appear']
+  Preps (10): ['of', 'in', 'on', 'to', 'with', 'from', 'at', 'for', 'by', 'as']
+  Dep patterns: 5 patterns extracted
+
+Component-Whole(e2,e1):
+  Keywords (30): ['comprise', 'contain', 'include', 'large', 'like', 'time', 'open', 'consist', 'end', 'year']
+  Verbs (15): ['have', 'comprise', 'contain', 'include', 'use', 'make', 'consist', 'move', 'compose', 'provide', 'take', 'show', 'develop', 'hold', 'open']
+  Preps (10): ['of', 'with', 'in', 'on', 'for', 'to', 'from', 'by', 'at', 'as']
+  Dep patterns: 5 patterns extracted
+
+Content-Container(e1,e2):
+  Keywords (30): ['inside', 'contain', 'store', 'find', 'enclose', 'lock', 'hide', 'discover', 'place', 'plastic']
+  Verbs (15): ['contain', 'store', 'find', 'enclose', 'lock', 'hide', 'discover', 'keep', 'use', 'place', 'see', 'put', 'seal', 'have', 'make']
+  Preps (10): ['in', 'of', 'inside', 'with', 'to', 'on', 'for', 'at', 'from', 'by']
+  Dep patterns: 5 patterns extracted
+
+Content-Container(e2,e1):
+  Keywords (30): ['contain', 'find', 'content', 'inside', 'give', 'fill', 'include', 'hold', 'small', 'carry']
+  Verbs (15): ['contain', 'find', 'give', 'have', 'fill', 'include', 'hold', 'carry', 'bring', 'put', 'take', 'pull', 'get', 'make', 'leave']
+  Preps (10): ['of', 'in', 'with', 'on', 'to', 'at', 'out', 'as', 'for', 'from']
+  Dep patterns: 5 patterns extracted
+
+Entity-Destination(e1,e2):
+  Keywords (30): ['place', 'pour', 'move', 'new', 'send', 'inside', 'release', 'migrate', 'drop', 'add']
+  Verbs (15): ['put', 'place', 'pour', 'move', 'send', 'release', 'migrate', 'add', 'drop', 'deliver', 'arrive', 'insert', 'spread', 'take', 'throw']
+  Preps (10): ['into', 'to', 'in', 'of', 'for', 'on', 'with', 'by', 'inside', 'from']
+  Dep patterns: 5 patterns extracted
+
+Entity-Destination(e2,e1):
+  Keywords (9): ['stainless', 'steel', 'fill', 'pressure', 'outer', 'volume', 'chamber', 'keep', 'steady']
+  Verbs (2): ['fill', 'keep']
+  Preps (3): ['with', 'in', 'of']
+  Dep patterns: 1 patterns extracted
+
+Entity-Origin(e1,e2):
+  Keywords (30): ['away', 'come', 'leave', 'derive', 'run', 'arrive', 'distil', 'originate', 'like', 'get']
+  Verbs (15): ['come', 'make', 'leave', 'derive', 'run', 'distil', 'arrive', 'originate', 'have', 'get', 'take', 'fall', 'pop', 'use', 'depart']
+  Preps (10): ['from', 'of', 'in', 'to', 'on', 'with', 'by', 'out', 'for', 'as']
+  Dep patterns: 5 patterns extracted
+
+Entity-Origin(e2,e1):
+  Keywords (30): ['farm', 'source', 'beer', 'flavor', 'drink', 'ago', 'ingredient', 'year', 'high', 'time']
+  Verbs (15): ['make', 'use', 'have', 'farm', 'give', 'find', 'taste', 'drink', 'produce', 'extract', 'become', 'add', 'come', 'include', 'see']
+  Preps (10): ['of', 'in', 'for', 'with', 'from', 'to', 'as', 'on', 'at', 'by']
+  Dep patterns: 5 patterns extracted
+
+Instrument-Agency(e1,e2):
+  Keywords (30): ['good', 'order', 'power', 'tool', 'drive', 'hand', 'string', 'need', 'way', 'purpose']
+  Verbs (15): ['use', 'power', 'drive', 'have', 'help', 'let', 'need', 'make', 'assist', 'determine', 'take', 'refer', 'work', 'produce', 'start']
+  Preps (10): ['of', 'in', 'by', 'for', 'to', 'as', 'on', 'with', 'from', 'at']
+  Dep patterns: 5 patterns extracted
+
+Instrument-Agency(e2,e1):
+  Keywords (30): ['use', 'apply', 'take', 'time', 'create', 'work', 'help', 'hand', 'kill', 'order']
+  Verbs (15): ['use', 'take', 'apply', 'create', 'make', 'kill', 'show', 'have', 'attach', 'wield', 'find', 'build', 'hold', 'allow', 'pull']
+  Preps (10): ['with', 'of', 'in', 'to', 'on', 'by', 'from', 'for', 'at', 'through']
+  Dep patterns: 5 patterns extracted
+
+Member-Collection(e1,e2):
+  Keywords (30): ['member', 'new', 'state', 'collect', 'role', 'way', 'provide', 'feel', 'gather', 'family']
+  Verbs (15): ['have', 'take', 'collect', 'become', 'provide', 'feel', 'gather', 'join', 'fall', 'use', 'play', 'rule', 'score', 'perform', 'entitle']
+  Preps (10): ['of', 'in', 'as', 'to', 'from', 'on', 'for', 'at', 'by', 'with']
+  Dep patterns: 5 patterns extracted
+
+Member-Collection(e2,e1):
+  Keywords (30): ['large', 'new', 'like', 'small', 'year', 'great', 'day', 'work', 'find', 'take']
+  Verbs (15): ['have', 'take', 'make', 'see', 'find', 'come', 'look', 'include', 'live', 'consist', 'bring', 'work', 'use', 'become', 'pass']
+  Preps (10): ['of', 'in', 'with', 'to', 'on', 'for', 'by', 'from', 'as', 'at']
+  Dep patterns: 5 patterns extracted
+
+Message-Topic(e1,e2):
+  Keywords (30): ['new', 'concern', 'give', 'describe', 'set', 'present', 'explain', 'relate', 'focus', 'point']
+  Verbs (15): ['make', 'give', 'have', 'concern', 'describe', 'explain', 'relate', 'contain', 'provide', 'discuss', 'define', 'use', 'inform', 'focus', 'present']
+  Preps (10): ['of', 'in', 'to', 'on', 'with', 'about', 'for', 'by', 'as', 'from']
+  Dep patterns: 5 patterns extracted
+
+Message-Topic(e2,e1):
+  Keywords (30): ['subject', 'topic', 'early', 'reflect', 'discuss', 'previous', 'describe', 'new', 'relate', 'form']
+  Verbs (15): ['reflect', 'discuss', 'become', 'describe', 'make', 'relate', 'form', 'present', 'publish', 'document', 'summarise', 'receive', 'define', 'analyse', 'follow']
+  Preps (10): ['in', 'of', 'to', 'by', 'on', 'for', 'from', 'at', 'with', 'about']
+  Dep patterns: 5 patterns extracted
+
+Other:
+  Keywords (30): ['year', 'new', 'inside', 'time', 'make', 'start', 'work', 'take', 'come', 'great']
+  Verbs (15): ['make', 'use', 'have', 'take', 'start', 'come', 'see', 'keep', 'give', 'show', 'produce', 'contain', 'run', 'find', 'work']
+  Preps (10): ['of', 'in', 'with', 'to', 'from', 'for', 'into', 'by', 'on', 'at']
+  Dep patterns: 5 patterns extracted
+
+Product-Producer(e1,e2):
+  Keywords (30): ['produce', 'write', 'new', 'create', 'year', 'build', 'come', 'work', 'find', 'book']
+  Verbs (15): ['make', 'produce', 'write', 'create', 'build', 'come', 'name', 'use', 'find', 'know', 'develop', 'found', 'put', 'work', 'take']
+  Preps (10): ['by', 'of', 'in', 'from', 'for', 'on', 'with', 'as', 'to', 'at']
+  Dep patterns: 5 patterns extracted
+
+Product-Producer(e2,e1):
+  Keywords (30): ['produce', 'create', 'year', 'make', 'build', 'complete', 'come', 'new', 'write', 'work']
+  Verbs (15): ['make', 'produce', 'create', 'use', 'build', 'complete', 'come', 'write', 'construct', 'put', 'start', 'work', 'know', 'develop', 'dig']
+  Preps (10): ['of', 'in', 'for', 'to', 'with', 'on', 'from', 'by', 'up', 'into']
+  Dep patterns: 5 patterns extracted
+
+================================================================================
+Data-driven patterns generated successfully!
+These patterns are based on actual frequency analysis of the training data.
+================================================================================
+
+Step 1: Mining patterns from training data...
+Extracting patterns:   0%|          | 0/8000 [00:00<?, ?it/s]Extracting patterns: 100%|██████████| 8000/8000 [00:00<00:00, 104648.96it/s]
+Pattern extraction complete.
+
+Step 2: Filtering by precision >= 0.6 and support >= 2...
+DEBUG: Processing type LEMMA, 4388 candidates
+DEBUG: Type LEMMA: Kept 447 rules
+DEBUG: Processing type BIGRAM, 10402 candidates
+DEBUG: Type BIGRAM: Kept 953 rules
+DEBUG: Processing type PREP, 48 candidates
+DEBUG: Type PREP: Kept 8 rules
+DEBUG: Processing type BEFORE_E1, 1534 candidates
+DEBUG: Type BEFORE_E1: Kept 113 rules
+DEBUG: Processing type AFTER_E2, 588 candidates
+DEBUG: Type AFTER_E2: Kept 32 rules
+DEBUG: Processing type ENTITY_POS, 16 candidates
+DEBUG: Type ENTITY_POS: Kept 2 rules
+DEBUG: Processing type DEP_VERB, 214 candidates
+DEBUG: Type DEP_VERB: Kept 78 rules
+DEBUG: Processing type DEP_LABELS, 154 candidates
+DEBUG: Type DEP_LABELS: Kept 18 rules
+Created 1651 rules after filtering
+
+Discovered 1651 high-quality rules
+
+Top 10 rules:
+====================================================================================================
+Relation                  Type            Precision    Support    Pattern
+----------------------------------------------------------------------------------------------------
+Product-Producer(e1,e2)   BIGRAM          1.000        2          (('by', 'your'),)
+Member-Collection(e2,e1)  BIGRAM          1.000        2          (('of', 'wild'),)
+Component-Whole(e1,e2)    BIGRAM          1.000        2          (('the', 'conference'),)
+Entity-Destination(e1,e2) BIGRAM          1.000        2          (('an', 'empty'),)
+Component-Whole(e2,e1)    DEP_VERB        1.000        2          ('move', 'nsubj', 'dobj')
+Product-Producer(e1,e2)   BIGRAM          1.000        2          (('spring', 'from'),)
+Entity-Origin(e1,e2)      BIGRAM          1.000        8          (('emerge', 'from'),)
+Component-Whole(e2,e1)    BIGRAM          1.000        2          (('a', 'dual'),)
+Entity-Destination(e1,e2) BIGRAM          1.000        3          (('into', 'its'),)
+Other                     BIGRAM          1.000        4          (('be', 'denote'),)
+
+====================================================================================================
+TOP RULES BY RELATION TYPE (for Explainability)
+====================================================================================================
+
+====================================================================================================
+Relation: Cause-Effect(e1,e2) (130 total rules)
+====================================================================================================
+
+  Rule 1: Cause-Effect(e1,e2)_BIGRAM_1240
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('rear', 'portion'),)
+
+  Rule 2: Cause-Effect(e1,e2)_BIGRAM_1352
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('cause', 'acne'),)
+
+  Rule 3: Cause-Effect(e1,e2)_BIGRAM_529
+    Type: BIGRAM
+    Precision: 1.000 | Support: 12
+    Pattern Data: (('lead', 'to'),)
+
+====================================================================================================
+Relation: Cause-Effect(e2,e1) (109 total rules)
+====================================================================================================
+
+  Rule 1: Cause-Effect(e2,e1)_BIGRAM_818
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('the', 'massive'),)
+
+  Rule 2: Cause-Effect(e2,e1)_BIGRAM_1206
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('pimple', 'be'),)
+
+  Rule 3: Cause-Effect(e2,e1)_BIGRAM_1170
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('the', 'h1n1'),)
+
+====================================================================================================
+Relation: Component-Whole(e1,e2) (29 total rules)
+====================================================================================================
+
+  Rule 1: Component-Whole(e1,e2)_BIGRAM_1379
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('the', 'conference'),)
+
+  Rule 2: Component-Whole(e1,e2)_BIGRAM_1262
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('the', 'master'),)
+
+  Rule 3: Component-Whole(e1,e2)_BIGRAM_628
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('later', 'in'),)
+
+====================================================================================================
+Relation: Component-Whole(e2,e1) (71 total rules)
+====================================================================================================
+
+  Rule 1: Component-Whole(e2,e1)_DEP_VERB_1618
+    Type: DEP_VERB
+    Precision: 1.000 | Support: 2
+    Pattern Data: ('move', 'nsubj', 'dobj')
+
+  Rule 2: Component-Whole(e2,e1)_BIGRAM_1225
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('a', 'dual'),)
+
+  Rule 3: Component-Whole(e2,e1)_BIGRAM_1156
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('process', 'the'),)
+
+====================================================================================================
+Relation: Content-Container(e1,e2) (48 total rules)
+====================================================================================================
+
+  Rule 1: Content-Container(e1,e2)_BIGRAM_1369
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('cia', "'s"),)
+
+  Rule 2: Content-Container(e1,e2)_BIGRAM_521
+    Type: BIGRAM
+    Precision: 1.000 | Support: 14
+    Pattern Data: (('be', 'hide'),)
+
+  Rule 3: Content-Container(e1,e2)_BIGRAM_522
+    Type: BIGRAM
+    Precision: 1.000 | Support: 14
+    Pattern Data: (('hide', 'in'),)
+
+====================================================================================================
+Relation: Content-Container(e2,e1) (5 total rules)
+====================================================================================================
+
+  Rule 1: Content-Container(e2,e1)_BIGRAM_1392
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('contain', 'an'),)
+
+  Rule 2: Content-Container(e2,e1)_BIGRAM_556
+    Type: BIGRAM
+    Precision: 0.977 | Support: 43
+    Pattern Data: (('full', 'of'),)
+
+  Rule 3: Content-Container(e2,e1)_BIGRAM_619
+    Type: BIGRAM
+    Precision: 0.889 | Support: 8
+    Pattern Data: (('be', 'full'),)
+
+====================================================================================================
+Relation: Entity-Destination(e1,e2) (221 total rules)
+====================================================================================================
+
+  Rule 1: Entity-Destination(e1,e2)_BIGRAM_940
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('an', 'empty'),)
+
+  Rule 2: Entity-Destination(e1,e2)_BIGRAM_1003
+    Type: BIGRAM
+    Precision: 1.000 | Support: 3
+    Pattern Data: (('into', 'its'),)
+
+  Rule 3: Entity-Destination(e1,e2)_BIGRAM_1065
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('a', 'deep'),)
+
+====================================================================================================
+Relation: Entity-Origin(e1,e2) (132 total rules)
+====================================================================================================
+
+  Rule 1: Entity-Origin(e1,e2)_BIGRAM_667
+    Type: BIGRAM
+    Precision: 1.000 | Support: 8
+    Pattern Data: (('emerge', 'from'),)
+
+  Rule 2: Entity-Origin(e1,e2)_BIGRAM_1280
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('his', 'native'),)
+
+  Rule 3: Entity-Origin(e1,e2)_BIGRAM_861
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('an', 'all'),)
+
+====================================================================================================
+Relation: Entity-Origin(e2,e1) (9 total rules)
+====================================================================================================
+
+  Rule 1: Entity-Origin(e2,e1)_BIGRAM_1201
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('main', 'ingredient'),)
+
+  Rule 2: Entity-Origin(e2,e1)_BIGRAM_1394
+    Type: BIGRAM
+    Precision: 0.692 | Support: 9
+    Pattern Data: (('be', 'farm'),)
+
+  Rule 3: Entity-Origin(e2,e1)_BIGRAM_544
+    Type: BIGRAM
+    Precision: 0.667 | Support: 2
+    Pattern Data: (('ingredient', 'use'),)
+
+====================================================================================================
+Relation: Instrument-Agency(e1,e2) (11 total rules)
+====================================================================================================
+
+  Rule 1: Instrument-Agency(e1,e2)_BIGRAM_683
+    Type: BIGRAM
+    Precision: 1.000 | Support: 14
+    Pattern Data: (('use', 'by'),)
+
+  Rule 2: Instrument-Agency(e1,e2)_BIGRAM_1396
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('enable', 'the'),)
+
+  Rule 3: Instrument-Agency(e1,e2)_DEP_VERB_1632
+    Type: DEP_VERB
+    Precision: 1.000 | Support: 2
+    Pattern Data: ('enable', 'nsubj', 'dobj')
+
+====================================================================================================
+Relation: Instrument-Agency(e2,e1) (155 total rules)
+====================================================================================================
+
+  Rule 1: Instrument-Agency(e2,e1)_BIGRAM_1260
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('to', 'use'),)
+
+  Rule 2: Instrument-Agency(e2,e1)_BIGRAM_1341
+    Type: BIGRAM
+    Precision: 1.000 | Support: 3
+    Pattern Data: (('choose', 'the'),)
+
+  Rule 3: Instrument-Agency(e2,e1)_BIGRAM_841
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('create', 'dish'),)
+
+====================================================================================================
+Relation: Member-Collection(e1,e2) (11 total rules)
+====================================================================================================
+
+  Rule 1: Member-Collection(e1,e2)_BIGRAM_1362
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('join', 'the'),)
+
+  Rule 2: Member-Collection(e1,e2)_BIGRAM_1134
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('gather', 'in'),)
+
+  Rule 3: Member-Collection(e1,e2)_DEP_VERB_1617
+    Type: DEP_VERB
+    Precision: 1.000 | Support: 3
+    Pattern Data: ('join', 'nsubj', 'dobj')
+
+====================================================================================================
+Relation: Member-Collection(e2,e1) (53 total rules)
+====================================================================================================
+
+  Rule 1: Member-Collection(e2,e1)_BIGRAM_1375
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('of', 'wild'),)
+
+  Rule 2: Member-Collection(e2,e1)_BIGRAM_473
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('her', 'own'),)
+
+  Rule 3: Member-Collection(e2,e1)_BIGRAM_820
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('of', 'muslim'),)
+
+====================================================================================================
+Relation: Message-Topic(e1,e2) (223 total rules)
+====================================================================================================
+
+  Rule 1: Message-Topic(e1,e2)_DEP_VERB_1601
+    Type: DEP_VERB
+    Precision: 1.000 | Support: 5
+    Pattern Data: ('consider', 'nsubj', 'dobj')
+
+  Rule 2: Message-Topic(e1,e2)_DEP_VERB_1584
+    Type: DEP_VERB
+    Precision: 1.000 | Support: 3
+    Pattern Data: ('depict', 'nsubj', 'dobj')
+
+  Rule 3: Message-Topic(e1,e2)_DEP_VERB_1583
+    Type: DEP_VERB
+    Precision: 1.000 | Support: 2
+    Pattern Data: ('criticize', 'nsubj', 'dobj')
+
+====================================================================================================
+Relation: Message-Topic(e2,e1) (51 total rules)
+====================================================================================================
+
+  Rule 1: Message-Topic(e2,e1)_BIGRAM_1211
+    Type: BIGRAM
+    Precision: 1.000 | Support: 3
+    Pattern Data: (('already', 'be'),)
+
+  Rule 2: Message-Topic(e2,e1)_BIGRAM_1229
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('a', 'recent'),)
+
+  Rule 3: Message-Topic(e2,e1)_BIGRAM_865
+    Type: BIGRAM
+    Precision: 1.000 | Support: 4
+    Pattern Data: (('be', 'document'),)
+
+====================================================================================================
+Relation: Other (238 total rules)
+====================================================================================================
+
+  Rule 1: Other_BIGRAM_553
+    Type: BIGRAM
+    Precision: 1.000 | Support: 4
+    Pattern Data: (('be', 'denote'),)
+
+  Rule 2: Other_BIGRAM_975
+    Type: BIGRAM
+    Precision: 1.000 | Support: 3
+    Pattern Data: (('be', 'indicate'),)
+
+  Rule 3: Other_BIGRAM_1108
+    Type: BIGRAM
+    Precision: 1.000 | Support: 4
+    Pattern Data: (('into', 'deep'),)
+
+====================================================================================================
+Relation: Product-Producer(e1,e2) (49 total rules)
+====================================================================================================
+
+  Rule 1: Product-Producer(e1,e2)_BIGRAM_1349
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('by', 'your'),)
+
+  Rule 2: Product-Producer(e1,e2)_BIGRAM_1314
+    Type: BIGRAM
+    Precision: 1.000 | Support: 2
+    Pattern Data: (('spring', 'from'),)
+
+  Rule 3: Product-Producer(e1,e2)_BIGRAM_848
+    Type: BIGRAM
+    Precision: 1.000 | Support: 3
+    Pattern Data: (('imagination', 'of'),)
+
+====================================================================================================
+Relation: Product-Producer(e2,e1) (106 total rules)
+====================================================================================================
+
+  Rule 1: Product-Producer(e2,e1)_DEP_VERB_1587
+    Type: DEP_VERB
+    Precision: 1.000 | Support: 8
+    Pattern Data: ('write', 'nsubj', 'dobj')
+
+  Rule 2: Product-Producer(e2,e1)_BIGRAM_1146
+    Type: BIGRAM
+    Precision: 1.000 | Support: 3
+    Pattern Data: (('manufacture', 'the'),)
+
+  Rule 3: Product-Producer(e2,e1)_BIGRAM_876
+    Type: BIGRAM
+    Precision: 1.000 | Support: 4
+    Pattern Data: (('build', 'a'),)
+
+Testing rule-based classifier on sample sentences...
+================================================================================
+Classifying:   0%|          | 0/5 [00:00<?, ?it/s]Classifying: 100%|██████████| 5/5 [00:00<00:00, 2273.83it/s]
+
+Sample 1:
+Text: The system as described above has its greatest application in an arrayed configuration of antenna el...
+E1: 'configuration' | E2: 'elements'
+True: Component-Whole(e2,e1)
+Predicted: Other
+Explanation: No high-precision rule matched; defaulting to Other.
+Match: ✗
+
+Sample 2:
+Text: The child was carefully wrapped and bound into the cradle by means of a cord....
+E1: 'child' | E2: 'cradle'
+True: Other
+Predicted: Entity-Destination(e1,e2)
+Explanation: Rule Entity-Destination(e1,e2)_BIGRAM_447: BIGRAM: (('into', 'the'),) (precision=0.91, support=267, priority=4009082)
+Match: ✗
+
+Sample 3:
+Text: The author of a keygen uses a disassembler to look at the raw assembly code....
+E1: 'author' | E2: 'disassembler'
+True: Instrument-Agency(e2,e1)
+Predicted: Instrument-Agency(e2,e1)
+Explanation: Rule Instrument-Agency(e2,e1)_DEP_VERB_1555: DEP_VERB: ('use', 'nsubj', 'dobj') (precision=0.87, support=45, priority=4008655)
+Match: ✓
+
+Sample 4:
+Text: A misty ridge uprises from the surge....
+E1: 'ridge' | E2: 'surge'
+True: Other
+Predicted: Other
+Explanation: Rule Other_BIGRAM_449: BIGRAM: (('uprise', 'from'),) (precision=0.67, support=2, priority=4006668)
+Match: ✓
+
+Sample 5:
+Text: The student association is the voice of the undergraduate student population of the State University...
+E1: 'student' | E2: 'association'
+True: Member-Collection(e1,e2)
+Predicted: Other
+Explanation: No high-precision rule matched; defaulting to Other.
+Match: ✗
+
+Evaluating on training set...
+Classifying:   0%|          | 0/8000 [00:00<?, ?it/s]Classifying:   3%|▎         | 209/8000 [00:00<00:03, 2089.21it/s]Classifying:   5%|▌         | 422/8000 [00:00<00:03, 2109.92it/s]Classifying:   8%|▊         | 634/8000 [00:00<00:03, 2111.96it/s]Classifying:  11%|█         | 846/8000 [00:00<00:03, 2112.79it/s]Classifying:  13%|█▎        | 1061/8000 [00:00<00:03, 2123.76it/s]Classifying:  16%|█▌        | 1275/8000 [00:00<00:03, 2126.63it/s]Classifying:  19%|█▊        | 1488/8000 [00:00<00:03, 2079.74it/s]Classifying:  21%|██        | 1697/8000 [00:00<00:03, 2066.86it/s]Classifying:  24%|██▍       | 1915/8000 [00:00<00:02, 2098.82it/s]Classifying:  27%|██▋       | 2127/8000 [00:01<00:02, 2102.16it/s]Classifying:  29%|██▉       | 2338/8000 [00:01<00:02, 2103.66it/s]Classifying:  32%|███▏      | 2549/8000 [00:01<00:02, 2100.48it/s]Classifying:  35%|███▍      | 2761/8000 [00:01<00:02, 2103.99it/s]Classifying:  37%|███▋      | 2981/8000 [00:01<00:02, 2131.07it/s]Classifying:  40%|███▉      | 3195/8000 [00:01<00:02, 2124.16it/s]Classifying:  43%|████▎     | 3410/8000 [00:01<00:02, 2126.53it/s]Classifying:  45%|████▌     | 3626/8000 [00:01<00:02, 2136.39it/s]Classifying:  48%|████▊     | 3841/8000 [00:01<00:01, 2138.18it/s]Classifying:  51%|█████     | 4055/8000 [00:01<00:01, 2098.01it/s]Classifying:  53%|█████▎    | 4265/8000 [00:02<00:01, 2095.80it/s]Classifying:  56%|█████▌    | 4475/8000 [00:02<00:01, 2082.14it/s]Classifying:  59%|█████▊    | 4687/8000 [00:02<00:01, 2091.04it/s]Classifying:  61%|██████    | 4897/8000 [00:02<00:01, 2090.41it/s]Classifying:  64%|██████▍   | 5107/8000 [00:02<00:01, 2086.14it/s]Classifying:  66%|██████▋   | 5317/8000 [00:02<00:01, 2087.96it/s]Classifying:  69%|██████▉   | 5526/8000 [00:02<00:01, 2083.87it/s]Classifying:  72%|███████▏  | 5741/8000 [00:02<00:01, 2103.54it/s]Classifying:  74%|███████▍  | 5957/8000 [00:02<00:00, 2119.13it/s]Classifying:  77%|███████▋  | 6176/8000 [00:02<00:00, 2137.65it/s]Classifying:  80%|███████▉  | 6390/8000 [00:03<00:00, 2132.04it/s]Classifying:  83%|████████▎ | 6604/8000 [00:03<00:00, 2110.44it/s]Classifying:  85%|████████▌ | 6816/8000 [00:03<00:00, 2109.54it/s]Classifying:  88%|████████▊ | 7030/8000 [00:03<00:00, 2115.89it/s]Classifying:  91%|█████████ | 7242/8000 [00:03<00:00, 2095.53it/s]Classifying:  93%|█████████▎| 7452/8000 [00:03<00:00, 2078.24it/s]Classifying:  96%|█████████▌| 7661/8000 [00:03<00:00, 2080.16it/s]Classifying:  98%|█████████▊| 7870/8000 [00:03<00:00, 2071.84it/s]Classifying: 100%|██████████| 8000/8000 [00:03<00:00, 2101.18it/s]
+
+Evaluating on test set...
+Classifying:   0%|          | 0/2717 [00:00<?, ?it/s]Classifying:   8%|▊         | 217/2717 [00:00<00:01, 2164.31it/s]Classifying:  16%|█▌        | 438/2717 [00:00<00:01, 2186.38it/s]Classifying:  24%|██▍       | 657/2717 [00:00<00:00, 2173.10it/s]Classifying:  32%|███▏      | 875/2717 [00:00<00:00, 2155.12it/s]Classifying:  40%|████      | 1093/2717 [00:00<00:00, 2162.52it/s]Classifying:  48%|████▊     | 1314/2717 [00:00<00:00, 2176.56it/s]Classifying:  56%|█████▋    | 1532/2717 [00:00<00:00, 2173.23it/s]Classifying:  65%|██████▍   | 1753/2717 [00:00<00:00, 2182.15it/s]Classifying:  73%|███████▎  | 1972/2717 [00:00<00:00, 2174.15it/s]Classifying:  81%|████████  | 2193/2717 [00:01<00:00, 2182.93it/s]Classifying:  89%|████████▉ | 2412/2717 [00:01<00:00, 2182.90it/s]Classifying:  97%|█████████▋| 2631/2717 [00:01<00:00, 2175.32it/s]Classifying: 100%|██████████| 2717/2717 [00:01<00:00, 2178.62it/s]
+================================================================================
+DETERMINISTIC RULE-BASED SYSTEM EVALUATION
+================================================================================
+
+### TRAINING SET RESULTS ###
+
+Accuracy: 0.584
+
+Per-class metrics:
+                           precision    recall  f1-score   support
+
+      Cause-Effect(e1,e2)       0.91      0.74      0.82       344
+      Cause-Effect(e2,e1)       0.76      0.69      0.72       659
+   Component-Whole(e1,e2)       0.79      0.14      0.24       470
+   Component-Whole(e2,e1)       0.82      0.41      0.55       471
+ Content-Container(e1,e2)       0.68      0.91      0.78       374
+ Content-Container(e2,e1)       0.94      0.28      0.44       166
+Entity-Destination(e1,e2)       0.79      0.89      0.84       844
+Entity-Destination(e2,e1)       0.00      0.00      0.00         1
+     Entity-Origin(e1,e2)       0.78      0.75      0.77       568
+     Entity-Origin(e2,e1)       0.77      0.16      0.27       148
+ Instrument-Agency(e1,e2)       0.78      0.44      0.57        97
+ Instrument-Agency(e2,e1)       0.84      0.66      0.74       407
+ Member-Collection(e1,e2)       0.77      0.22      0.34        78
+ Member-Collection(e2,e1)       0.90      0.17      0.29       612
+     Message-Topic(e1,e2)       0.85      0.74      0.79       490
+     Message-Topic(e2,e1)       0.86      0.58      0.69       144
+                    Other       0.28      0.68      0.40      1410
+  Product-Producer(e1,e2)       0.80      0.27      0.40       323
+  Product-Producer(e2,e1)       0.83      0.47      0.61       394
+
+                 accuracy                           0.58      8000
+                macro avg       0.75      0.48      0.54      8000
+             weighted avg       0.72      0.58      0.58      8000
+
+================================================================================
+
+### TEST SET RESULTS ###
+
+Accuracy: 0.509
+
+Per-class metrics:
+                           precision    recall  f1-score   support
+
+      Cause-Effect(e1,e2)      0.843     0.724     0.779       134
+      Cause-Effect(e2,e1)      0.747     0.747     0.747       194
+   Component-Whole(e1,e2)      0.375     0.037     0.067       162
+   Component-Whole(e2,e1)      0.701     0.360     0.476       150
+ Content-Container(e1,e2)      0.654     0.889     0.753       153
+ Content-Container(e2,e1)      0.875     0.359     0.509        39
+Entity-Destination(e1,e2)      0.742     0.880     0.805       291
+Entity-Destination(e2,e1)      0.000     0.000     0.000         1
+     Entity-Origin(e1,e2)      0.800     0.701     0.747       211
+     Entity-Origin(e2,e1)      0.600     0.064     0.115        47
+ Instrument-Agency(e1,e2)      0.467     0.318     0.378        22
+ Instrument-Agency(e2,e1)      0.620     0.500     0.554       134
+ Member-Collection(e1,e2)      0.800     0.125     0.216        32
+ Member-Collection(e2,e1)      0.575     0.114     0.191       201
+     Message-Topic(e1,e2)      0.707     0.562     0.626       210
+     Message-Topic(e2,e1)      0.786     0.431     0.557        51
+                    Other      0.202     0.491     0.286       454
+  Product-Producer(e1,e2)      0.654     0.157     0.254       108
+  Product-Producer(e2,e1)      0.698     0.358     0.473       123
+
+                 accuracy                          0.509      2717
+                macro avg      0.624     0.411     0.449      2717
+             weighted avg      0.604     0.509     0.503      2717
+
+
+================================================================================
+RULE DIAGNOSTICS
+================================================================================
+
+Rules discovered per relation:
+Relation                       Number of Rules
+--------------------------------------------------
+Cause-Effect(e1,e2)            130
+Cause-Effect(e2,e1)            109
+Component-Whole(e1,e2)         29
+Component-Whole(e2,e1)         71
+Content-Container(e1,e2)       48
+Content-Container(e2,e1)       5
+Entity-Destination(e1,e2)      221
+Entity-Origin(e1,e2)           132
+Entity-Origin(e2,e1)           9
+Instrument-Agency(e1,e2)       11
+Instrument-Agency(e2,e1)       155
+Member-Collection(e1,e2)       11
+Member-Collection(e2,e1)       53
+Message-Topic(e1,e2)           223
+Message-Topic(e2,e1)           51
+Other                          238
+Product-Producer(e1,e2)        49
+Product-Producer(e2,e1)        106
+
+Total rules: 1651
+Average precision: 0.868
+Average support: 6.1
+
+Metric                         Test Set        Train Set      
+------------------------------------------------------------
+Macro-averaged Precision       0.624           0.746          
+Macro-averaged Recall          0.411           0.485          
+Macro-averaged F1              0.449           0.539          
+Accuracy                       0.509           0.584          
+
+Analyzing errors on test set...
+Total errors: 1333 / 2717 (49.1%)
+
+Showing first 15 errors:
+
+================================================================================
+
+Error 1:
+Text: The company fabricates plastic chairs.
+Entity 1: company
+Entity 2: chairs
+True relation: Product-Producer(e2,e1)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['fabricates', 'plastic']
+Dependency path: nsubj(company) -> ROOT(fabricate) -> dobj(chair)
+--------------------------------------------------------------------------------
+
+Error 2:
+Text: The school master teaches the lesson with a stick.
+Entity 1: master
+Entity 2: stick
+True relation: Instrument-Agency(e2,e1)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['teaches', 'the', 'lesson', 'with', 'a']
+Dependency path: nsubj(master) -> ROOT(teach) -> prep(with) -> pobj(stick)
+--------------------------------------------------------------------------------
+
+Error 3:
+Text: The ear of the African elephant is significantly larger--measuring 183 cm by 114 cm in the bush elephant.
+Entity 1: ear
+Entity 2: elephant
+True relation: Component-Whole(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['of', 'the', 'African']
+Dependency path: nsubj(ear) -> prep(of) -> pobj(elephant)
+--------------------------------------------------------------------------------
+
+Error 4:
+Text: A child is told a lie for several years by their parents before he/she realizes that a Santa Claus does not exist.
+Entity 1: lie
+Entity 2: parents
+True relation: Product-Producer(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['for', 'several', 'years', 'by', 'their']
+Dependency path: dobj(lie) -> ROOT(tell) -> agent(by) -> pobj(parent)
+--------------------------------------------------------------------------------
+
+Error 5:
+Text: Skype, a free software, allows a hookup of multiple computer users to join in an online conference call without incurring any telephone costs.
+Entity 1: hookup
+Entity 2: users
+True relation: Member-Collection(e2,e1)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['of', 'multiple', 'computer']
+Dependency path: nsubj(hookup) -> prep(of) -> pobj(user)
+--------------------------------------------------------------------------------
+
+Error 6:
+Text: The disgusting scene was retaliation against her brother Philip who rents the room inside this apartment house on Lombard street.
+Entity 1: room
+Entity 2: house
+True relation: Component-Whole(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['inside', 'this', 'apartment']
+Dependency path: dobj(room) -> prep(inside) -> pobj(house)
+--------------------------------------------------------------------------------
+
+Error 7:
+Text: As a landscape company in Atlanta, we know which plants thrive in this planting zone and know the optimum landscaping designs for local yards and business.
+Entity 1: landscape
+Entity 2: company
+True relation: Product-Producer(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: []
+Dependency path: compound(landscape) -> pobj(company)
+--------------------------------------------------------------------------------
+
+Error 8:
+Text: Beneath this invocation there is a zoo of fearsome beasts, including several man-eaters, as well as sphinxes with lions' bodies and human heads.
+Entity 1: zoo
+Entity 2: beasts
+True relation: Member-Collection(e2,e1)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['of', 'fearsome']
+Dependency path: attr(zoo) -> prep(of) -> pobj(beast)
+--------------------------------------------------------------------------------
+
+Error 9:
+Text: The song was composed for a famous Brazilian musician.
+Entity 1: song
+Entity 2: musician
+True relation: Product-Producer(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['was', 'composed', 'for', 'a', 'famous', 'Brazilian']
+Dependency path: nsubjpass(song) -> ROOT(compose) -> prep(for) -> pobj(musician)
+--------------------------------------------------------------------------------
+
+Error 10:
+Text: I spent a year working for a software company to pay off my college loans.
+Entity 1: software
+Entity 2: company
+True relation: Product-Producer(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: []
+Dependency path: compound(software) -> pobj(company)
+--------------------------------------------------------------------------------
+
+Error 11:
+Text: Organic sesame oil has an anti-bacterial and anti imflammatory effect.
+Entity 1: sesame
+Entity 2: oil
+True relation: Entity-Origin(e2,e1)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: []
+Dependency path: compound(sesame) -> nsubj(oil)
+--------------------------------------------------------------------------------
+
+Error 12:
+Text: Mileson has sold his humble abode to a housing developer.
+Entity 1: housing
+Entity 2: developer
+True relation: Product-Producer(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: []
+Dependency path: compound(housing) -> pobj(developer)
+--------------------------------------------------------------------------------
+
+Error 13:
+Text: The same effect is achieved the traditional way, with a team of workers like Keebler elves.
+Entity 1: effect
+Entity 2: way
+True relation: Cause-Effect(e2,e1)
+Predicted: Message-Topic(e1,e2)
+Rule applied: Rule Message-Topic(e1,e2)_LEMMA_319: LEMMA: ('traditional',) (precision=0.67, support=2, priority=2006668)
+Between words: ['is', 'achieved', 'the', 'traditional']
+Dependency path: nsubjpass(effect) -> ROOT(achieve) -> dobj(way)
+--------------------------------------------------------------------------------
+
+Error 14:
+Text: He produces drawings and videos that have been shown in museums in Europe and America.
+Entity 1: drawings
+Entity 2: museums
+True relation: Other
+Predicted: Cause-Effect(e2,e1)
+Rule applied: Rule Cause-Effect(e2,e1)_BIGRAM_644: BIGRAM: (('that', 'have'),) (precision=0.77, support=17, priority=4007728)
+Between words: ['and', 'videos', 'that', 'have', 'been', 'shown', 'in']
+Dependency path: dobj(drawing) -> relcl(show) -> prep(in) -> pobj(museum)
+--------------------------------------------------------------------------------
+
+Error 15:
+Text: Therefore, nowadays China is the complex mixture of different cultures from various epochs.
+Entity 1: cultures
+Entity 2: epochs
+True relation: Entity-Origin(e1,e2)
+Predicted: Other
+Rule applied: No high-precision rule matched; defaulting to Other.
+Between words: ['from', 'various']
+Dependency path: pobj(culture) -> prep(from) -> pobj(epoch)
+--------------------------------------------------------------------------------
+
+Most Common Misclassification Patterns:
+================================================================================
+True Label                Predicted As              Count     
+--------------------------------------------------------------------------------
+Member-Collection(e2,e1)  Other                     170       
+Component-Whole(e1,e2)    Other                     143       
+Message-Topic(e1,e2)      Other                     75        
+Component-Whole(e2,e1)    Other                     74        
+Product-Producer(e2,e1)   Other                     59        
+Product-Producer(e1,e2)   Other                     59        
+Other                     Entity-Destination(e1,e2) 58        
+Entity-Origin(e1,e2)      Other                     53        
+Instrument-Agency(e2,e1)  Other                     47        
+Entity-Origin(e2,e1)      Other                     41        
+Cause-Effect(e2,e1)       Other                     36        
+Other                     Content-Container(e1,e2)  32        
+Cause-Effect(e1,e2)       Other                     27        
+Other                     Message-Topic(e1,e2)      26        
+Product-Producer(e1,e2)   Cause-Effect(e2,e1)       24        
+
+Saving discovered rules...
+  Saved 1651 rules to /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/02_fn_wn_off_priority_based/rules/rules.json
+  Saved rules summary to /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/02_fn_wn_off_priority_based/rules/rules_summary.tsv
+
+Saving predictions with triggered rules...
+  Saved 2717 test predictions to /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/02_fn_wn_off_priority_based/predictions/test_predictions.json
+  Accuracy: 1384/2717 (50.9%)
+
+Saving evaluation results and plots...
+Saved evaluation results to /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/02_fn_wn_off_priority_based/evaluation/evaluation_results.txt
+Saved confusion matrix plot to /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/02_fn_wn_off_priority_based/evaluation/confusion_matrix_test.png
+
+================================================================================
+All results saved to: /Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/results/02_fn_wn_off_priority_based
+================================================================================
