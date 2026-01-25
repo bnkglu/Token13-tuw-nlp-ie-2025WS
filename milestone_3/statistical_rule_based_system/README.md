@@ -5,9 +5,6 @@ A configurable rule-based relation extraction system that combines the MS2 noteb
 ## Usage
 
 ```bash
-# MS2 Baseline (default)
-python main.py
-
 # MS2 Baseline with semantics disabled explicitly
 python main.py  # Results in: results/semantics_off_first_match/
 
@@ -15,9 +12,22 @@ python main.py  # Results in: results/semantics_off_first_match/
 python main.py --use-semantics  # Results in: results/semantics_on_first_match/
 
 # MS3 Full: Semantics + priority tiers for priority_based selection
-python main.py --use-semantics --prediction-mode=priority_based --use-tiers
-# Results in: results/semantics_on_priority_based_tiers/
+python main.py --use-semantics --prediction-mode=priority_based
+# Results in: results/semantics_on_priority_based/
 ```
+
+## Automated Ablation Study
+
+To run the complete ablation study (4 configurations) with a single command, use the provided shell script from the parent directory:
+
+```bash
+# Run all experiments and generate summary
+../run_ablation.sh --all
+
+# Or run interactively
+../run_ablation.sh
+```
+
 
 ## Flags
 

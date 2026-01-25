@@ -210,16 +210,16 @@ class PatternExtractor:
     def get_rules_by_tier(self) -> dict[str, list[Rule]]:
         """Group rules by priority tier for analysis."""
         tiers = {
-            'TIER_1 (Synset+Frame)': [],
+            'TIER_1 (Combined Syntax+Semantics)': [],
             'TIER_2 (Prep-Structure)': [],
             'TIER_3 (Lexname+Hypernym)': [],
             'TIER_4 (Bigram+Dep)': [],
-            'TIER_5 (Lexical)': [],
+            'TIER_5 (Lexical/Frame/Synset)': [],
         }
 
         for rule in self.rules:
             if rule.priority >= 100:
-                tiers['TIER_1 (Synset+Frame)'].append(rule)
+                tiers['TIER_1 (Combined Syntax+Semantics)'].append(rule)
             elif rule.priority >= 80:
                 tiers['TIER_2 (Prep-Structure)'].append(rule)
             elif rule.priority >= 60:
@@ -227,7 +227,7 @@ class PatternExtractor:
             elif rule.priority >= 40:
                 tiers['TIER_4 (Bigram+Dep)'].append(rule)
             else:
-                tiers['TIER_5 (Lexical)'].append(rule)
+                tiers['TIER_5 (Lexical/Frame/Synset)'].append(rule)
 
         return tiers
 
