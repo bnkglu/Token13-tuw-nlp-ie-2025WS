@@ -64,7 +64,7 @@ cd statistical_rule_based_system
 
 **Run with specific flags:**
 
-*   **Baseline (Lexical only)**:
+*   **Baseline**:
     ```bash
     python main.py --prediction-mode first_match
     ```
