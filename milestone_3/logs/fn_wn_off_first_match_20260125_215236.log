@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/statistical_rule_based_system/main.py", line 30, in <module>
+    from src.analysis.evaluation import (
+  File "/Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/statistical_rule_based_system/src/analysis/evaluation.py", line 13, in <module>
+    import matplotlib.pyplot as plt
+  File "/Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/.venv/lib/python3.11/site-packages/matplotlib/__init__.py", line 264, in <module>
+    _check_versions()
+  File "/Users/berke/Token13-tuw-nlp-ie-2025WS/milestone_3/.venv/lib/python3.11/site-packages/matplotlib/__init__.py", line 249, in _check_versions
+    from . import ft2font  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

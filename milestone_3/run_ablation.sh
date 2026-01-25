@@ -85,7 +85,7 @@ activate_env() {
 install_dependencies() {
     print_running "Installing dependencies..."
     pip install -q --upgrade pip
-    pip install -q -r "${SCRIPT_DIR}/requirements.txt"
+    pip install -q -r "${SCRIPT_DIR}/statistical_rule_based_system/requirements.txt"
     print_status "Python packages installed"
     
     print_running "Downloading spaCy model (en_core_web_lg)..."
